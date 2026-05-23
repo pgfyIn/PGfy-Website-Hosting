@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ & Contact Support - PGfy</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <style>
+      /* Base styles from index.html */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #1e293b; background: #f8fafc; }
+      .main-navbar { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+      .main-navbar-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 80px; display: flex; align-items: center; justify-content: space-between; }
+      .main-navbar-brand { display: flex; align-items: center; }
+      .main-navbar-logo { display: flex; align-items: center; gap: 8px; font-size: 24px; font-weight: 700; text-decoration: none; color: #1e293b; }
+      .logo-img { width: 40px; height: auto; border-radius: 50%; }
+      .main-navbar-logo i { color: #2563eb; }
+      .main-navbar-highlight { color: #2563eb; }
+      .main-navbar-menu { display: flex; align-items: center; gap: 40px; }
+      .main-navbar-link { color: #1e293b; text-decoration: none; font-weight: 500; padding: 8px 0; position: relative; }
+      .main-navbar-link::after { content: ""; position: absolute; left: 0; bottom: -2px; width: 0; height: 2px; background: #2563eb; transition: width 0.3s ease; }
+      .main-navbar-link:hover::after { width: 100%; }
+      .main-navbar-button { background: #2563eb; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; }
+      .main-navbar-button:hover { background: #1e40af; transform: translateY(-2px); }
+      .main-navbar-toggle { display: none; flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; padding: 4px; }
+      .main-navbar-toggle span { display: block; width: 24px; height: 2px; background: #1e293b; transition: all 0.3s ease; }
+      @media (max-width: 768px) { .main-navbar-menu { display: none; position: absolute; top: 80px; left: 0; width: 100%; background: white; padding: 20px; flex-direction: column; gap: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); } .main-navbar-menu.active { display: flex; } .main-navbar-toggle { display: flex; } .main-navbar-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); } .main-navbar-toggle.active span:nth-child(2) { opacity: 0; } .main-navbar-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); } }
+      
+      /* Footer Base Styles */
+      .footer { background: #1e293b; color: #f8fafc; padding-top: 60px; }
+      .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 24px; }
+      .footer-brand { max-width: 400px; }
+      .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+      .brand i { font-size: 24px; color: #60a5fa; }
+      .brand h3 { font-size: 24px; font-weight: 700; color: #fff; margin: 0; }
+      .footer-brand p { color: #94a3b8; line-height: 1.6; margin-bottom: 24px; }
+      .social-links { display: flex; gap: 16px; }
+      .social-link { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: rgba(255, 255, 255, 0.1); color: #fff; transition: all 0.3s ease; text-decoration: none; }
+      .social-link:hover { background: #2563eb; transform: translateY(-2px); }
+      .footer-links-group h4 { color: #fff; font-size: 16px; font-weight: 600; margin-bottom: 24px; }
+      .footer-links-group ul { list-style: none; padding: 0; margin: 0; }
+      .footer-links-group li { margin-bottom: 12px; }
+      .footer-links-group a { color: #94a3b8; text-decoration: none; transition: all 0.3s ease; font-size: 14px; }
+      .footer-links-group a:hover { color: #fff; padding-left: 5px; }
+      .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 24px 0; }
+      .footer-bottom-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+      .footer-bottom p { color: #94a3b8; font-size: 14px; margin: 0; }
+      .footer-credits a { color: #94a3b8; text-decoration: none; font-size: 14px; transition: color 0.3s ease; }
+      .footer-credits a:hover { color: #fff; }
+      @media (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; } .footer-brand { grid-column: 1 / -1; max-width: none; } }
+      @media (max-width: 768px) { .footer { padding-top: 40px; } .footer-grid { grid-template-columns: 1fr; gap: 40px; margin-bottom: 40px; } .footer-bottom-content { flex-direction: column; gap: 12px; text-align: center; } }
+
+
+      /* FAQ Page Styles */
+      .faq-wrapper {
+        padding-top: 120px; /* Below navbar */
+        background: #f8fafc;
+        overflow-x: hidden;
+      }
+      .f-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Contact Section (Top) */
+      .contact-section {
+        display: flex;
+        gap: 60px;
+        padding: 60px 0;
+        align-items: center;
+      }
+
+      .contact-text {
+        flex: 1;
+      }
+      .contact-text h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: #1e293b;
+        margin-bottom: 24px;
+        line-height: 1.2;
+      }
+      .contact-text h1 span { color: #2563eb; }
+      .contact-text p {
+        font-size: 1.15rem;
+        color: #64748b;
+        margin-bottom: 30px;
+        line-height: 1.7;
+      }
+      .contact-features {
+        list-style: none;
+      }
+      .contact-features li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+        color: #475569;
+        font-size: 1.05rem;
+      }
+      .contact-features li i {
+        color: #2563eb;
+        font-size: 1.2rem;
+      }
+
+      .contact-form-box {
+        flex: 1;
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        border: 1px solid #e2e8f0;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .form-group.full {
+        grid-column: 1 / -1;
+      }
+      .form-group label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #1e293b;
+      }
+      .form-group label span { color: #ef4444; }
+      .form-control {
+        padding: 12px 16px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 1rem;
+        color: #1e293b;
+        background: #f8fafc;
+        transition: all 0.3s ease;
+      }
+      .form-control:focus {
+        outline: none;
+        border-color: #2563eb;
+        background: #fff;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+      textarea.form-control {
+        resize: vertical;
+        min-height: 120px;
+      }
+      .phone-input {
+        display: flex;
+        gap: 10px;
+      }
+      .phone-prefix {
+        width: 80px;
+        text-align: center;
+      }
+      .submit-btn {
+        width: 100%;
+        background: linear-gradient(135deg, #2563eb, #4f46e5);
+        color: #fff;
+        padding: 16px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+      }
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+      }
+      .form-disclaimer {
+        font-size: 0.8rem;
+        color: #94a3b8;
+        text-align: center;
+        margin-top: 16px;
+      }
+
+      /* FAQ Section (Bottom) */
+      .faq-section {
+        padding: 80px 0;
+        background: #ffffff;
+        border-top: 1px solid #e2e8f0;
+      }
+      .faq-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      .faq-header h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #1e293b;
+        margin-bottom: 16px;
+      }
+      .faq-header p {
+        font-size: 1.15rem;
+        color: #64748b;
+      }
+
+      .faq-accordion {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .faq-item {
+        margin-bottom: 16px;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        background: #f8fafc;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      .faq-item.active {
+        background: #ffffff;
+        border-color: #cbd5e1;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      }
+      .faq-question {
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: #1e293b;
+      }
+      .faq-icon {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #e2e8f0;
+        border-radius: 8px;
+        color: #475569;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+      .faq-item.active .faq-icon {
+        background: #2563eb;
+        color: #ffffff;
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        padding: 0 24px;
+        color: #475569;
+        line-height: 1.7;
+      }
+      .faq-item.active .faq-answer {
+        padding-bottom: 24px;
+      }
+      .faq-answer ul {
+        padding-left: 20px;
+        margin-top: 10px;
+      }
+      .faq-answer li {
+        margin-bottom: 6px;
+      }
+      
+      /* Need Help App CTA */
+      .faq-cta-app {
+        text-align: center;
+        margin-top: 60px;
+        padding-top: 60px;
+        border-top: 1px solid #e2e8f0;
+      }
+      .faq-cta-app h3 {
+        font-size: 1.5rem;
+        color: #1e293b;
+        margin-bottom: 20px;
+      }
+      .faq-cta-app a {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 0px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+      .faq-cta-app a:hover {
+        transform: translateY(-2px);
+      }
+      .faq-cta-app a img{
+        width: 200px;
+      }
+      .faq-cta-app p {
+        padding: 4px 0px;
+        font-size: 1.5rem;
+        color: #475569;
+      }
+
+      @media (max-width: 992px) {
+        .contact-section {
+          flex-direction: column;
+        }
+        .contact-text h1 { font-size: 2.5rem; }
+        .form-grid { grid-template-columns: 1fr; }
+      }
+
+    </style>
+  </head>
+  <body>
+<nav class="main-navbar">
+      <div class="main-navbar-container">
+        <div class="main-navbar-brand">
+          <a href="/" class="main-navbar-logo">
+            <img class="logo-img" src="./pgfylogo.jpg" alt="PGfy Logo" />
+            <span></span><span class="main-navbar-highlight">PGfy</span>
+          </a>
+        </div>
+
+        <div class="main-navbar-menu">
+          <a href="/#features" class="main-navbar-link">Features</a>
+          <a href="/#how-it-works" class="main-navbar-link">How it Works</a>
+          <a href="/#testimonials" class="main-navbar-link">Testimonials</a>
+          <a href="/journey.html" class="main-navbar-link">About Us</a>
+          <a href="./contact.html" class="main-navbar-link">Contact Us</a>
+        
+        </div>
+ 
+      </div>
+    </nav>
+
+    <div class="faq-wrapper">
+      
+      <!-- Top Contact Section -->
+      <div class="f-container">
+        <div class="contact-section">
+          <div class="contact-text">
+            <h1>Get in Touch with <span>Our Support Team!</span></h1>
+            <p>Whether you have questions about using the app, need a personalized demonstration, or want to discuss specific requirements for your property, our knowledgeable support team is here to assist you every step of the way.</p>
+            <ul class="contact-features">
+              <li><i class="fas fa-check"></i> Let us guide you through our features and more!</li>
+              <li><i class="fas fa-check"></i> We’re here to ensure you have a seamless experience.</li>
+              <li><i class="fas fa-check"></i> Ask any question not covered in the FAQs.</li>
+              <li><i class="fas fa-check"></i> Share your thoughts, ideas, or suggestions on how we can improve PGfy.</li>
+            </ul>
+          </div>
+          
+          <div class="contact-form-box">
+            <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Name<span>*</span></label>
+                  <input type="text" class="form-control" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                  <label>Role<span>*</span></label>
+                  <select class="form-control" required>
+                    <option value="" disabled selected>Select your role</option>
+                    <option value="tenant">Tenant</option>
+                    <option value="owner">Property Owner / Manager</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Email Address<span>*</span></label>
+                  <input type="email" class="form-control" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                  <label>Phone Number</label>
+                  <div class="phone-input">
+                    <input type="text" class="form-control phone-prefix" value="+91" readonly>
+                    <input type="text" class="form-control" placeholder="10-digit number" pattern="[0-9]{10}">
+                  </div>
+                </div>
+                <div class="form-group full">
+                  <label>Message<span>*</span></label>
+                  <textarea class="form-control" placeholder="How can we help you?" required></textarea>
+                </div>
+              </div>
+              <button type="submit" class="submit-btn">Submit Message</button>
+              <p class="form-disclaimer">By submitting this form you agree to our friendly privacy policy.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom FAQ Section -->
+      <div class="faq-section">
+        <div class="f-container">
+          <div class="faq-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Check out our FAQs to learn more about how PGfy can elevate your experience.</p>
+          </div>
+
+          <div class="faq-accordion">
+            
+            <!-- Item 1 -->
+            <div class="faq-item">
+              <div class="faq-question">
+                What is PGfy?
+                <div class="faq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="faq-answer">
+                <p>PGfy is a platform that helps property owners manage PGs and hostels digitally while helping tenants discover suitable accommodations through the PGfy mobile app.</p>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="faq-item">
+              <div class="faq-question">
+                How do I find a PG using PGfy?
+                <div class="faq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="faq-answer">
+                <p>Download the PGfy mobile app, search for accommodations in your preferred city, and explore available options based on your requirements.</p>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="faq-item">
+              <div class="faq-question">
+                Is PGfy free for tenants?
+                <div class="faq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="faq-answer">
+                <p>Yes. Tenants can browse and explore available properties through the PGfy app entirely for free.</p>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="faq-item">
+              <div class="faq-question">
+                Can I contact the property owner directly?
+                <div class="faq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="faq-answer">
+                <p>Yes. Depending on the property settings, you can connect with the owner or manager for inquiries regarding availability, pricing, and amenities.</p>
+              </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="faq-item">
+              <div class="faq-question">
+                What documents are required for booking?
+                <div class="faq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="faq-answer">
+                <p>Requirements vary by property, but commonly requested documents include:</p>
+                <ul>
+                  <li>Aadhaar Card</li>
+                  <li>PAN Card</li>
+                  <li>Passport-size Photograph</li>
+                  <li>College or Company ID</li>
+                  <li>Local Guardian Details (if required)</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="faq-item">
+              <div class="faq-question">
+                Can I book accommodation before visiting?
+                <div class="faq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="faq-answer">
+                <p>This depends on the individual property's policies. Some properties may allow advance reservations subject to verification.</p>
+              </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="faq-item">
+              <div class="faq-question">
+                How do I pay rent?
+                <div class="faq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="faq-answer">
+                <p>Many PGfy-enabled properties support digital rent collection through UPI, bank transfer, and other online payment methods.</p>
+              </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="faq-item">
+              <div class="faq-question">
+                Is my information secure?
+                <div class="faq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="faq-answer">
+                <p>PGfy follows industry-standard security practices to help protect user information and digital records.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Need Help App Section -->
+          <div class="faq-cta-app">
+            <h3>Need More Help? Download the App</h3>
+            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 16px;">
+              <a href="https://play.google.com/store/apps/details?id=com.akash.pgfy" target="_blank">
+                <img src="./playstore.png" alt="pgfy app playstore link"/>
+              </a>
+              <p>Or reach us directly at <a href="mailto:help@pgfy.in" style="color:#2563eb; text-decoration:none; ">help@pgfy.in</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <div class="footer-logo">
+                <img class="logo-img" src="./pgfylogo.jpg" alt="PGfy Logo" />
+                <h3><span class="highlight">PGfy</span></h3>
+              </div>
+              <p>
+                Making PG discovery and management effortless with smart
+                technology and seamless automation.
+              </p>
+              <div class="social-links">
+                <a
+                  href="https://youtube.com/@pgfy?si=sFKg93yt0wYp_iKc"
+                  target="_blank"
+                  class="social-link"
+                >
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/pgfy.in?igsh=dmQwb2Q1Z2RvZ3Ry"
+                  target="_blank"
+                  class="social-link"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="https://x.com/PGfy_In?t=rEd4P7vnNhYfhIUbHJLnvw&s=09"
+                  target="_blank"
+                  class="social-link"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="https://in.linkedin.com/company/thinklogictechsolutions"
+                  target="_blank"
+                  class="social-link"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="footer-links-group">
+              <h4>For PG Owners</h4>
+              <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How it Works</a></li>
+                <li><a href="#testimonials">Success Stories</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-links-group">
+              <h4>For Tenants</h4>
+              <ul>
+                <li><a href="#features">Find a PG</a></li>
+                <li><a href="./booking.html">Booking Process</a></li>
+                <li><a href="faq.html">Common Questions</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-links-group">
+              <h4>Company</h4>
+              <ul>
+                <li>
+                  <a href="./journey.html" target="_blank"
+                    >About Us</a
+                  >
+                </li>
+                <li><a href="./contact.html">Contact Us</a></li>
+                <li><a href="./careers.html">Careers</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-links-group">
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="./privacyPolicy.html">Privacy Policy</a></li>
+                <li><a href="./termsCondtions.html">Terms of Service</a></li>
+                <li><a href="./refundPolicy.html">Refund Policy</a></li>
+                <li><a href="./delete.html">Delete Account</a></li>
+                <li><a href="./managedata.html">Manage Data</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="footer-bottom-content">
+            <p>&copy; PGfy, ThinkLogic Tech Solutions Pvt. Ltd., India.<br/>  All brands are trademarks of their respective owners.</p>
+            <div class="footer-credits">
+              <p>Powered by <span>ThinkLogic Tech Solutions Private Limited</span></p>
+              <p>CIN: <span>U62099KA2024PTC193553</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple toggle for mobile navbar
+      document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.querySelector('.main-navbar-toggle');
+        const menu = document.querySelector('.main-navbar-menu');
+        if (toggleBtn && menu) {
+          toggleBtn.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            toggleBtn.classList.toggle('active');
+          });
+        }
+
+        // Accordion functionality with + / - icons
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+          const question = item.querySelector('.faq-question');
+          const answer = item.querySelector('.faq-answer');
+          const icon = item.querySelector('.faq-icon i');
+          
+          question.addEventListener('click', () => {
+            // Close other open items
+            faqItems.forEach(otherItem => {
+              if (otherItem !== item && otherItem.classList.contains('active')) {
+                otherItem.classList.remove('active');
+                otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                otherItem.querySelector('.faq-icon i').className = 'fas fa-plus';
+              }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+            if (item.classList.contains('active')) {
+              answer.style.maxHeight = answer.scrollHeight + "px";
+              icon.className = 'fas fa-minus';
+            } else {
+              answer.style.maxHeight = null;
+              icon.className = 'fas fa-plus';
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
