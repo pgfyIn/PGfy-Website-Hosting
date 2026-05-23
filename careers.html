@@ -1,41 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PGfy - Smart PG Management & Discovery</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers - Join the PGfy Tribe</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  
+  <style>
 
-    <!-- Standard favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-    <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-
-    <!-- Android/Chrome Icon -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="/android-chrome-192x192.png"
-    />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-
-    <!-- Web App Manifest for PWA support -->
-    <link rel="manifest" href="/site.webmanifest" />
-
-    <!-- Meta tag specifically for Google -->
-    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
-    <!-- <link rel="stylesheet" href="styles.css" /> -->
-    <style>
       /* Enhanced, beautiful CSS for PGfy */
       :root {
         --primary: #4361ee;
@@ -927,7 +905,6 @@
         gap: 8px;
       }
 
-<<<<<<< HEAD
       .client-stat .client-row{
         display: flex;
         flex-direction: row;
@@ -936,8 +913,6 @@
         gap: 4px;
       }
 
-=======
->>>>>>> af0c96af68a0a6f1e20387ce00319e8732ec39d2
       .counter {
         font-size: 2.5rem;
         font-weight: 800;
@@ -3026,7 +3001,7 @@
       }
 
       .footer-top {
-        padding: 120px 0 60px;
+        padding: 40px 64px;
       }
 
       .footer-grid {
@@ -3753,11 +3728,670 @@
         }
       }
 
-    </style>
-  </head>
-  <body>
-    <!-- Header -->
-    <nav class="main-navbar">
+    
+/* --- End of Global Styles --- */
+
+    /* Team Section */
+    .c-team {
+      padding: 100px 0;
+      background: #fdfdfd;
+    }
+    .c-team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .c-team-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      height: 350px;
+      cursor: pointer;
+    }
+    .c-team-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .c-team-overlay {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 30px 24px;
+      transition: bottom 0.4s ease;
+    }
+    .c-team-card:hover img {
+      transform: scale(1.05);
+    }
+    .c-team-card:hover .c-team-overlay {
+      bottom: 0;
+    }
+    .c-team-name {
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 0 0 4px;
+    }
+    .c-team-role {
+      color: #94a3b8;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    /* Accordion FAQ Enhancements */
+    .c-accordion-item {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      background: #fff;
+      transition: all 0.3s ease;
+    }
+    .c-accordion-item.active {
+      border-color: #2563eb;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);
+    }
+    .c-accordion-header {
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      user-select: none;
+    }
+    .c-accordion-header i { 
+      color: #94a3b8; 
+      transition: transform 0.3s ease;
+    }
+    .c-accordion-item.active .c-accordion-header i {
+      transform: rotate(45deg);
+      color: #2563eb;
+    }
+    .c-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding: 0 24px;
+      color: #475569;
+      line-height: 1.6;
+    }
+    .c-accordion-item.active .c-accordion-content {
+      padding: 0 24px 24px;
+      max-height: 500px; /* arbitrary large value */
+    }
+    
+    @media (max-width: 992px) {
+      .c-team-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .c-team-grid { grid-template-columns: 1fr; }
+    }
+
+
+    /* Careers specific styles */
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #fdfdfd;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    .c-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 1. Hero Section */
+    .c-hero {
+      padding: 140px 0 60px;
+      background: #fdfdfd;
+    }
+    .c-hero-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+      align-items: center;
+    }
+    .c-hero-title h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.1;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    .c-hero-desc p {
+      font-size: 1.15rem;
+      color: #475569;
+      line-height: 1.6;
+      margin: 0;
+      padding-left: 20px;
+      border-left: 4px solid #2563eb;
+    }
+    .c-hero-image {
+      width: 100%;
+      height: 500px;
+      border-radius: 40px;
+      overflow: hidden;
+      border : 4px solid #8cadf3;
+    }
+    .c-hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 2. Working with us */
+    .c-working {
+      padding: 100px 0;
+      background: #f8fafc;
+    }
+    .c-section-header {
+      margin-bottom: 60px;
+    }
+    .c-icon-badge {
+      width: 48px;
+      height: 48px;
+      background: #fff;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: #1e293b;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      margin-bottom: 24px;
+    }
+    .c-section-header h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin: 0 0 16px;
+    }
+    .c-section-header p {
+      color: #64748b;
+      font-size: 1.1rem;
+      max-width: 400px;
+      margin: 0;
+    }
+    .c-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .c-card {
+      padding: 40px 30px;
+      border-radius: 24px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .c-card-icon {
+      width: 40px;
+      height: 40px;
+      background: #f1f5f9;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: auto; /* Push content down */
+    }
+    .c-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 40px 0 12px;
+    }
+    .c-card p {
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.6;
+      margin: 0;
+    }
+    /* Card colors based on PGfy theme */
+    .c-card-1 { background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 10px 20px rgba(0,0,0,0.03); }
+    .c-card-2 { background: #f1f5f9; }
+    .c-card-3 { background: #fef08a; } /* Light yellow */
+    .c-card-4 { background: #1e293b; color: #fff; }
+    .c-card-4 p { color: #cbd5e1; }
+    .c-card-4 .c-card-icon { background: rgba(255,255,255,0.1); color: #fff; }
+
+    /* 3. Innovation Split */
+    .c-innovation {
+      padding: 120px 0;
+    }
+    .c-inno-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .c-inno-text h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #0f172a;
+      margin-bottom: 40px;
+    }
+    .c-inno-text p {
+      font-size: 1.1rem;
+      color: #64748b;
+      margin-bottom: 40px;
+    }
+    .c-btn {
+      display: inline-block;
+      padding: 16px 32px;
+      background: #1e3a8a;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .c-btn:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+    .c-inno-images {
+      position: relative;
+      width: 100%;
+    }
+    .c-inno-img-main {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 32px;
+    }
+    .c-inno-img-sub {
+      position: absolute;
+      bottom: -40px;
+      left: -40px;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 8px solid #fdfdfd;
+    }
+
+    /* 4. Open Positions */
+    .c-positions {
+      padding: 100px 0;
+      background: #f8fafc;
+    }
+    .c-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 50px;
+    }
+    .c-pos-card {
+      background: #fff;
+      padding: 32px;
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      transition: transform 0.3s;
+    }
+    .c-pos-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    }
+    .c-pos-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .c-pos-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    /* Specific Colors */
+    .ic-1 { background: #fee2e2; color: #ef4444; }
+    .ic-2 { background: #dbeafe; color: #3b82f6; }
+    .ic-3 { background: #dcfce7; color: #22c55e; }
+    .ic-4 { background: #f3e8ff; color: #a855f7; }
+    .ic-5 { background: #ffedd5; color: #f97316; }
+    .ic-6 { background: #e0f2fe; color: #0ea5e9; }
+    
+    .c-pos-badge {
+      padding: 6px 12px;
+      background: #f1f5f9;
+      color: #64748b;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 100px;
+    }
+    .c-pos-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+    .c-pos-card p {
+      color: #64748b;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0 0 24px;
+      min-height: 65px;
+    }
+    .c-pos-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 20px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+    .c-pos-footer i { margin-right: 6px; }
+
+    /* 5. FAQ */
+    .c-faq {
+      padding: 100px 0;
+    }
+    .c-faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+    }
+    .c-faq-left h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .c-faq-left p {
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+    .c-faq-left a {
+      color: #2563eb;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .c-accordion-item {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .c-accordion-header {
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      background: #fff;
+    }
+    .c-accordion-header i { color: #94a3b8; }
+
+    /* 6. Growth Journey CTA */
+    .c-growth {
+      padding: 0 0 100px;
+    }
+    .c-growth-box {
+      background: #f1f5f9;
+      border-radius: 40px;
+      padding: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .c-growth-text h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: #0f172a;
+      line-height: 1.1;
+    }
+    .c-growth-text p {
+      font-size: 1.1rem;
+      color: #475569;
+      margin-bottom: 40px;
+    }
+    
+    /* Avatar Grid for CTA */
+    .c-avatar-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 80px);
+      gap: 16px;
+    }
+    .c-avatar-item {
+      background: #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .c-avatar-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+    /* Placing avatars in a scattered way to match image */
+    .ca-1 { grid-column: 1; grid-row: 2; }
+    .ca-2 { grid-column: 2; grid-row: 1; }
+    .ca-3 { grid-column: 2; grid-row: 3; }
+    .ca-4 { grid-column: 3; grid-row: 2; }
+    .ca-5 { grid-column: 4; grid-row: 1; }
+    .ca-6 { grid-column: 4; grid-row: 3; }
+
+    
+
+    /* Mobile Responsiveness */
+    @media (max-width: 992px) {
+      .c-hero-top, .c-inno-grid, .c-faq-grid, .c-growth-box {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .c-grid-4 { grid-template-columns: 1fr 1fr; }
+      .c-grid-3 { grid-template-columns: 1fr; }
+      .c-hero-title h1 { font-size: 2.8rem; }
+      .c-inno-img-sub {
+        width: 120px;
+        height: 120px;
+        bottom: -20px;
+        left: -20px;
+      }
+      .c-growth-box { padding: 40px 24px; }
+    }
+    @media (max-width: 600px) {
+      .c-grid-4 { grid-template-columns: 1fr; }
+    }
+    /* Media Queries */
+      @media (max-width: 1200px) {
+        .footer-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .footer-brand {
+          grid-column: span 3;
+        }
+      }
+
+      @media (max-width: 992px) {
+        section {
+          padding: 100px 0;
+        }
+
+        .hero {
+          padding: 150px 0 100px;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 60px;
+        }
+
+        .cta-grid {
+          grid-template-columns: 1fr;
+          gap: 60px;
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-brand {
+          grid-column: span 2;
+        }
+      }
+
+      @media (max-width: 768px) {
+        section {
+          padding: 80px 0;
+        }
+
+        .container {
+          padding: 0 20px;
+        }
+
+        .main-navbar-menu {
+          display: none;
+          position: absolute;
+          top: 80px;
+          left: 0;
+          width: 100%;
+          background: white;
+          padding: 20px;
+          flex-direction: column;
+          gap: 20px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-navbar-menu.active {
+          display: flex;
+        }
+
+        .nav-buttons {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .main-navbar-toggle {
+          display: flex;
+        }
+
+        .main-navbar-toggle.active span:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+
+        .main-navbar-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+
+        .main-navbar-toggle.active span:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .floating-element {
+          display: none;
+        }
+
+        .clients-bar {
+          margin-top: 40px;
+          padding: 30px;
+        }
+
+        .process-steps {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .step-connector {
+          display: none;
+        }
+
+        .footer-bottom-content {
+          flex-direction: column;
+          gap: 12px;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 576px) {
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        h2 {
+          font-size: 1.8rem;
+        }
+
+        .hero-cta,
+        .cta-buttons {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .switch-track {
+          width: 100%;
+        }
+
+        .switch-option {
+          width: 50%;
+          justify-content: center;
+          padding: 12px 10px;
+        }
+
+        .slider-track {
+          width: 100%;
+        }
+
+        .slider-button {
+          width: 50%;
+          justify-content: center;
+          padding: 12px 10px;
+        }
+
+        .toggle-container {
+          width: 100%;
+        }
+
+        .toggle-option {
+          width: 50%;
+          justify-content: center;
+          min-width: auto;
+          padding: 12px 10px;
+        }
+
+        .toggle-highlighter {
+          width: 50%;
+        }
+
+        .testimonial-switcher {
+          flex-direction: column;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-brand {
+          grid-column: span 1;
+        }
+      }
+  </style>
+</head>
+<body>
+
+  <nav class="main-navbar">
       <div class="main-navbar-container">
         <div class="main-navbar-brand">
           <a href="/" class="main-navbar-logo">
@@ -3767,1044 +4401,345 @@
         </div>
 
         <div class="main-navbar-menu">
-          <a href="/#features" class="main-navbar-link">Features</a>
-          <a href="/#how-it-works" class="main-navbar-link">How it Works</a>
-          <a href="/#testimonials" class="main-navbar-link">Testimonials</a>
-          <a href="/journey.html" class="main-navbar-link">About Us</a>
-          <a href="./contact.html" class="main-navbar-link">Contact Us</a>
-        
+            <a href="/#features" class="main-navbar-link">Features</a>
+            <a href="/#how-it-works" class="main-navbar-link">How it Works</a>
+            <a href="/#testimonials" class="main-navbar-link">Testimonials</a>
+            <a href="/journey.html" class="main-navbar-link">About Us</a>
+            <a href="./contact.html" class="main-navbar-link">Contact Us</a>
+          
         </div>
  
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
+  <!-- 1. Hero Section -->
+  <section class="c-hero">
+    <div class="c-container">
+      <div class="c-hero-top">
+        <div class="c-hero-title">
+          <h1>Join our team and<br>reshape the future</h1>
+        </div>
+        <div class="c-hero-desc">
+          <p>Work with talented people who challenge the status quo, push boundaries, and create solutions that shape the future of modern student accommodation.</p>
+        </div>
       </div>
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-content">
-            <!-- Interactive Switch Design -->
-            <div class="audience-switch">
-              <div class="switch-track">
-                <button class="switch-option active" data-target="owner">
-                  <i class="fas fa-building"></i>
-                  <span>For PG Owners</span>
-                </button>
-                <button class="switch-option" data-target="tenant">
-                  <i class="fas fa-search-location"></i>
-                  <span>For Tenants</span>
-                </button>
-                <div class="switch-highlight"></div>
-              </div>
-            </div>
+      <div class="c-hero-image">
+        <img src="./career-banner.jpeg" alt="Team collaborating">
+      </div>
+    </div>
+  </section>
 
-            <div class="segment-content active" id="owner-content">
-              <h1>
-                Manage Your PG
-                <span class="gradient-text">Business Effortlessly</span>
-              </h1>
-              <p class="hero-description">
-                Streamline tenant onboarding, automate rent collection, and
-                manage your PG efficiently - all in one powerful platform
-                designed for property owners.
-              </p>
-              <div class="hero-badges">
-                <div class="badge animated-badge">
-                  <i class="fas fa-chart-line"></i>Real-time Analytics
-                </div>
-                <div class="badge animated-badge">
-                  <i class="fas fa-wallet"></i>Payment Tracking
-                </div>
-                <div class="badge animated-badge">
-                  <i class="fas fa-users"></i>Tenant Management
-                </div>
-                <div class="badge animated-badge">
-                  <i class="fas fa-hand-holding-usd"></i>No Commission
-                </div>
-              </div>
-            </div>
+  <!-- 2. Working with us -->
+  <section class="c-working">
+    <div class="c-container">
+      <div class="c-section-header">
+        <div class="c-icon-badge"><i class="fas fa-home"></i></div>
+        <h2>Working with us</h2>
+        <p>Discover a workplace where your skills are recognized, your voice matters, and your contributions shape the future of our platform.</p>
+      </div>
 
-            <div class="segment-content" id="tenant-content">
-              <h1>
-                Find & Live in Your
-                <span class="gradient-text-secondary">Ideal PG</span>
-              </h1>
-              <p class="hero-description">
-                Discover perfect PG accommodations, make digital payments, and
-                manage your stay seamlessly - all through a single platform
-                designed for modern tenants.
-              </p>
-              <div class="hero-badges">
-                <div class="badge animated-badge blue">
-                  <i class="fas fa-search"></i>Smart Search
-                </div>
-                <div class="badge animated-badge blue">
-                  <i class="fas fa-credit-card"></i>Digital Payments
-                </div>
-                <div class="badge animated-badge blue">
-                  <i class="fas fa-headset"></i>Support Access
-                </div>
-                <div class="badge animated-badge blue">
-                  <i class="fas fa-headset"></i>NO Commission
-                </div>
-              </div>
-            </div>
+      <div class="c-grid-4">
+        <div class="c-card c-card-1">
+          <div class="c-card-icon"><i class="fas fa-heart"></i></div>
+          <h3>Culture</h3>
+          <p>A supportive environment where collaboration and respect shape every project and interaction.</p>
+        </div>
+        <div class="c-card c-card-2">
+          <div class="c-card-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Growth</h3>
+          <p>Opportunities to learn, evolve, and take on challenges that accelerate your professional journey.</p>
+        </div>
+        <div class="c-card c-card-3">
+          <div class="c-card-icon"><i class="fas fa-bolt"></i></div>
+          <h3>Impact</h3>
+          <p>Meaningful contributions that directly influence how the accommodation business operates and scales.</p>
+        </div>
+        <div class="c-card c-card-4">
+          <div class="c-card-icon"><i class="fas fa-cog"></i></div>
+          <h3>Tools</h3>
+          <p>A modern setup designed to help you work efficiently, stay focused, and deliver your best work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="hero-cta">
-              <a href="" class="pulse-button">
-                <i class="fas fa-building"></i> List Property for Free
-              </a>
-              <a href="#how-it-works" class="outline-button">
-                <i class="fas fa-play"></i>See How It Works
-              </a>
-            </div>
-          </div>
+  <!-- 3. Innovation Split -->
+  <section class="c-innovation">
+    <div class="c-container">
+      <div class="c-inno-grid">
+        <div class="c-inno-text">
+          <div class="c-icon-badge"><i class="fas fa-lightbulb"></i></div>
+          <h2>Driven by innovation,<br>guided by purpose,<br>committed to growth.</h2>
+          <p>We create solutions that empower teams, simplify processes, and unlock meaningful business results.</p>
+          <a href="mailto:hiring@pgfy.in" class="c-btn">Apply to an Open Position</a>
+        </div>
+        <div class="c-inno-images">
+          <img src="./bts.jpeg" alt="Team discussion" class="c-inno-img-main">
+          <img src="./image-1.jpeg" alt="Team working" class="c-inno-img-sub">
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <!-- Replace your current mockup device HTML with this CSS-only version -->
-          <div class="hero-illustration">
-            <div class="mockup-device">
-              <div class="device-frame">
-                <div class="device-header">
-                  <div class="device-notch"></div>
-                </div>
-                <div class="device-screen">
-                  <!-- CSS-only dashboard content instead of an image -->
-                  <div class="app-dashboard">
-                    <div class="dashboard-header">
-                      <div class="dash-logo"></div>
-                      <div class="dash-menu">
-                        <div class="menu-item"></div>
-                        <div class="menu-item"></div>
-                        <div class="menu-item"></div>
-                      </div>
-                    </div>
+  
+  <!-- 3.5 Meet the Team -->
+  <section class="c-team">
+    <div class="c-container">
+      <div class="c-section-header">
+        <div class="c-icon-badge"><i class="fas fa-users"></i></div>
+        <h2>Meet the Team</h2>
+        <p>The visionaries and builders powering PGfy's growth.</p>
+      </div>
 
-                    <div class="dashboard-cards">
-                      <div class="dash-card active">
-                        <div class="card-icon"></div>
-                        <div class="card-content">
-                          <div class="card-title"></div>
-                          <div class="card-value"></div>
-                        </div>
-                      </div>
-                      <div class="dash-card">
-                        <div class="card-icon"></div>
-                        <div class="card-content">
-                          <div class="card-title"></div>
-                          <div class="card-value"></div>
-                        </div>
-                      </div>
-                      <div class="dash-card">
-                        <div class="card-icon"></div>
-                        <div class="card-content">
-                          <div class="card-title"></div>
-                          <div class="card-value"></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="dashboard-chart">
-                      <div class="chart-header">
-                        <div class="chart-title"></div>
-                        <div class="chart-filter"></div>
-                      </div>
-                      <div class="chart-content">
-                        <div class="chart-bar" style="height: 60%"></div>
-                        <div class="chart-bar" style="height: 80%"></div>
-                        <div class="chart-bar" style="height: 40%"></div>
-                        <div class="chart-bar" style="height: 70%"></div>
-                        <div class="chart-bar" style="height: 55%"></div>
-                      </div>
-                      <div class="chart-labels">
-                        <div class="chart-label"></div>
-                        <div class="chart-label"></div>
-                        <div class="chart-label"></div>
-                        <div class="chart-label"></div>
-                        <div class="chart-label"></div>
-                      </div>
-                    </div>
-
-                    <div class="dashboard-list">
-                      <div class="list-item">
-                        <div class="item-icon"></div>
-                        <div class="item-content">
-                          <div class="item-title"></div>
-                          <div class="item-subtitle"></div>
-                        </div>
-                        <div class="item-action"></div>
-                      </div>
-                      <div class="list-item">
-                        <div class="item-icon"></div>
-                        <div class="item-content">
-                          <div class="item-title"></div>
-                          <div class="item-subtitle"></div>
-                        </div>
-                        <div class="item-action"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="device-home"></div>
-              </div>
-              <div class="device-shadow"></div>
-            </div>
-
-            <div class="floating-element badge-1">
-              <div class="badge-icon">
-                <i class="fas fa-check-circle"></i>
-              </div>
-              <div class="badge-content">
-                <h4>Digital KYC</h4>
-                <p>Verify in seconds</p>
-              </div>
-            </div>
-
-            <div class="floating-element badge-2">
-              <div class="badge-icon">
-                <i class="fas fa-mobile-alt"></i>
-              </div>
-              <div class="badge-content">
-                <h4>Mobile Friendly</h4>
-                <p>Manage on the go</p>
-              </div>
-            </div>
-
-            <div class="floating-element badge-3">
-              <div class="notification-badge">
-                <i class="fas fa-bell"></i>
-                <span class="status-dot"></span>
-              </div>
-              <div class="notification-content">
-                <h4>Instant Alerts</h4>
-                <div class="notification-bar"></div>
-                <div class="notification-bar short"></div>
-              </div>
-            </div>
+      <div class="c-team-grid">
+        <div class="c-team-card">
+          <img src="./ceo.jpeg" alt="Founder">
+          <div class="c-team-overlay">
+            <h3 class="c-team-name">Sai Jagadeesh Chitroju</h3>
+            <p class="c-team-role">Founder & Director | Sales and Product Development</p>
           </div>
         </div>
-
-        <div class="clients-bar">
-          <div class="pulse-circles">
-            <div class="pulse-circle"></div>
-            <div class="pulse-circle delay-1"></div>
-            <div class="pulse-circle delay-2"></div>
+        <div class="c-team-card" style="background-color: #dbeafe;">
+          <img src="" alt="Co-Founder">
+          <div class="c-team-overlay">
+            <h3 class="c-team-name">Roji Chitroju</h3>
+            <p class="c-team-role">Co Founder and Director</p>
           </div>
-          <p>Trusted by PGs across India</p>
-          <div class="clients-logos">
-            <div class="client-stat">
-              <div class="client-row">
-                <span class="counter">75</span><span class="plus">+</span>
-              </div>
-              <div class="stat-label">Active PGs</div>
-            </div>
-            <div class="client-divider"></div>
-            <div class="client-stat">
-              <div class="client-row">
-                <span class="counter">3500</span><span class="plus">+</span>
-              </div>
-              <div class="stat-label">Beds</div>
-            </div>
-            <div class="client-divider"></div>
-            <div class="client-stat">
-              <div class="client-row">
-                <span class="counter">3</span><span class="plus">+</span>
-              </div>
-              <div class="stat-label">Cities</div>
-            </div>
+        </div>
+        <div class="c-team-card">
+          <img src="./prudvi.jpeg" alt="SD Intern">
+          <div class="c-team-overlay">
+            <h3 class="c-team-name">Prudhvi Pedavalli</h3>
+            <p class="c-team-role">Head of Operations</p>
+          </div>
+        </div>
+        <div class="c-team-card">
+          <img src="./surya.jpeg" alt="Sales Intern">
+          <div class="c-team-overlay">
+            <h3 class="c-team-name">Surya Vamsi Doddi</h3>
+            <p class="c-team-role"> Full Stack Developer</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-      <div class="section-background">
-        <div class="bg-circle circle-1"></div>
-        <div class="bg-circle circle-2"></div>
-        <div class="bg-lines"></div>
+<!-- 4. Open Positions -->
+  <section class="c-positions">
+    <div class="c-container">
+      <div class="c-section-header">
+        <div class="c-icon-badge"><i class="fas fa-briefcase"></i></div>
+        <h2>Open positions</h2>
+        <p>There are no full-time opportunities at present, but we are looking for passionate interns!</p>
       </div>
-      <div class="container">
-        <div class="section-header">
-          <div class="badge-wrapper">
-            <span class="section-badge">Features</span>
+
+      <div class="c-grid-3">
+        <!-- Active 1 -->
+        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer;">
+          <div class="c-pos-header">
+            <div class="c-pos-icon ic-2"><i class="fas fa-handshake"></i></div>
+            <div class="c-pos-badge" style="background:#dcfce7; color:#166534;">Active</div>
           </div>
-          <h2>
-            One Platform, <span class="gradient-text">Dual Benefits</span>
-          </h2>
-          <p>Powerful features designed for both PG owners and tenants</p>
-        </div>
-
-        <div class="audience-toggle">
-          <div class="toggle-container">
-            <input
-              type="radio"
-              id="owners-toggle"
-              name="audience"
-              value="owners"
-              checked
-            />
-            <label for="owners-toggle" class="toggle-option">
-              <i class="fas fa-building"></i>
-              <span>For PG Owners</span>
-            </label>
-
-            <input
-              type="radio"
-              id="tenants-toggle"
-              name="audience"
-              value="tenants"
-            />
-            <label for="tenants-toggle" class="toggle-option">
-              <i class="fas fa-home"></i>
-              <span>For Tenants</span>
-            </label>
-
-            <span class="toggle-highlighter"></span>
+          <h3>Sales Intern</h3>
+          <p>Drive PGfy's expansion by onboarding new property owners, maintaining relationships, and analyzing market trends.</p>
+          <div class="c-pos-footer">
+            <span><i class="fas fa-clock"></i> Internship</span>
+            <span><i class="fas fa-map-marker-alt"></i> Bangalore</span>
           </div>
         </div>
 
-        <div class="tab-content active" id="owners-tab">
-          <div class="features-grid">
-            <div class="feature-card">
-              <div class="feature-icon-wrapper">
-                <div class="feature-icon">
-                  <i class="fas fa-users-cog"></i>
-                </div>
-              </div>
-              <div class="feature-content">
-                <h3>Tenant Management</h3>
-                <p>
-                  Complete digital onboarding and tenant lifecycle management
-                </p>
-                <ul class="feature-list">
-                  <li><i class="fas fa-check"></i> Digital KYC verification</li>
-                  <li><i class="fas fa-check"></i> Document storage</li>
-                  <li><i class="fas fa-check"></i> Contract management</li>
-                </ul>
-                <a href="#" class="feature-link"
-                  >Learn More <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon-wrapper">
-                <div class="feature-icon">
-                  <i class="fas fa-home"></i>
-                </div>
-              </div>
-              <div class="feature-content">
-                <h3>Room Management</h3>
-                <p>Real-time room allocation and availability tracking</p>
-                <ul class="feature-list">
-                  <li><i class="fas fa-check"></i> Live availability</li>
-                  <li><i class="fas fa-check"></i> Smart allocation</li>
-                  <li><i class="fas fa-check"></i> Maintenance tracking</li>
-                </ul>
-                <a href="#" class="feature-link"
-                  >Learn More <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon-wrapper">
-                <div class="feature-icon">
-                  <i class="fas fa-wallet"></i>
-                </div>
-              </div>
-              <div class="feature-content">
-                <h3>Payments & Analytics</h3>
-                <p>Automated rent collection with smart analytics</p>
-                <ul class="feature-list">
-                  <li><i class="fas fa-check"></i> Multiple payment modes</li>
-                  <li><i class="fas fa-check"></i> Payment reminders</li>
-                  <li><i class="fas fa-check"></i> Financial reports</li>
-                </ul>
-                <a href="#" class="feature-link"
-                  >Learn More <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
-            </div>
+        <!-- Active 2 -->
+        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer;">
+          <div class="c-pos-header">
+            <div class="c-pos-icon ic-3"><i class="fas fa-chart-pie"></i></div>
+            <div class="c-pos-badge" style="background:#dcfce7; color:#166534;">Active</div>
+          </div>
+          <h3>Business Research Intern</h3>
+          <p>Conduct in-depth market research, analyze competitor strategies, and help shape our long-term business roadmap.</p>
+          <div class="c-pos-footer">
+            <span><i class="fas fa-clock"></i> Internship</span>
+            <span><i class="fas fa-map-marker-alt"></i> Bangalore</span>
           </div>
         </div>
 
-        <div class="tab-content" id="tenants-tab">
-          <div class="features-grid">
-            <div class="feature-card tenant">
-              <div class="feature-icon-wrapper">
-                <div class="feature-icon tenant">
-                  <i class="fas fa-search-location"></i>
-                </div>
-              </div>
-              <div class="feature-content">
-                <h3>PG Discovery</h3>
-                <p>
-                  Find the perfect PG accommodation based on your preferences
-                </p>
-                <ul class="feature-list">
-                  <li><i class="fas fa-check"></i> Location-based search</li>
-                  <li><i class="fas fa-check"></i> Advanced filters</li>
-                  <li><i class="fas fa-check"></i> Virtual tours</li>
-                </ul>
-                <a href="#" class="feature-link tenant"
-                  >Learn More <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-
-            <div class="feature-card tenant">
-              <div class="feature-icon-wrapper">
-                <div class="feature-icon tenant">
-                  <i class="fas fa-hand-holding-usd"></i>
-                </div>
-              </div>
-              <div class="feature-content">
-                <h3>Digital Payments</h3>
-                <p>Hassle-free rent payments and transaction history</p>
-                <ul class="feature-list">
-                  <li><i class="fas fa-check"></i> Multiple payment options</li>
-                  <li><i class="fas fa-check"></i> Payment receipts</li>
-                  <li><i class="fas fa-check"></i> Expense tracking</li>
-                </ul>
-                <a href="#" class="feature-link tenant"
-                  >Learn More <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-
-            <div class="feature-card tenant">
-              <div class="feature-icon-wrapper">
-                <div class="feature-icon tenant">
-                  <i class="fas fa-headset"></i>
-                </div>
-              </div>
-              <div class="feature-content">
-                <h3>Support & Services</h3>
-                <p>Raise concerns and access additional services easily</p>
-                <ul class="feature-list">
-                  <li><i class="fas fa-check"></i> Complaint management</li>
-                  <li><i class="fas fa-check"></i> Service requests</li>
-                  <li><i class="fas fa-check"></i> Community features</li>
-                </ul>
-                <a href="#" class="feature-link tenant"
-                  >Learn More <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
-            </div>
+        <!-- Upcoming 1 -->
+        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer; opacity: 0.8;">
+          <div class="c-pos-header">
+            <div class="c-pos-icon ic-1"><i class="fab fa-figma"></i></div>
+            <div class="c-pos-badge">Upcoming</div>
+          </div>
+          <h3>UI/UX Design Intern</h3>
+          <p>Assist in designing intuitive, scalable interfaces across our core platform. Collaborate with the product team.</p>
+          <div class="c-pos-footer">
+            <span><i class="fas fa-clock"></i> Internship</span>
+            <span><i class="fas fa-map-marker-alt"></i> Bangalore / Hybrid</span>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="process">
-      <div class="process-waves">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            fill="#ffffff"
-          ></path>
-        </svg>
-      </div>
-      <div class="container">
-        <div class="section-header">
-          <div class="badge-wrapper">
-            <span class="section-badge">Process</span>
-          </div>
-          <h2>How <span class="gradient-text">PGfy</span> Works</h2>
-          <p>Simple, streamlined process for both owners and tenants</p>
-        </div>
-
-        <div class="process-slider">
-          <div class="slider-track">
-            <div class="slider-button active" data-process="owners">
-              <i class="fas fa-building"></i>
-              <span>For PG Owners</span>
-            </div>
-            <div class="slider-button" data-process="tenants">
-              <i class="fas fa-home"></i>
-              <span>For Tenants</span>
-            </div>
-            <div class="slider-highlighter"></div>
-          </div>
-        </div>
-
-        <div class="process-content active" id="owners-process">
-          <div class="process-steps">
-            <div class="step-card">
-              <div class="step-number">1</div>
-              <div class="step-icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <div class="step-content">
-                <h3>Register your PG</h3>
-                <p>Sign up and add your property details to get started</p>
-              </div>
-              <div class="step-connector"></div>
-            </div>
-
-            <div class="step-card">
-              <div class="step-number">2</div>
-              <div class="step-icon">
-                <i class="fas fa-home"></i>
-              </div>
-              <div class="step-content">
-                <h3>Set up rooms & amenities</h3>
-                <p>Configure your room types, amenities, and pricing</p>
-              </div>
-              <div class="step-connector"></div>
-            </div>
-
-            <div class="step-card">
-              <div class="step-number">3</div>
-              <div class="step-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <div class="step-content">
-                <h3>Manage tenants</h3>
-                <p>Onboard tenants with digital KYC and contracts</p>
-              </div>
-              <div class="step-connector"></div>
-            </div>
-
-            <div class="step-card">
-              <div class="step-number">4</div>
-              <div class="step-icon">
-                <i class="fas fa-chart-line"></i>
-              </div>
-              <div class="step-content">
-                <h3>Track & grow</h3>
-                <p>Collect payments and analyze your business metrics</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="process-content" id="tenants-process">
-          <div class="process-steps">
-            <div class="step-card tenant">
-              <div class="step-number">1</div>
-              <div class="step-icon tenant">
-                <i class="fas fa-search"></i>
-              </div>
-              <div class="step-content">
-                <h3>Find a PG</h3>
-                <p>Search and filter PGs based on your preferences</p>
-              </div>
-              <div class="step-connector tenant"></div>
-            </div>
-
-            <div class="step-card tenant">
-              <div class="step-number">2</div>
-              <div class="step-icon tenant">
-                <i class="fas fa-id-card"></i>
-              </div>
-              <div class="step-content">
-                <h3>Digital verification</h3>
-                <p>Complete KYC and documentation online</p>
-              </div>
-              <div class="step-connector tenant"></div>
-            </div>
-
-            <div class="step-card tenant">
-              <div class="step-number">3</div>
-              <div class="step-icon tenant">
-                <i class="fas fa-key"></i>
-              </div>
-              <div class="step-content">
-                <h3>Move in</h3>
-                <p>Confirm booking and move into your new PG</p>
-              </div>
-              <div class="step-connector tenant"></div>
-            </div>
-
-            <div class="step-card tenant">
-              <div class="step-number">4</div>
-              <div class="step-icon tenant">
-                <i class="fas fa-mobile-alt"></i>
-              </div>
-              <div class="step-content">
-                <h3>Manage your stay</h3>
-                <p>Pay rent, raise requests, and manage your stay digitally</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- AboutUs Section-->
-     <section id="aboutus" class="aboutus">
-      <div class="aboutus-shapes">
-        <div class="a-shape a-shape-1"></div>
-        <div class="a-shape a-shape-2"></div>
-        <div class="a-shape a-shape-3"></div>
         
-      </div>
-      <div class="container">
-        <div class="section-header">
-          <div class="badge-wrapper">
-            <span class="section-badge">About PGfy</span>
+        <!-- Upcoming 2 -->
+        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer; opacity: 0.8;">
+          <div class="c-pos-header">
+            <div class="c-pos-icon ic-2"><i class="fas fa-code"></i></div>
+            <div class="c-pos-badge">Upcoming</div>
+          </div>
+          <h3>Frontend Dev Intern</h3>
+          <p>Help build responsive user interfaces and deliver seamless experiences for tenants and owners.</p>
+          <div class="c-pos-footer">
+            <span><i class="fas fa-clock"></i> Internship</span>
+            <span><i class="fas fa-map-marker-alt"></i> Bangalore / Hybrid</span>
           </div>
         </div>
-        <div class="aboutus-content">
-            <p class="">
-              PGfy is a property management platform built for PGs, hostels, student housing, and co-living operators. We help property owners streamline tenant onboarding, digital KYC, room allocation, rent collection, occupancy tracking, and day-to-day operations through a single platform
-            </p>
-            <p class="">
-              Our mission is to simplify accommodation management with technology while creating a seamless experience for both property managers and residents.
-            </p>
-            <a href="./journey.html" class="outline-button" style="display: inline-block; margin-top: 20px; text-decoration: none; padding: 12px 24px; border-radius: 8px; border: 2px solid #2563eb; color: #2563eb; font-weight: 600; text-align: center; transition: all 0.3s ease;">Learn More About PGfy</a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-      <div class="testimonial-shapes">
-        <div class="t-shape t-shape-1"></div>
-        <div class="t-shape t-shape-2"></div>
-        <div class="t-shape t-shape-3"></div>
-      </div>
-      <div class="container">
-        <div class="section-header">
-          <div class="badge-wrapper">
-            <span class="section-badge">Testimonials</span>
+        
+        <!-- Upcoming 3 -->
+        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer; opacity: 0.8;">
+          <div class="c-pos-header">
+            <div class="c-pos-icon ic-3"><i class="fas fa-database"></i></div>
+            <div class="c-pos-badge">Upcoming</div>
           </div>
-          <h2>What Our Users Say</h2>
-          <p>Success stories from PG owners and tenants across India</p>
+          <h3>Backend Dev Intern</h3>
+          <p>Work on scalable, high-performance APIs that drive PGfy's core business logic.</p>
+          <div class="c-pos-footer">
+            <span><i class="fas fa-clock"></i> Internship</span>
+            <span><i class="fas fa-map-marker-alt"></i> Bangalore / Hybrid</span>
+          </div>
         </div>
-
-        <div class="testimonial-switcher">
-          <button class="switcher-option active" data-testimonial="owners">
-            <div class="option-icon"><i class="fas fa-building"></i></div>
-            <span>PG Owners</span>
-          </button>
-          <button class="switcher-option" data-testimonial="tenants">
-            <div class="option-icon"><i class="fas fa-user"></i></div>
-            <span>PG Tenants</span>
-          </button>
+        
+        <!-- Upcoming 4 -->
+        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer; opacity: 0.8;">
+          <div class="c-pos-header">
+            <div class="c-pos-icon ic-4"><i class="fas fa-bullhorn"></i></div>
+            <div class="c-pos-badge">Upcoming</div>
+          </div>
+          <h3>Marketing Intern</h3>
+          <p>Support campaigns, content creation, and market research to expand our reach across India.</p>
+          <div class="c-pos-footer">
+            <span><i class="fas fa-clock"></i> Internship</span>
+            <span><i class="fas fa-map-marker-alt"></i> Bangalore / Hybrid</span>
+          </div>
         </div>
-
-        <div class="testimonial-content active" id="owners-testimonials">
-          <div class="testimonials-row">
-            <div class="testimonial-card">
-              <div class="testimonial-header">
-                <div class="author-avatar">
-                  <div class="avatar-placeholder">RK</div>
-                </div>
-                <div class="author-info">
-                  <h4>Rajesh Kumar</h4>
-                  <p>Owner, Sri Krishna PG</p>
-                  <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="testimonial-body">
-                <i class="fas fa-quote-left"></i>
-                <p>
-                  "PGfy has revolutionized how I manage my PG. The digital
-                  payment system and automated rent collection have saved me
-                  countless hours. Highly recommended!"
-                </p>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-header">
-                <div class="author-avatar">
-                  <div class="avatar-placeholder">PS</div>
-                </div>
-                <div class="author-info">
-                  <h4>Priya Sharma</h4>
-                  <p>Manager, Comfort Zone PG</p>
-                  <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="testimonial-body">
-                <i class="fas fa-quote-left"></i>
-                <p>
-                  "The occupancy tracking and tenant verification features are
-                  fantastic. Everything is digital now, and my tenants love the
-                  convenience of online payments."
-                </p>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-header">
-                <div class="author-avatar">
-                  <div class="avatar-placeholder">AP</div>
-                </div>
-                <div class="author-info">
-                  <h4>Amit Patel</h4>
-                  <p>Owner, Student Hub PG</p>
-                  <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="testimonial-body">
-                <i class="fas fa-quote-left"></i>
-                <p>
-                  "The customer support is exceptional. Any issues are resolved
-                  quickly, and the team is always available to help. PGfy has
-                  made my life much easier!"
-                </p>
-              </div>
-            </div>
+        
+        <!-- Upcoming 5 -->
+        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer; opacity: 0.8;">
+          <div class="c-pos-header">
+            <div class="c-pos-icon ic-5"><i class="fas fa-chart-pie"></i></div>
+            <div class="c-pos-badge">Upcoming</div>
+          </div>
+          <h3>Operations Intern</h3>
+          <p>Assist in property onboarding, tenant verification processes, and improving operational efficiency.</p>
+          <div class="c-pos-footer">
+            <span><i class="fas fa-clock"></i> Internship</span>
+            <span><i class="fas fa-map-marker-alt"></i> Bangalore / Hybrid</span>
+          </div>
+        </div>
+        
+        <!-- Upcoming 6 -->
+        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer; opacity: 0.8;">
+          <div class="c-pos-header">
+            <div class="c-pos-icon ic-6"><i class="fas fa-mobile-alt"></i></div>
+            <div class="c-pos-badge">Upcoming</div>
+          </div>
+          <h3>App Dev Intern</h3>
+          <p>Help develop and maintain our mobile applications for a seamless tenant experience.</p>
+          <div class="c-pos-footer">
+            <span><i class="fas fa-clock"></i> Internship</span>
+            <span><i class="fas fa-map-marker-alt"></i> Bangalore / Hybrid</span>
           </div>
         </div>
 
-        <div class="testimonial-content" id="tenants-testimonials">
-          <div class="testimonials-row">
-            <div class="testimonial-card tenant">
-              <div class="testimonial-header">
-                <div class="author-avatar">
-                  <div class="avatar-placeholder tenant">AS</div>
-                </div>
-                <div class="author-info">
-                  <h4>Ananya Singh</h4>
-                  <p>Student, Delhi University</p>
-                  <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="testimonial-body">
-                <i class="fas fa-quote-left"></i>
-                <p>
-                  "Finding a PG through PGfy was so easy! I could filter based
-                  on my budget and preferred location, and the digital payments
-                  make rent day stress-free."
-                </p>
-              </div>
-            </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="testimonial-card tenant">
-              <div class="testimonial-header">
-                <div class="author-avatar">
-                  <div class="avatar-placeholder tenant">RV</div>
-                </div>
-                <div class="author-info">
-                  <h4>Rahul Verma</h4>
-                  <p>Working Professional, Bangalore</p>
-                  <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="testimonial-body">
-                <i class="fas fa-quote-left"></i>
-                <p>
-                  "The complaint management system is great. Whenever there's an
-                  issue, I can raise it through the app and it gets resolved
-                  quickly without any follow-ups."
-                </p>
-              </div>
+  <!-- 5. Community FAQ -->
+  <section class="c-faq">
+    <div class="c-container">
+      <div class="c-faq-grid">
+        <div class="c-faq-left">
+          <h2>Careers Faq's</h2>
+          <p>All your questions about joining our team, the interview process, and culture wrapped in one place.</p>
+          <a href="mailto:hiring@pgfy.in">Contact hiring team &rarr;</a>
+        </div>
+        <div class="c-faq-right">
+          <div class="c-accordion-item">
+            <div class="c-accordion-header">
+              Are you currently hiring for full-time roles?
+              <i class="fas fa-plus"></i>
             </div>
-
-            <div class="testimonial-card tenant">
-              <div class="testimonial-header">
-                <div class="author-avatar">
-                  <div class="avatar-placeholder tenant">NG</div>
-                </div>
-                <div class="author-info">
-                  <h4>Neha Gupta</h4>
-                  <p>Student, IIT Mumbai</p>
-                  <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="testimonial-body">
-                <i class="fas fa-quote-left"></i>
-                <p>
-                  "I love how I can track all my payments and documents in one
-                  place. The digital KYC was super convenient and I didn't have
-                  to submit multiple physical copies."
-                </p>
-              </div>
+            <div class="c-accordion-content">
+              <p>At present, we are exclusively focusing on expanding our core team through internship roles. We do not have any full-time opportunities available right now, but outstanding interns may be offered full-time roles upon completion of their program.</p>
+            </div>
+          </div>
+          <div class="c-accordion-item">
+            <div class="c-accordion-header">
+              What does the interview process look like?
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="c-accordion-content">
+              <p>Our interview process is streamlined to respect your time while ensuring a mutual fit. It consists of:</p>
+              <ul style="margin-top: 8px; padding-left: 20px;">
+                <li><strong>Step 1:</strong> A basic introductory screening call (15 mins).</li>
+                <li><strong>Step 2:</strong> An online technical or domain-specific interview (45 mins).</li>
+                <li><strong>Step 3:</strong> A final offline interview at our IIIT Bangalore Innovation Centre office to meet the founders.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="c-accordion-item">
+            <div class="c-accordion-header">
+              Do you offer remote work options?
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="c-accordion-content">
+              <p>Our current internship roles (Sales & Business Research) require significant hands-on collaboration, so we operate on a hybrid model based out of our Bangalore office. Fully remote positions are not available at this time.</p>
+            </div>
+          </div>
+          <div class="c-accordion-item">
+            <div class="c-accordion-header">
+              What is the duration of the internships?
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="c-accordion-content">
+              <p>Most of our internships run for a duration of 3 to 6 months, giving you enough time to learn the ropes, take ownership of projects, and make a tangible impact on PGfy's growth.</p>
+            </div>
+          </div>
+          <div class="c-accordion-item">
+            <div class="c-accordion-header">
+              Can I send an open application?
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="c-accordion-content">
+              <p>Absolutely! Even if you don't see a role that fits you perfectly right now, we are always looking for passionate talent. Send your resume and a brief intro to <strong>hiring@pgfy.in</strong>.</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    
-    
-    <!-- Add Property Section -->
-    <section id="add-property" class="add-property-section" style="background: #f8fafc;">
-      <div class="container">
-        <div class="add-property-grid" style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 800px; margin: 0 auto;">
-          <div class="badge-wrapper" style="margin-bottom:48px;">
-            <span class="section-badge" >Partner with Us</span>
-          </div>
-          <h2 style="font-size: 2.5rem; margin-bottom: 36px; color: #1e293b;">
-            List Your Property <span class="gradient-text">for Free</span>
-          </h2>
-          <p style="font-size: 1.1rem; color: #475569; margin-bottom: 16px; line-height: 1.8;">
-            Join PGfy and start managing your PG, hostel, or student accommodation digitally. Register your property, organize rooms and tenants, streamline rent collection, and access powerful management tools—all with a quick and simple setup process.
-          </p>
-          <p style="font-size: 1.1rem; color: #475569; margin-bottom: 32px; font-weight: 500;">
-            No complicated paperwork. No lengthy onboarding. Get started in minutes.
-          </p>
-          
-          <a href="#contact" class="add-property-button" style="margin-top: 24px; margin-bottom: 24px;" >
-            <i class="fas fa-building"></i> List Property for Free
-          </a>
-          
-          <div class="secondary-text" style="margin-top: 24px; color: #64748b; font-size: 0.95rem; display: flex; gap: 16px; align-items: center; justify-content: center; flex-wrap: wrap;">
-            <span><i class="fas fa-check-circle" style="color: #10b981;"></i> No setup fees</span>
-            <span style="color: #cbd5e1;">•</span>
-            <span><i class="fas fa-check-circle" style="color: #10b981;"></i> Quick onboarding</span>
-            <span style="color: #cbd5e1;">•</span>
-            <span><i class="fas fa-check-circle" style="color: #10b981;"></i> Dedicated support</span>
-          </div>
+  <!-- 6. Growth Journey CTA -->
+  <section class="c-growth">
+    <div class="c-container">
+      <div class="c-growth-box">
+        <div class="c-growth-text">
+          <h2>Embark for a full<br>growth journey</h2>
+          <p>Interested in internships, careers, or building the future of accommodation technology with us? Start your journey to smarter property management and measurable growth.</p>
+          <a href="mailto:hiring@pgfy.in" class="c-btn">Email: hiring@pgfy.in</a>
+        </div>
+        <div class="c-avatar-grid">
+          <!-- Scattered avatars to replicate the design -->
+          <div class="c-avatar-item ca-1"><img src="./ceo.jpeg"></div>
+          <div class="c-avatar-item ca-2"><img src="./prudvi.jpeg"></div>
+          <div class="c-avatar-item ca-3"><img src="./surya.jpeg"></div>
+          <div class="c-avatar-item ca-4"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"></div>
+          <div class="c-avatar-item ca-5"><img src="./bts.jpeg"></div>
+          <div class="c-avatar-item ca-6"><img src="./image-1.jpeg"></div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-      <div class="container">
-        <div class="section-header">
-          <div class="badge-wrapper">
-            <span class="section-badge">Contact Us</span>
-          </div>
-          <h2>Get in <span class="gradient-text">Touch</span></h2>
-          <p>
-            Have questions about PGfy or want to see how our platform can help your property? Our team is here to assist with product demos, onboarding support, partnerships, and general inquiries.
-          </p>
-        </div>
-        <div class="contact-action" style="text-align: center; margin-top: 40px;">
-          <button id="openDemoModalBtn" >
-            <i class="fas fa-calendar-alt"></i> Schedule a Demo
-          </button>
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- CTA Section - Fixed -->
-    <section class="cta">
-      <div class="container">
-        <div class="cta-grid">
-          <div class="cta-content">
-            <div class="badge-wrapper">
-              <span class="section-badge light">Get Started</span>
-            </div>
-            <h2>Ready to Transform Your PG Experience?</h2>
-            <p>
-              Join thousands of PG owners and tenants who have already
-              modernized their PG experience with PGfy
-            </p>
-
-            <div class="cta-features">
-              <div class="cta-feature">
-                <div class="check-circle"><i class="fas fa-check"></i></div>
-                <span>Same day onboarding</span>
-              </div>
-              <div class="cta-feature">
-                <div class="check-circle"><i class="fas fa-check"></i></div>
-                <span>Complete digital solution</span>
-              </div>
-              <div class="cta-feature">
-                <div class="check-circle"><i class="fas fa-check"></i></div>
-                <span>24/7 premium support</span>
-              </div>
-            </div>
-
-            <div class="cta-buttons">
-              <a href="/contactus.html" class="glow-button">
-                <span>Start Your Free Trial</span>
-                <i class="fas fa-arrow-right"></i>
-              </a>
-              <a href="/contactus.html" class="white-outline-button">
-                <i class="fas fa-calendar"></i>
-                <span>Schedule Demo</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- CSS-only device mockups instead of images -->
-          <div class="cta-mockups">
-            <div class="device-mockup">
-              <div class="device-header">
-                <div class="device-notch"></div>
-              </div>
-              <div class="device-screen dashboard">
-                <div class="dashboard-header">
-                  <div class="dash-logo"></div>
-                  <div class="dash-menu">
-                    <div class="menu-item"></div>
-                    <div class="menu-item"></div>
-                    <div class="menu-item"></div>
-                  </div>
-                </div>
-                <div class="dashboard-stats">
-                  <div class="stat-box">
-                    <div class="stat-icon"></div>
-                    <div class="stat-content">
-                      <div class="stat-value"></div>
-                      <div class="stat-label"></div>
-                    </div>
-                  </div>
-                  <div class="stat-box">
-                    <div class="stat-icon"></div>
-                    <div class="stat-content">
-                      <div class="stat-value"></div>
-                      <div class="stat-label"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="dashboard-chart">
-                  <div class="chart-header">
-                    <div class="chart-title"></div>
-                    <div class="chart-legend">
-                      <div class="legend-item"></div>
-                      <div class="legend-item"></div>
-                    </div>
-                  </div>
-                  <div class="chart-bars">
-                    <div class="chart-bar"><div class="bar-fill"></div></div>
-                    <div class="chart-bar"><div class="bar-fill"></div></div>
-                    <div class="chart-bar"><div class="bar-fill"></div></div>
-                    <div class="chart-bar"><div class="bar-fill"></div></div>
-                    <div class="chart-bar"><div class="bar-fill"></div></div>
-                  </div>
-                </div>
-                <div class="dashboard-list">
-                  <div class="list-item">
-                    <div class="item-icon"></div>
-                    <div class="item-content">
-                      <div class="item-title"></div>
-                      <div class="item-subtitle"></div>
-                    </div>
-                    <div class="item-action"></div>
-                  </div>
-                  <div class="list-item">
-                    <div class="item-icon"></div>
-                    <div class="item-content">
-                      <div class="item-title"></div>
-                      <div class="item-subtitle"></div>
-                    </div>
-                    <div class="item-action"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="device-home"></div>
-            </div>
-
-            <div class="device-mockup mobile">
-              <div class="device-header">
-                <div class="device-notch"></div>
-              </div>
-              <div class="device-screen mobile-app">
-                <div class="app-header">
-                  <div class="app-title"></div>
-                  <div class="app-action"></div>
-                </div>
-                <div class="app-search">
-                  <div class="search-icon"></div>
-                  <div class="search-bar"></div>
-                </div>
-                <div class="property-cards">
-                  <div class="property-card">
-                    <div class="property-image"></div>
-                    <div class="property-details">
-                      <div class="property-title"></div>
-                      <div class="property-location"></div>
-                      <div class="property-price"></div>
-                    </div>
-                  </div>
-                  <div class="property-card">
-                    <div class="property-image"></div>
-                    <div class="property-details">
-                      <div class="property-title"></div>
-                      <div class="property-location"></div>
-                      <div class="property-price"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="app-nav">
-                  <div class="nav-item active"></div>
-                  <div class="nav-item"></div>
-                  <div class="nav-item"></div>
-                  <div class="nav-item"></div>
-                </div>
-              </div>
-              <div class="device-home"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
+  <!-- Footer -->
     <footer class="footer">
-      <div class="footer-waves">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-            opacity=".25"
-            fill="#ffffff"
-          ></path>
-          <path
-            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-            opacity=".5"
-            fill="#ffffff"
-          ></path>
-          <path
-            d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-            fill="#ffffff"
-          ></path>
-        </svg>
-      </div>
+      
       <div class="footer-top">
         <div class="container">
           <div class="footer-grid">
@@ -4907,932 +4842,26 @@
       </div>
     </footer>
 
-    <script>
-      // Mobile menu toggle
-      document
-        .querySelector(".main-navbar-toggle")
-        ?.addEventListener("click", function () {
-          this.classList.toggle("active");
-          document
-            .querySelector(".main-navbar-menu")
-            .classList.toggle("active");
-        });
 
-      // Scroll effect
-      window.addEventListener("scroll", () => {
-        const navbar = document.querySelector(".main-navbar");
-        if (window.scrollY > 50) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const accordionItems = document.querySelectorAll('.c-accordion-item');
 
-      // Hero segment tabs - improved interactive switch
-      document.querySelectorAll(".switch-option").forEach((option) => {
-        option.addEventListener("click", function () {
-          // Update active class
-          document
-            .querySelectorAll(".switch-option")
-            .forEach((opt) => opt.classList.remove("active"));
-          this.classList.add("active");
+      accordionItems.forEach(item => {
+        const header = item.querySelector('.c-accordion-header');
+        header.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
 
-          // Update highlight position
-          const switchHighlight = document.querySelector(".switch-highlight");
-          switchHighlight.style.transform = `translateX(${this.offsetLeft}px)`;
-          switchHighlight.style.width = `${this.offsetWidth}px`;
+          // Close all
+          accordionItems.forEach(acc => acc.classList.remove('active'));
 
-          // Show relevant content
-          const target = this.getAttribute("data-target");
-          document.querySelectorAll(".segment-content").forEach((content) => {
-            content.classList.remove("active");
-          });
-          document.getElementById(`${target}-content`).classList.add("active");
+          // Toggle current
+          if (!isActive) {
+            item.classList.add('active');
+          }
         });
       });
-
-      // Features tabs - improved radio toggle
-      document.querySelectorAll(".toggle-option").forEach((option) => {
-        option.addEventListener("click", function () {
-          const toggleInput = this.previousElementSibling;
-          toggleInput.checked = true;
-
-          // Set tab content based on selected toggle
-          const target = toggleInput.value;
-          document.querySelectorAll(".tab-content").forEach((content) => {
-            content.classList.remove("active");
-          });
-          document.getElementById(`${target}-tab`).classList.add("active");
-
-          // Update highlighter position
-          const highlighter = document.querySelector(".toggle-highlighter");
-          highlighter.style.transform = `translateX(${toggleInput.nextElementSibling.offsetLeft}px)`;
-        });
-      });
-
-      // Process slider
-      document.querySelectorAll(".slider-button").forEach((button) => {
-        button.addEventListener("click", function () {
-          // Update active button
-          document
-            .querySelectorAll(".slider-button")
-            .forEach((btn) => btn.classList.remove("active"));
-          this.classList.add("active");
-
-          // Update highlighter position
-          const highlighter = document.querySelector(".slider-highlighter");
-          highlighter.style.transform = `translateX(${this.offsetLeft}px)`;
-          highlighter.style.width = `${this.offsetWidth}px`;
-
-          // Show relevant content
-          const process = this.getAttribute("data-process");
-          document.querySelectorAll(".process-content").forEach((content) => {
-            content.classList.remove("active");
-          });
-          document.getElementById(`${process}-process`).classList.add("active");
-        });
-      });
-
-      // Testimonial switcher
-      document.querySelectorAll(".switcher-option").forEach((option) => {
-        option.addEventListener("click", function () {
-          // Update active option
-          document
-            .querySelectorAll(".switcher-option")
-            .forEach((opt) => opt.classList.remove("active"));
-          this.classList.add("active");
-
-          // Show relevant content
-          const testimonial = this.getAttribute("data-testimonial");
-          document
-            .querySelectorAll(".testimonial-content")
-            .forEach((content) => {
-              content.classList.remove("active");
-            });
-          document
-            .getElementById(`${testimonial}-testimonials`)
-            .classList.add("active");
-        });
-      });
-
-      // Testimonial slider controls
-      document
-        .querySelectorAll(".slider-controls .slider-arrow")
-        .forEach((arrow) => {
-          arrow.addEventListener("click", function () {
-            const isNext = this.classList.contains("next");
-            const dots =
-              this.parentElement.querySelector(".slider-dots").children;
-            let currentIndex = Array.from(dots).findIndex((dot) =>
-              dot.classList.contains("active")
-            );
-
-            if (isNext) {
-              currentIndex = (currentIndex + 1) % dots.length;
-            } else {
-              currentIndex = (currentIndex - 1 + dots.length) % dots.length;
-            }
-
-            Array.from(dots).forEach((dot, index) => {
-              dot.classList.toggle("active", index === currentIndex);
-            });
-
-            // In a real implementation, you would slide to the next card here
-          });
-        });
-
-      // Counter animation
-      const counters = document.querySelectorAll(".counter");
-
-      const animateCounter = (counter, target) => {
-        let count = 0;
-        const duration = 2000; // Animation duration in milliseconds
-        const frameRate = 30; // Frames per second
-        const increment = target / ((duration / 1000) * frameRate);
-
-        const timer = setInterval(() => {
-          count += increment;
-          if (count >= target) {
-            counter.textContent = target;
-            clearInterval(timer);
-          } else {
-            counter.textContent = Math.floor(count);
-          }
-        }, 1000 / frameRate);
-      };
-
-      // Start counter animation when elements come into view
-      const observeCounters = () => {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const counter = entry.target;
-                const target = parseInt(counter.textContent);
-                counter.textContent = "0";
-                animateCounter(counter, target);
-                observer.unobserve(counter);
-              }
-            });
-          },
-          { threshold: 0.5 }
-        );
-
-        counters.forEach((counter) => {
-          observer.observe(counter);
-        });
-      };
-
-      // Call the function when the page loads
-      window.addEventListener("load", observeCounters);
-
-      // Add this JavaScript to your existing scripts
-
-      document.addEventListener("DOMContentLoaded", function () {
-        // Blue gradient (default for owners)
-        const ownerGradient =
-          "linear-gradient(90deg, #4361ee 0%, #6979f8 100%)";
-
-        // Orange gradient (for tenants/seekers)
-        const tenantGradient =
-          "linear-gradient(90deg, #ff6b35 0%, #ff9a6b 100%)";
-
-        // Fix for Features Section
-        const featureToggleContainer = document.querySelector(
-          ".audience-toggle .toggle-container"
-        );
-        const featureHighlighter = document.querySelector(
-          ".audience-toggle .toggle-highlighter"
-        );
-        const featureOptions = document.querySelectorAll(
-          ".audience-toggle .toggle-option"
-        );
-        const featureRadios = document.querySelectorAll(
-          '.audience-toggle input[type="radio"]'
-        );
-
-        if (featureHighlighter) {
-          // Method 1: Add click listeners to the labels
-          featureOptions.forEach((option) => {
-            option.addEventListener("click", function () {
-              // Get the associated radio button
-              const radio = this.previousElementSibling;
-              if (radio && radio.value) {
-                const isTenants = radio.value === "tenants";
-                featureHighlighter.style.background = isTenants
-                  ? tenantGradient
-                  : ownerGradient;
-              }
-            });
-          });
-
-          // Method 2: Add change listeners to the radio buttons
-          featureRadios.forEach((radio) => {
-            radio.addEventListener("change", function () {
-              const isTenants = this.value === "tenants";
-              featureHighlighter.style.background = isTenants
-                ? tenantGradient
-                : ownerGradient;
-            });
-          });
-
-          // Method 3: Add a global click listener to the container
-          if (featureToggleContainer) {
-            featureToggleContainer.addEventListener("click", function (e) {
-              // Small delay to ensure the radio button state has updated
-              setTimeout(() => {
-                const checkedRadio = document.querySelector(
-                  '.audience-toggle input[type="radio"]:checked'
-                );
-                if (checkedRadio) {
-                  const isTenants = checkedRadio.value === "tenants";
-                  featureHighlighter.style.background = isTenants
-                    ? tenantGradient
-                    : ownerGradient;
-                }
-              }, 50);
-            });
-          }
-
-          // Initialize color based on initial checked state
-          const initialCheckedRadio = document.querySelector(
-            '.audience-toggle input[type="radio"]:checked'
-          );
-          if (initialCheckedRadio) {
-            const isTenants = initialCheckedRadio.value === "tenants";
-            featureHighlighter.style.background = isTenants
-              ? tenantGradient
-              : ownerGradient;
-          }
-        }
-
-        // Direct control for testing - you can call these functions from the console
-        window.setFeatureToggleColor = function (audience) {
-          if (featureHighlighter) {
-            featureHighlighter.style.background =
-              audience === "tenants" ? tenantGradient : ownerGradient;
-          }
-        };
-
-        // For Hero Section Switch
-        const heroSwitchOptions = document.querySelectorAll(".switch-option");
-        const heroHighlighter = document.querySelector(".switch-highlight");
-
-        // For Features Section Toggle
-        const featureToggles = document.querySelectorAll(".toggle-option");
-
-        // For Process Section Slider
-        const processButtons = document.querySelectorAll(".slider-button");
-        const processHighlighter = document.querySelector(
-          ".slider-highlighter"
-        );
-
-        // For Testimonials Section Switcher
-        const testimonialOptions =
-          document.querySelectorAll(".switcher-option");
-
-        // Function to handle color change for a toggle element
-        function setupToggleColorChange(toggleElements, highlighter) {
-          if (!toggleElements.length || !highlighter) return;
-
-          toggleElements.forEach((element) => {
-            element.addEventListener("click", function () {
-              const isForTenants =
-                this.getAttribute("data-target") === "tenant" ||
-                this.getAttribute("data-process") === "tenants" ||
-                this.getAttribute("data-testimonial") === "tenants" ||
-                this.getAttribute("for") === "tenants-toggle";
-
-              // Change highlighter color based on target audience
-              highlighter.style.background = isForTenants
-                ? tenantGradient
-                : ownerGradient;
-            });
-          });
-        }
-
-        // Setup color change for hero section
-        setupToggleColorChange(heroSwitchOptions, heroHighlighter);
-
-        // Setup color change for features section
-        if (featureToggles.length && featureHighlighter) {
-          const ownerToggle = document.getElementById("owners-toggle");
-          const tenantToggle = document.getElementById("tenants-toggle");
-
-          if (ownerToggle && tenantToggle) {
-            ownerToggle.addEventListener("change", function () {
-              if (this.checked) {
-                featureHighlighter.style.background = ownerGradient;
-              }
-            });
-
-            tenantToggle.addEventListener("change", function () {
-              if (this.checked) {
-                featureHighlighter.style.background = tenantGradient;
-              }
-            });
-          }
-        }
-
-        // Setup color change for process section
-        setupToggleColorChange(processButtons, processHighlighter);
-
-        // Setup color change for testimonials section buttons
-        if (testimonialOptions.length) {
-          testimonialOptions.forEach((option) => {
-            option.addEventListener("click", function () {
-              const isForTenants =
-                this.getAttribute("data-testimonial") === "tenants";
-
-              // For testimonials we need to change the icon background color
-              const iconElement = this.querySelector(".option-icon");
-              if (iconElement && this.classList.contains("active")) {
-                iconElement.style.background = isForTenants
-                  ? tenantGradient
-                  : ownerGradient;
-              }
-            });
-          });
-        }
-
-        // Initialize colors based on initial active state
-        function initializeColors() {
-          // Hero section
-          const activeHeroOption = document.querySelector(
-            ".switch-option.active"
-          );
-          if (activeHeroOption && heroHighlighter) {
-            const isForTenants =
-              activeHeroOption.getAttribute("data-target") === "tenant";
-            heroHighlighter.style.background = isForTenants
-              ? tenantGradient
-              : ownerGradient;
-          }
-
-          // Features section
-          const checkedFeatureInput = document.querySelector(
-            'input[name="audience"]:checked'
-          );
-          if (checkedFeatureInput && featureHighlighter) {
-            const isForTenants = checkedFeatureInput.value === "tenants";
-            featureHighlighter.style.background = isForTenants
-              ? tenantGradient
-              : ownerGradient;
-          }
-
-          // Process section
-          const activeProcessButton = document.querySelector(
-            ".slider-button.active"
-          );
-          if (activeProcessButton && processHighlighter) {
-            const isForTenants =
-              activeProcessButton.getAttribute("data-process") === "tenants";
-            processHighlighter.style.background = isForTenants
-              ? tenantGradient
-              : ownerGradient;
-          }
-
-          // Testimonials section
-          const activeTestimonialOption = document.querySelector(
-            ".switcher-option.active"
-          );
-          if (activeTestimonialOption) {
-            const iconElement =
-              activeTestimonialOption.querySelector(".option-icon");
-            if (iconElement) {
-              const isForTenants =
-                activeTestimonialOption.getAttribute("data-testimonial") ===
-                "tenants";
-              iconElement.style.background = isForTenants
-                ? tenantGradient
-                : ownerGradient;
-            }
-          }
-        }
-
-        // Initialize colors on page load
-        initializeColors();
-
-        // Demo Modal Script
-        const demoModal = document.getElementById("demoModal");
-        const openDemoModalBtn = document.getElementById("openDemoModalBtn");
-        const closeDemoModalBtn = document.querySelector(".demo-modal-close");
-        const demoForm = document.getElementById("demoForm");
-        const demoSuccessMessage = document.getElementById("demoSuccessMessage");
-        const closeSuccessBtn = document.getElementById("closeSuccessBtn");
-        const demoButtons = document.querySelectorAll("a[href='/contactus.html']");
-
-        if (openDemoModalBtn) {
-          openDemoModalBtn.addEventListener("click", () => {
-            demoModal.style.display = "block";
-            demoForm.style.display = "block";
-            demoSuccessMessage.style.display = "none";
-            document.body.style.overflow = "hidden"; // Prevent scrolling
-          });
-        }
-        
-        demoButtons.forEach(btn => {
-          if(btn.innerText.includes('Schedule Demo')) {
-             btn.addEventListener("click", (e) => {
-               e.preventDefault();
-               demoModal.style.display = "block";
-               demoForm.style.display = "block";
-               demoSuccessMessage.style.display = "none";
-               document.body.style.overflow = "hidden";
-             });
-          }
-        });
-
-        if (closeDemoModalBtn) {
-          closeDemoModalBtn.addEventListener("click", () => {
-            demoModal.style.display = "none";
-            document.body.style.overflow = "auto";
-          });
-        }
-        
-        if (closeSuccessBtn) {
-          closeSuccessBtn.addEventListener("click", () => {
-            demoModal.style.display = "none";
-            document.body.style.overflow = "auto";
-            demoForm.reset();
-          });
-        }
-
-        window.addEventListener("click", (event) => {
-          if (event.target === demoModal) {
-            demoModal.style.display = "none";
-            document.body.style.overflow = "auto";
-          }
-        });
-
-        if (demoForm) {
-          demoForm.addEventListener("submit", (e) => {
-            e.preventDefault(); // Prevent default mailto
-            
-            const submitBtn = demoForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-
-            const formData = new FormData(demoForm);
-            formData.append("_captcha", "false");
-
-            fetch("https://formsubmit.co/ajax/suryavamsi.d@pgfy.in", {
-                method: "POST",
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                demoForm.style.display = "none";
-                demoSuccessMessage.style.display = "block";
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            })
-            .catch(error => {
-                console.error(error);
-                alert("There was an error submitting the form. Please try again.");
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            });
-          });
-        }
-
-
-        // Add Property Multi-step Modal Script
-        const addPropertyModal = document.getElementById("addPropertyModal");
-        const addPropertyBtns = document.querySelectorAll(".add-property-button");
-        const closeAddPropertyBtn = document.querySelector(".add-property-close");
-        const addPropertyForm = document.getElementById("addPropertyForm");
-        const addPropertySuccessMessage = document.getElementById("addPropertySuccessMessage");
-        const closeAddPropertySuccessBtn = document.getElementById("closeAddPropertySuccessBtn");
-        
-        const nextBtns = document.querySelectorAll('.next-step-btn');
-        const prevBtns = document.querySelectorAll('.prev-step-btn');
-        const formSteps = document.querySelectorAll('.form-step');
-        const stepIndicators = document.querySelectorAll('.step-indicator .step');
-
-        function openAddPropertyModal(e) {
-          e.preventDefault();
-          addPropertyModal.style.display = "block";
-          addPropertyForm.style.display = "block";
-          addPropertySuccessMessage.style.display = "none";
-          document.body.style.overflow = "hidden";
-          showStep(1);
-        }
-
-        // Also capture the pulse button and any a tag that says List Property
-        const allLinks = document.querySelectorAll("a, button");
-        allLinks.forEach(btn => {
-          if(btn.innerText && btn.innerText.includes('List Property')) {
-             btn.addEventListener("click", (e) => {
-               e.preventDefault();
-               addPropertyModal.style.display = "block";
-               addPropertyForm.style.display = "block";
-               addPropertySuccessMessage.style.display = "none";
-               document.body.style.overflow = "hidden";
-               showStep(1);
-             });
-          }
-        });
-
-
-        if (addPropertyBtns.length > 0) {
-          addPropertyBtns.forEach(btn => btn.addEventListener("click", openAddPropertyModal));
-        }
-
-        if (closeAddPropertyBtn) {
-          closeAddPropertyBtn.addEventListener("click", () => {
-            addPropertyModal.style.display = "none";
-            document.body.style.overflow = "auto";
-          });
-        }
-        
-        if (closeAddPropertySuccessBtn) {
-          closeAddPropertySuccessBtn.addEventListener("click", () => {
-            addPropertyModal.style.display = "none";
-            document.body.style.overflow = "auto";
-            if (addPropertyForm) addPropertyForm.reset();
-            showStep(1);
-          });
-        }
-
-        window.addEventListener("click", (event) => {
-          if (event.target === addPropertyModal) {
-            addPropertyModal.style.display = "none";
-            document.body.style.overflow = "auto";
-          }
-        });
-
-        // Step Navigation Logic
-        function showStep(stepNumber) {
-          if (!formSteps || formSteps.length === 0) return;
-          formSteps.forEach(step => step.style.display = "none");
-          const targetStep = document.getElementById('step' + stepNumber);
-          if (targetStep) targetStep.style.display = "block";
-          
-          stepIndicators.forEach((indicator, index) => {
-            if (index + 1 < stepNumber) {
-              indicator.className = "step completed";
-            } else if (index + 1 === parseInt(stepNumber)) {
-              indicator.className = "step active";
-            } else {
-              indicator.className = "step";
-            }
-          });
-        }
-
-        if (nextBtns) {
-          nextBtns.forEach(btn => {
-            btn.addEventListener("click", () => {
-              // Validate current step before proceeding
-              const currentStepDiv = btn.closest('.form-step');
-              if (currentStepDiv) {
-                const inputs = currentStepDiv.querySelectorAll('input[required], select[required], textarea[required]');
-                let isValid = true;
-                for (let i = 0; i < inputs.length; i++) {
-                  if (!inputs[i].checkValidity()) {
-                    inputs[i].reportValidity();
-                    isValid = false;
-                    break; // Stop at the first invalid input
-                  }
-                }
-                if (!isValid) return; // Prevent navigation if invalid
-              }
-
-              const nextStep = btn.getAttribute('data-next');
-              showStep(nextStep);
-            });
-          });
-        }
-
-        if (prevBtns) {
-          prevBtns.forEach(btn => {
-            btn.addEventListener("click", () => {
-              const prevStep = btn.getAttribute('data-prev');
-              showStep(prevStep);
-            });
-          });
-        }
-
-        if (addPropertyForm) {
-          addPropertyForm.addEventListener("submit", (e) => {
-            e.preventDefault(); // Prevent default mailto/navigation
-            
-            // Change submit button text to indicate loading
-            const submitBtn = addPropertyForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-
-            // Collect form data
-            const formData = new FormData(addPropertyForm);
-            
-            // Formsubmit.co requires '_captcha' to be disabled for seamless AJAX
-            formData.append("_captcha", "false");
-
-            fetch("https://formsubmit.co/ajax/suryavamsi.d@pgfy.in", {
-                method: "POST",
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Success
-                addPropertyForm.style.display = "none";
-                addPropertySuccessMessage.style.display = "block";
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            })
-            .catch(error => {
-                console.error(error);
-                alert("There was an error submitting the form. Please try again.");
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            });
-          });
-        }
-
-      });
-    </script>
-  
-    <!-- Demo Modal -->
-    <div id="demoModal" class="demo-modal">
-      <div class="demo-modal-content">
-        <span class="demo-modal-close">&times;</span>
-        <h2>Schedule a Demo</h2>
-        
-        <form id="demoForm" class="demo-form" action="https://formsubmit.co/suryavamsi.d@pgfy.in" method="POST" enctype="multipart/form-data" novalidate>
-          <div class="form-section">
-            <h3>Personal Information</h3>
-            <div class="form-group">
-              <label>Full Name*</label>
-              <input type="text" name="FullName" placeholder="Enter your full name" required>
-            </div>
-            <div class="form-group">
-              <label>Mobile Number*</label>
-              <input type="tel" name="MobileNumber" placeholder="+91 Enter mobile number" required>
-            </div>
-            <div class="form-group">
-              <label>Email Address</label>
-              <input type="email" name="EmailAddress" placeholder="Enter your email address" >
-            </div>
-          </div>
-
-          <div class="form-section">
-            <h3>Property Information</h3>
-            <div class="form-group">
-              <label>Property Name*</label>
-              <input type="text" name="PropertyName" placeholder="e.g., Sai Residency PG" required>
-            </div>
-            <div class="form-group">
-              <label>Property Type*</label>
-              <select name="PropertyType" required>
-                <option value="" disabled selected>Select Property Type</option>
-                <option value="Boys PG">Boys PG</option>
-                <option value="Girls PG">Girls PG</option>
-                <option value="Co-Living Space">Co-Living Space</option>
-                <option value="Student Hostel">Student Hostel</option>
-                <option value="Working Professionals Hostel">Working Professionals Hostel</option>
-                <option value="Apartment Rental">Apartment Rental</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>City*</label>
-              <input type="text" name="City" placeholder="e.g., Hyderabad" required>
-            </div>
-            <div class="form-group">
-              <label>State*</label>
-              <input type="text" name="State" placeholder="Enter your state" required>
-            </div>
-          </div>
-
-          <div class="form-section">
-            <h3>Demo Preferences</h3>
-            <div class="form-group">
-              <label>Preferred Demo Date*</label>
-              <input type="date" name="PreferredDate" required>
-            </div>
-            <div class="form-group">
-              <label>Preferred Time Slot*</label>
-              <select name="PreferredTimeSlot" required>
-                <option value="" disabled selected>Select time slot</option>
-                <option value="10:00 AM - 12:00 PM">10:00 AM – 12:00 PM</option>
-                <option value="12:00 PM - 2:00 PM">12:00 PM – 2:00 PM</option>
-                <option value="2:00 PM - 4:00 PM">2:00 PM – 4:00 PM</option>
-                <option value="4:00 PM - 6:00 PM">4:00 PM – 6:00 PM</option>
-                <option value="Flexible">Flexible</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Preferred Meeting Mode*</label>
-              <div class="radio-group">
-                <label><input type="radio" name="MeetingMode" value="Google Meet" required> Google Meet</label>
-                <label><input type="radio" name="MeetingMode" value="Zoom" required> Zoom</label>
-                <label><input type="radio" name="MeetingMode" value="Phone Call" required> Phone Call</label>
-                <label><input type="radio" name="MeetingMode" value="WhatsApp Call" required> WhatsApp Call</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-section">
-            <h3>Additional Information</h3>
-            <div class="form-group">
-              <label>What challenges are you facing?</label>
-              <div class="checkbox-group">
-                <label><input type="checkbox" name="Challenges" value="Tenant Management"> Tenant Management</label>
-                <label><input type="checkbox" name="Challenges" value="Rent Collection"> Rent Collection</label>
-                <label><input type="checkbox" name="Challenges" value="Occupancy Tracking"> Occupancy Tracking</label>
-                <label><input type="checkbox" name="Challenges" value="Digital KYC"> Digital KYC</label>
-                <label><input type="checkbox" name="Challenges" value="Accounting & Reports"> Accounting & Reports</label>
-                <label><input type="checkbox" name="Challenges" value="Maintenance Management"> Maintenance Management</label>
-                <label><input type="checkbox" name="Challenges" value="Marketing & Lead Gen"> Lead Generation</label>
-                <label><input type="checkbox" name="Challenges" value="Other"> Other</label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Additional Notes</label>
-              <textarea name="AdditionalNotes" placeholder="Tell us about your property or requirements" rows="4"></textarea>
-            </div>
-          </div>
-
-          <button type="submit" class="schedule-button" >
-             Schedule My Demo
-          </button>
-        </form>
-
-        <div id="demoSuccessMessage" class="success-message" style="display: none;">
-          <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-          <h3>✅ Thank you for your interest in PGfy!</h3>
-          <p>Our team has received your request and will contact you shortly to confirm the demo schedule.</p>
-          <button id="closeSuccessBtn" class="outline-button" style="margin-top: 20px;">Close</button>
-        </div>
-      </div>
-    </div>
-
-  
-    <!-- Add Property Modal -->
-    <div id="addPropertyModal" class="demo-modal">
-      <div class="demo-modal-content">
-        <span class="add-property-close demo-modal-close">&times;</span>
-        <h2>List your Property for Free</h2>
-        
-        <div class="step-indicator">
-          <div class="step active" data-step="1">1. Basic Info</div>
-          <div class="step" data-step="2">2. Property Info</div>
-          <div class="step" data-step="3">3. Pricing & Amenities</div>
-          <div class="step" data-step="4">4. Documents</div>
-        </div>
-
-        <form id="addPropertyForm" class="demo-form" action="https://formsubmit.co/suryavamsi.d@pgfy.in" method="POST" enctype="multipart/form-data" novalidate>
-          
-          <!-- Step 1: Basic Information -->
-          <div class="form-step active" id="step1">
-            <h3>Step 1: Basic Information</h3>
-            <div class="form-group">
-              <label>Full Name*</label>
-              <input type="text" name="FullName" placeholder="Enter your full name" required>
-            </div>
-            <div class="form-group">
-              <label>Mobile Number*</label>
-              <input type="tel" name="MobileNumber" placeholder="Enter mobile number" required>
-            </div>
-            <div class="form-group">
-              <label>Email Address</label>
-              <input type="email" name="EmailAddress" placeholder="Enter your email address">
-            </div>
-            <div class="form-group">
-              <label>Property Name*</label>
-              <input type="text" name="PropertyName" placeholder="e.g., Sai Residency PG" required>
-            </div>
-            <div class="form-group">
-              <label>City*</label>
-              <input type="text" name="City" placeholder="Enter your city" required>
-            </div>
-            <div class="form-group">
-              <label>Property Type*</label>
-              <select name="PropertyType" required>
-                <option value="" disabled selected>Select Property Type</option>
-                <option value="Boys PG">Boys PG</option>
-                <option value="Girls PG">Girls PG</option>
-                <option value="Co-Living Space">Co-Living Space</option>
-                <option value="Student Hostel">Student Hostel</option>
-                <option value="Working Professionals Hostel">Working Professionals Hostel</option>
-                <option value="Apartment Rental">Apartment Rental</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div class="button-group" style="justify-content: flex-end;">
-              <button type="button" class="next-step-btn" data-next="2" >
-                Continue
-              </button>
-            </div>
-          </div>
-
-          <!-- Step 2: Property Information -->
-          <div class="form-step" id="step2" style="display: none;">
-            <h3>Step 2: Property Information</h3>
-            <div class="form-group">
-              <label>Property Address</label>
-              <textarea name="PropertyAddress" placeholder="Enter full property address" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-              <label>Google Maps Link</label>
-              <input type="url" name="GoogleMapsLink" placeholder="Paste Google Maps URL">
-            </div>
-            <div class="form-group">
-              <label>Contact Person</label>
-              <input type="text" name="ContactPerson" placeholder="Enter contact person name">
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Number of Rooms</label>
-                <input type="number" name="NumberOfRooms" placeholder="Enter total rooms">
-              </div>
-              <div class="form-group">
-                <label>Number of Beds</label>
-                <input type="number" name="NumberOfBeds" placeholder="Enter total beds">
-              </div>
-            </div>
-            <div class="button-group" >
-              <button type="button" class=" prev-step-btn" data-prev="1" >Back</button>
-              <button type="button" class=" next-step-btn" data-next="3" >Continue</button>
-            </div>
-          </div>
-
-          <!-- Step 3: Pricing & Amenities -->
-          <div class="form-step" id="step3" style="display: none;">
-            <h3>Step 3: Pricing & Amenities</h3>
-            <div class="form-group">
-              <label>Room Types</label>
-              <input type="text" name="RoomTypes" placeholder="e.g., 1 Sharing, 2 Sharing, 3 Sharing">
-            </div>
-            <div class="form-group">
-              <label>Rent Amount (Starting from)</label>
-              <input type="text" name="RentAmount" placeholder="e.g., ₹5000 / month">
-            </div>
-            <div class="form-group">
-              <label>Security Deposit</label>
-              <input type="text" name="SecurityDeposit" placeholder="e.g., 1 Month Rent">
-            </div>
-            <div class="form-group">
-              <label>Amenities</label>
-              <div class="checkbox-group">
-                <label><input type="checkbox" name="Amenities" value="Wi-Fi"> Wi-Fi</label>
-                <label><input type="checkbox" name="Amenities" value="Food"> Food Included</label>
-                <label><input type="checkbox" name="Amenities" value="Laundry"> Laundry</label>
-                <label><input type="checkbox" name="Amenities" value="AC"> AC</label>
-                <label><input type="checkbox" name="Amenities" value="Power Backup"> Power Backup</label>
-                <label><input type="checkbox" name="Amenities" value="CCTV"> CCTV Security</label>
-                <label><input type="checkbox" name="Amenities" value="Parking"> Parking</label>
-                <label><input type="checkbox" name="Amenities" value="Housekeeping"> Housekeeping</label>
-              </div>
-            </div>
-            <div class="button-group" >
-              <button type="button" class=" prev-step-btn" data-prev="2" >Back</button>
-              <button type="button" class=" next-step-btn" data-next="4" >Continue</button>
-            </div>
-          </div>
-
-          <!-- Step 4: Documents -->
-          <div class="form-step" id="step4" style="display: none;">
-            <h3>Step 4: Documents (Optional Initially)</h3>
-            <div class="form-group">
-              <label>Trade License</label>
-              <input type="file" name="TradeLicense">
-            </div>
-            <div class="form-group">
-              <label>FSSAI Certificate</label>
-              <input type="file" name="FSSAI">
-            </div>
-            <div class="form-group">
-              <label>Fire & Safety Certificate</label>
-              <input type="file" name="FireSafety">
-            </div>
-            <div class="form-group">
-              <label>Other Documents</label>
-              <input type="file" name="OtherDocuments" multiple>
-            </div>
-            <div class="button-group" >
-              <button type="button" class=" prev-step-btn" data-prev="3" >Back</button>
-              <button type="submit" class="property-submit-button" >Submit Property</button>
-            </div>
-          </div>
-        </form>
-
-        <div id="addPropertySuccessMessage" class="success-message" style="display: none;">
-          <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-          <h3>Property Submitted Successfully!</h3>
-          <p>Welcome to PGfy. Our onboarding team will review your details and contact you to complete your setup.</p>
-          <button id="closeAddPropertySuccessBtn" class="outline-button" style="margin-top: 20px;">Close</button>
-        </div>
-      </div>
-    </div>
-
-  </body>
+    });
+  </script>
+</body>
 </html>
