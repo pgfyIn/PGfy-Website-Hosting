@@ -712,9 +712,7 @@
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .main-navbar-menu.active {
-          display: flex;
-        }
+        
 
         .nav-buttons {
           flex-direction: column;
@@ -722,6 +720,9 @@
         }
 
         .main-navbar-toggle {
+          display: flex;
+        }
+        .main-navbar-menu.active {
           display: flex;
         }
 
@@ -770,6 +771,23 @@
         h2 {
           font-size: 1.8rem;
         }
+        .overlap-group{
+          height: 360px;
+        }
+
+        .overlap-group  .img-main{
+          width: 100%;
+          height: 360px;
+        }
+        .overlap-group  .img-overlap{
+          width: 40%;
+          height: 140px;
+          bottom: 0%;
+          right: 0%;
+          border-top-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+          border-color: var(--bg-light);
+        }
 
         .hero-cta,
         .cta-buttons {
@@ -817,11 +835,14 @@
         }
 
         .footer-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr 1fr;
         }
 
         .footer-brand {
-          grid-column: span 1;
+          grid-column: span 2;
+        }
+        .footer-top{
+          padding: 16px;
         }
       }
       /* Snake Timeline Styles */
@@ -1007,7 +1028,13 @@
             </a>
           </div>
 
-          <div class="main-navbar-menu">
+          
+        <div class="main-navbar-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="main-navbar-menu">
             <a href="/#features" class="main-navbar-link">Features</a>
             <a href="/#how-it-works" class="main-navbar-link">How it Works</a>
             <a href="/#testimonials" class="main-navbar-link">Testimonials</a>
@@ -1590,5 +1617,21 @@
         </div>
       </div>
     </footer>
-  </body>
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.querySelector(".main-navbar-toggle");
+        const menu = document.querySelector(".main-navbar-menu");
+        if (toggleBtn && menu) {
+          // Remove old listeners by replacing node if necessary, but just adding is fine if we make sure it doesn't double trigger.
+          // Better: just assign onclick
+          toggleBtn.onclick = function() {
+            this.classList.toggle("active");
+            menu.classList.toggle("active");
+          };
+        }
+      });
+    </script>
+
+</body>
 </html>

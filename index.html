@@ -3530,11 +3530,14 @@
         }
 
         .footer-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr 1fr;
         }
 
         .footer-brand {
-          grid-column: span 1;
+          grid-column: span 2;
+        }
+        .main-navbar-menu.active {
+          display: flex;
         }
       }
     
@@ -3766,6 +3769,12 @@
           </a>
         </div>
 
+        
+        <div class="main-navbar-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <div class="main-navbar-menu">
           <a href="/#features" class="main-navbar-link">Features</a>
           <a href="/#how-it-works" class="main-navbar-link">How it Works</a>
@@ -4909,14 +4918,16 @@
 
     <script>
       // Mobile menu toggle
-      document
-        .querySelector(".main-navbar-toggle")
-        ?.addEventListener("click", function () {
-          this.classList.toggle("active");
-          document
-            .querySelector(".main-navbar-menu")
-            .classList.toggle("active");
-        });
+      const toggleBtn = document.querySelector(".main-navbar-toggle");
+        const menu = document.querySelector(".main-navbar-menu");
+        if (toggleBtn && menu) {
+          // Remove old listeners by replacing node if necessary, but just adding is fine if we make sure it doesn't double trigger.
+          // Better: just assign onclick
+          toggleBtn.onclick = function() {
+            this.classList.toggle("active");
+            menu.classList.toggle("active");
+          };
+        }
 
       // Scroll effect
       window.addEventListener("scroll", () => {
@@ -5834,5 +5845,21 @@
       </div>
     </div>
 
-  </body>
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.querySelector(".main-navbar-toggle");
+        const menu = document.querySelector(".main-navbar-menu");
+        if (toggleBtn && menu) {
+          // Remove old listeners by replacing node if necessary, but just adding is fine if we make sure it doesn't double trigger.
+          // Better: just assign onclick
+          toggleBtn.onclick = function() {
+            this.classList.toggle("active");
+            menu.classList.toggle("active");
+          };
+        }
+      });
+    </script>
+
+</body>
 </html>
