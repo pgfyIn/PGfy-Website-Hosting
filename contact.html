@@ -374,6 +374,178 @@
           font-size: 3rem;
         }
       }
+      @media (max-width: 1200px) {
+        .footer-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .footer-brand {
+          grid-column: span 3;
+        }
+      }
+
+      @media (max-width: 992px) {
+        section {
+          padding: 100px 0;
+        }
+
+        .hero {
+          padding: 150px 0 100px;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 60px;
+        }
+
+        .cta-grid {
+          grid-template-columns: 1fr;
+          gap: 60px;
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-brand {
+          grid-column: span 2;
+        }
+      }
+
+      @media (max-width: 768px) {
+        section {
+          padding: 80px 0;
+        }
+
+        .container {
+          padding: 0 20px;
+        }
+
+        .main-navbar-menu {
+          display: none;
+          position: absolute;
+          top: 80px;
+          left: 0;
+          width: 100%;
+          background: white;
+          padding: 20px;
+          flex-direction: column;
+          gap: 20px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-navbar-menu.active {
+          display: flex;
+        }
+
+        .nav-buttons {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .main-navbar-toggle {
+          display: flex;
+        }
+
+        .main-navbar-toggle.active span:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+
+        .main-navbar-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+
+        .main-navbar-toggle.active span:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .floating-element {
+          display: none;
+        }
+
+        .clients-bar {
+          margin-top: 40px;
+          padding: 30px;
+        }
+
+        .process-steps {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .step-connector {
+          display: none;
+        }
+
+        .footer-bottom-content {
+          flex-direction: column;
+          gap: 12px;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 576px) {
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        h2 {
+          font-size: 1.8rem;
+        }
+
+        .hero-cta,
+        .cta-buttons {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .switch-track {
+          width: 100%;
+        }
+
+        .switch-option {
+          width: 50%;
+          justify-content: center;
+          padding: 12px 10px;
+        }
+
+        .slider-track {
+          width: 100%;
+        }
+
+        .slider-button {
+          width: 50%;
+          justify-content: center;
+          padding: 12px 10px;
+        }
+
+        .toggle-container {
+          width: 100%;
+        }
+
+        .toggle-option {
+          width: 50%;
+          justify-content: center;
+          min-width: auto;
+          padding: 12px 10px;
+        }
+
+        .toggle-highlighter {
+          width: 50%;
+        }
+
+        .testimonial-switcher {
+          flex-direction: column;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .footer-brand {
+          grid-column: span 2;
+        }
+      }
 
     </style>
   </head>
@@ -387,6 +559,12 @@
           </a>
         </div>
 
+        
+        <div class="main-navbar-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <div class="main-navbar-menu">
           <a href="/#features" class="main-navbar-link">Features</a>
           <a href="/#how-it-works" class="main-navbar-link">How it Works</a>
@@ -608,15 +786,33 @@
     <script>
       // Simple toggle for mobile navbar
       document.addEventListener('DOMContentLoaded', () => {
-        const toggleBtn = document.querySelector('.main-navbar-toggle');
-        const menu = document.querySelector('.main-navbar-menu');
+         const toggleBtn = document.querySelector(".main-navbar-toggle");
+        const menu = document.querySelector(".main-navbar-menu");
         if (toggleBtn && menu) {
-          toggleBtn.addEventListener('click', () => {
-            menu.classList.toggle('active');
-            toggleBtn.classList.toggle('active');
-          });
+          // Remove old listeners by replacing node if necessary, but just adding is fine if we make sure it doesn't double trigger.
+          // Better: just assign onclick
+          toggleBtn.onclick = function() {
+            this.classList.toggle("active");
+            menu.classList.toggle("active");
+          };
         }
       });
     </script>
-  </body>
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.querySelector(".main-navbar-toggle");
+        const menu = document.querySelector(".main-navbar-menu");
+        if (toggleBtn && menu) {
+          // Remove old listeners by replacing node if necessary, but just adding is fine if we make sure it doesn't double trigger.
+          // Better: just assign onclick
+          toggleBtn.onclick = function() {
+            this.classList.toggle("active");
+            menu.classList.toggle("active");
+          };
+        }
+      });
+    </script>
+
+</body>
 </html>

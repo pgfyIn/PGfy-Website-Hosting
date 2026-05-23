@@ -520,7 +520,7 @@
         }
 
         .footer-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr 1fr;
           gap: 40px;
           margin-bottom: 40px;
         }
@@ -529,6 +529,12 @@
           flex-direction: column;
           gap: 12px;
           text-align: center;
+        }
+        .footer-top{
+          padding: 16px;
+        }
+        .footer{
+          padding: 0px;
         }
       }
     </style>
@@ -544,6 +550,12 @@
           </a>
         </div>
 
+        
+        <div class="main-navbar-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <div class="main-navbar-menu">
           <a href="/#features" class="main-navbar-link">Features</a>
           <a href="/#how-it-works" class="main-navbar-link">How it Works</a>
@@ -776,5 +788,21 @@
         </div>
       </div>
     </footer>
-  </body>
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.querySelector(".main-navbar-toggle");
+        const menu = document.querySelector(".main-navbar-menu");
+        if (toggleBtn && menu) {
+          // Remove old listeners by replacing node if necessary, but just adding is fine if we make sure it doesn't double trigger.
+          // Better: just assign onclick
+          toggleBtn.onclick = function() {
+            this.classList.toggle("active");
+            menu.classList.toggle("active");
+          };
+        }
+      });
+    </script>
+
+</body>
 </html>
