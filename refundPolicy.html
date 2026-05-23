@@ -11,6 +11,24 @@
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
 
     <style>
+      :root {
+        --primary: #4361ee;
+        --primary-dark: #3a56d4;
+        --primary-light: #99a8ff;
+        --secondary: #ff6b35;
+        --secondary-dark: #e85a2a;
+        --secondary-light: #ffaa8a;
+        --text: #1e293b;
+        --text-light: #64748b;
+        --bg: #ffffff;
+        --bg-light: #f8fafc;
+        --bg-dark: #0f172a;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        --radius: 16px;
+        --radius-lg: 24px;
+        --radius-sm: 8px;
+        --transition: all 0.3s ease;
+      }
       /* Base styles */
       * {
         margin: 0;
@@ -198,9 +216,9 @@
 
       /* Main Content */
       .container {
-        max-width: 900px;
+        max-width: 1200px;
         margin: 0 auto;
-        padding: 60px 24px;
+        
       }
 
       .refund-card {
@@ -313,211 +331,137 @@
 
       /* Footer */
       .footer {
-        background: #1e293b;
-        color: #f8fafc;
+        background: var(--bg-dark);
+        color: white;
+        position: relative;
+      }
+
+      .footer-waves {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        overflow: hidden;
+      }
+
+      .footer-waves svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
       }
 
       .footer-top {
-        padding: 80px 0 40px;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 24px;
+        padding: 40px 64px;
       }
 
       .footer-grid {
         display: grid;
-        grid-template-columns: 2fr repeat(3, 1fr) 1.5fr;
-        gap: 60px;
+        grid-template-columns: 2fr repeat(4, 1fr);
+        gap: 40px;
       }
 
-      /* Brand Section */
-      .footer-brand {
-        margin-right: 40px;
-      }
-
-      .brand {
+      .footer-logo {
         display: flex;
         align-items: center;
         gap: 12px;
         margin-bottom: 20px;
       }
 
-      .brand i {
-        font-size: 24px;
-        color: #60a5fa;
-      }
-
-      .brand h3 {
+      .footer-logo h3 {
         font-size: 24px;
         font-weight: 700;
-        color: #fff;
+        color: white;
+        margin: 0;
+      }
+
+      .footer-logo .highlight {
+        color: var(--primary-light);
       }
 
       .footer-brand p {
         color: #94a3b8;
         line-height: 1.6;
-        margin-bottom: 24px;
+        margin-bottom: 30px;
+        max-width: 340px;
       }
 
-      /* Social Links */
       .social-links {
         display: flex;
         gap: 16px;
       }
 
       .social-link {
-        width: 36px;
-        height: 36px;
+        width: 40px;
+        height: 40px;
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 8px;
         background: rgba(255, 255, 255, 0.1);
-        color: #fff;
-        transition: all 0.3s ease;
+        color: white;
+        transition: var(--transition);
+        text-decoration: none;
       }
 
       .social-link:hover {
-        background: #60a5fa;
-        transform: translateY(-2px);
+        background: var(--primary);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       }
 
-      /* Links Groups */
       .footer-links-group h4 {
-        color: #fff;
-        font-size: 16px;
-        font-weight: 600;
+        color: white;
+        font-size: 18px;
         margin-bottom: 24px;
+        font-weight: 600;
       }
 
       .footer-links-group ul {
         list-style: none;
-        padding: 0;
       }
 
       .footer-links-group li {
-        margin-bottom: 12px;
+        margin-bottom: 16px;
       }
 
       .footer-links-group a {
         color: #94a3b8;
         text-decoration: none;
+        transition: var(--transition);
+        display: inline-block;
+        position: relative;
+        padding-left: 0;
+      }
+
+      .footer-links-group a::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 1px;
+        background: var(--primary-light);
         transition: all 0.3s ease;
-        font-size: 14px;
+        opacity: 0;
       }
 
       .footer-links-group a:hover {
-        color: #60a5fa;
-        padding-left: 5px;
+        color: white;
+        padding-left: 10px;
       }
 
-      /* Footer Bottom */
-      .footer {
-        background: #1e293b;
-        color: #f8fafc;
-        padding-top: 60px;
+      .footer-links-group a:hover::before {
+        width: 4px;
+        height: 4px;
+        border-radius: 4px;
+        opacity: 1;
+        background-color: #f8fafc;
       }
 
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 24px;
-      }
-
-      .footer-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
-        gap: 60px;
-        margin-bottom: 60px;
-      }
-
-      /* Brand Section */
-      .footer-brand {
-        max-width: 400px;
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 20px;
-      }
-
-      .brand i {
-        font-size: 24px;
-        color: #60a5fa;
-      }
-
-      .brand h3 {
-        font-size: 24px;
-        font-weight: 700;
-        color: #fff;
-        margin: 0;
-      }
-
-      .footer-brand p {
-        color: #94a3b8;
-        line-height: 1.6;
-        margin-bottom: 24px;
-      }
-
-      /* Social Links */
-      .social-links {
-        display: flex;
-        gap: 16px;
-      }
-
-      .social-link {
-        width: 36px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.1);
-        color: #fff;
-        transition: all 0.3s ease;
-      }
-
-      .social-link:hover {
-        background: #2563eb;
-        transform: translateY(-2px);
-      }
-
-      /* Links Groups */
-      .footer-links-group h4 {
-        color: #fff;
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 24px;
-      }
-
-      .footer-links-group ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .footer-links-group li {
-        margin-bottom: 12px;
-      }
-
-      .footer-links-group a {
-        color: #94a3b8;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        font-size: 14px;
-      }
-
-      .footer-links-group a:hover {
-        color: #fff;
-        padding-left: 5px;
-      }
-
-      /* Footer Bottom */
       .footer-bottom {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         padding: 24px 0;
@@ -531,21 +475,33 @@
 
       .footer-bottom p {
         color: #94a3b8;
-        font-size: 14px;
         margin: 0;
+        font-size: 14px;
       }
 
-      .footer-credits a {
+      .footer-credits{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        gap:2px;
+      }
+
+      .footer-credits p {
         color: #94a3b8;
         text-decoration: none;
         font-size: 14px;
         transition: color 0.3s ease;
       }
 
-      .footer-credits a:hover {
-        color: #fff;
+      .footer-credits p span{
+        font-weight: 500;
+        color:#e2e8f0
       }
 
+      .footer-credits a:hover {
+        color: white;
+      }
       @media (max-width: 992px) {
         .footer-grid {
           grid-template-columns: 1fr 1fr;
@@ -583,31 +539,20 @@
       <div class="main-navbar-container">
         <div class="main-navbar-brand">
           <a href="/" class="main-navbar-logo">
-            <img class="logo-img" src="./pgfylogo.png" alt="PGfy Logo" />
-            <span>PG</span><span class="main-navbar-highlight">fy</span>
+            <img class="logo-img" src="./pgfylogo.jpg" alt="PGfy Logo" />
+            <span></span><span class="main-navbar-highlight">PGfy</span>
           </a>
         </div>
 
         <div class="main-navbar-menu">
-          <a href="#features" class="main-navbar-link">Features</a>
-
-          <a href="#process" class="main-navbar-link">How it Works</a>
-          <a
-            href="./about.html"
-            target="_blank"
-            class="main-navbar-link"
-            >About Us</a
-          >
-          <a href="/contactus.html" class="main-navbar-button">
-            Get in Touch
-          </a>
+          <a href="/#features" class="main-navbar-link">Features</a>
+          <a href="/#how-it-works" class="main-navbar-link">How it Works</a>
+          <a href="/#testimonials" class="main-navbar-link">Testimonials</a>
+          <a href="/journey.html" class="main-navbar-link">About Us</a>
+          <a href="./contact.html" class="main-navbar-link">Contact Us</a>
+        
         </div>
-
-        <button class="main-navbar-toggle" aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+ 
       </div>
     </nav>
     <header class="header">
@@ -729,17 +674,18 @@
 
     <!-- Footer -->
     <footer class="footer">
+      
       <div class="footer-top">
         <div class="container">
           <div class="footer-grid">
             <div class="footer-brand">
-              <div class="brand">
-                <i class="fas fa-building"></i>
-                <h3>PGfy</h3>
+              <div class="footer-logo">
+                <img class="logo-img" src="./pgfylogo.jpg" alt="PGfy Logo" />
+                <h3><span class="highlight">PGfy</span></h3>
               </div>
               <p>
-                Making PG management effortless with smart technology and
-                seamless automation.
+                Making PG discovery and management effortless with smart
+                technology and seamless automation.
               </p>
               <div class="social-links">
                 <a
@@ -774,20 +720,44 @@
             </div>
 
             <div class="footer-links-group">
-              <h4>Product</h4>
+              <h4>For PG Owners</h4>
               <ul>
-                <li><a href="./#features">Features</a></li>
-                <li><a href="./#faq">FAQs</a></li>
-                <li><a href="./ContactUs.html">Contact Us</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How it Works</a></li>
+                <li><a href="#testimonials">Success Stories</a></li>
               </ul>
             </div>
 
             <div class="footer-links-group">
-              <h4>Links</h4>
+              <h4>For Tenants</h4>
+              <ul>
+                <li><a href="#features">Find a PG</a></li>
+                <li><a href="./booking.html">Booking Process</a></li>
+                <li><a href="faq.html">Common Questions</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-links-group">
+              <h4>Company</h4>
+              <ul>
+                <li>
+                  <a href="./journey.html" target="_blank"
+                    >About Us</a
+                  >
+                </li>
+                <li><a href="./contact.html">Contact Us</a></li>
+                <li><a href="./careers.html">Careers</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-links-group">
+              <h4>Legal</h4>
               <ul>
                 <li><a href="./privacyPolicy.html">Privacy Policy</a></li>
                 <li><a href="./termsCondtions.html">Terms of Service</a></li>
                 <li><a href="./refundPolicy.html">Refund Policy</a></li>
+                <li><a href="./delete.html">Delete Account</a></li>
+                <li><a href="./managedata.html">Manage Data</a></li>
               </ul>
             </div>
           </div>
@@ -797,11 +767,10 @@
       <div class="footer-bottom">
         <div class="container">
           <div class="footer-bottom-content">
-            <p>&copy; 2025 PGfy. All rights reserved.</p>
+            <p>&copy; PGfy, ThinkLogic Tech Solutions Pvt. Ltd., India.<br/>  All brands are trademarks of their respective owners.</p>
             <div class="footer-credits">
-              <a href="https://www.thinklogictechsolutions.com/" target="_blank">
-                Powered by ThinkLogic Tech solutions Private Limited
-              </a>
+              <p>Powered by <span>ThinkLogic Tech Solutions Private Limited</span></p>
+              <p>CIN: <span>U62099KA2024PTC193553</span></p>
             </div>
           </div>
         </div>
