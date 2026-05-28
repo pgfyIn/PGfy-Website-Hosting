@@ -115,6 +115,7 @@
       .contact-info-side {
         flex: 1;
         padding: 50px;
+        padding-right: 24px;
         background: #fafaf9;
         border-right: 1px solid #f1f5f9;
       }
@@ -128,7 +129,7 @@
       .info-tiles-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 24px;
+        gap: 16px;
       }
 
       .info-tile {
@@ -141,9 +142,16 @@
         flex-direction: column;
         gap: 36px;
         transition: transform 0.3s ease;
+        cursor: pointer;
       }
       .info-tile:hover {
         transform: translateY(-3px);
+      }
+      .info-tile-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
       }
       .info-tile .info-tile-content{
         display: flex;
@@ -151,6 +159,23 @@
         justify-content: center;
         align-items: start;
         gap: 4px;
+      }
+      .tile-copy{
+        display: none;
+        transition: all 0.3s ease;
+      }
+      .info-tile:hover .tile-copy{
+        background: #eff6ff; 
+        color: #2563eb;
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
       }
       /* Ensure address tile takes full width since it's long */
       .info-tile.full-width {
@@ -282,7 +307,7 @@
         border-radius: 24px;
         overflow: hidden;
         box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        height: 440px;
+        height: 520px;
         background: #e2e8f0; /* placeholder bg */
         border: 1px solid #e2e8f0;
       }
@@ -366,6 +391,7 @@
         }
         .contact-info-side, .contact-form-side {
           padding: 30px;
+          padding-right: 24px;
         }
         .info-tiles-grid {
           grid-template-columns: 1fr;
@@ -597,7 +623,16 @@
         
         <div class="info-tiles-grid">
           <div class="info-tile full-width">
-            <div class="tile-icon blue"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="info-tile-row">
+              <div class="tile-icon blue">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div onclick="copyToClipboard('IIIT Bangalore Innovation Centre<br>26/C, Hosur Road, Electronics City Phase 1,<br>Bengaluru, Karnataka – 560100')" class="tile-copy">
+                <i class="fas fa-regular fa-clone"></i>
+              </div>
+            </div>
+            
+
             <div class="info-tile-content">
               <h3>Address</h3>
               <p>IIIT Bangalore Innovation Centre<br>26/C, Hosur Road, Electronics City Phase 1,<br>Bengaluru, Karnataka – 560100</p>
@@ -605,7 +640,12 @@
           </div>
           
           <div class="info-tile">
-            <div class="tile-icon purple"><i class="fas fa-envelope"></i></div>
+            <div class="info-tile-row">
+              <div class="tile-icon purple"><i class="fas fa-envelope"></i></div>
+              <div onclick="copyToClipboard('saijagadeesh@pgfy.in')" class="tile-copy">
+                  <i class="fas fa-regular fa-clone"></i>
+              </div>
+            </div>
             <div class="info-tile-content">
               <h3>Email</h3>
               <p><a href="mailto:saijagadeesh@pgfy.in">saijagadeesh@pgfy.in</a></p>
@@ -613,10 +653,16 @@
           </div>
 
           <div class="info-tile">
-            <div class="tile-icon green"><i class="fas fa-globe"></i></div>
+             <div class="info-tile-row">
+      
+                <div class="tile-icon green"><i class="fas fa-solid fa-phone"></i></div>
+                <div onclick="copyToClipboard('9876543210')" class="tile-copy">
+                    <i class="fas fa-regular fa-clone"></i>
+                </div>
+            </div>
             <div class="info-tile-content">
-              <h3>Visit us</h3>
-              <p><a href="https://pgfy.in">pgfy.in</a></p>
+              <h3>Phone</h3>
+              <p><a href="tel:+919876543210">+91 9876543210</a></p>
             </div>
           </div>
         </div>
@@ -663,7 +709,7 @@
     <!-- Map Section -->
     <div class="map-wrapper">
       <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.316886297394!2d77.66100147514339!3d12.822822987480572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6c79ab6a5b6f%3A0xe54e61a6b0c619cb!2sIIIT%20Bangalore!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1944.9881826175463!2d77.66308969206399!3d12.844802998702587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6d484e48ba97%3A0x4512448804c81091!2sIIITB%20Innovation%20Centre!5e0!3m2!1sen!2sin!4v1779988636568!5m2!1sen!2sin" 
         allowfullscreen="" 
         loading="lazy" 
         referrerpolicy="no-referrer-when-downgrade">
@@ -781,6 +827,13 @@
             <div class="footer-credits">
               <p>Powered by <span>ThinkLogic Tech Solutions Private Limited</span></p>
               <p>CIN: <span>U62099KA2024PTC193553</span></p>
+              <p style="margin-top: 5px; line-height: 1.5;  font-size: 14px; color: white">
+                <span style="font-weight: 600; color:#94a3b8;;">Office Address:</span>
+                IIIT Bangalore Innovation Centre, Space 34,<br/>
+                26/C, Hosur Road, Electronics City Phase 1,<br/>
+                Electronic City, Bengaluru, Karnataka 560100
+              </p>
+
             </div>
           </div>
         </div>
@@ -788,6 +841,26 @@
     </footer>
 
     <script>
+       function copyToClipboard(content) {
+        console.log('Copying content: ', content);
+        // 1. Process the text formatting
+        const text = content.replace(/<br\s*\/?>/gi, '\n'); 
+
+        // 2. Check if the modern Clipboard API is available (HTTPS / Localhost)
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text)
+            .then(() => {
+              alert('Copied to clipboard!');
+            })
+            .catch((err) => {
+              console.error('Modern copy failed, trying fallback: ', err);
+              fallbackCopyToClipboard(text);
+            });
+        } else {
+          // 3. Use fallback for non-secure HTTP environments
+          fallbackCopyToClipboard(text);
+        }
+      }
       // Simple toggle for mobile navbar
       document.addEventListener('DOMContentLoaded', () => {
          const toggleBtn = document.querySelector(".main-navbar-toggle");
@@ -804,6 +877,7 @@
     </script>
   
     <script>
+      
       document.addEventListener("DOMContentLoaded", () => {
         const toggleBtn = document.querySelector(".main-navbar-toggle");
         const menu = document.querySelector(".main-navbar-menu");
