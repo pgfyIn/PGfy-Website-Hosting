@@ -3,17 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Careers - Join the PGfy Tribe</title>
-  
+  <title>Our Team - PGfy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  
   <style>
-
+    
       /* Enhanced, beautiful CSS for PGfy */
       :root {
         --primary: #4361ee;
@@ -3001,7 +2998,7 @@
       }
 
       .footer-top {
-        padding: 40px 64px;
+        padding: 120px 0 60px;
       }
 
       .footer-grid {
@@ -3505,11 +3502,14 @@
         }
 
         .footer-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr 1fr;
         }
 
         .footer-brand {
-          grid-column: span 1;
+          grid-column: span 2;
+        }
+        .main-navbar-menu.active {
+          display: flex;
         }
       }
     
@@ -3729,114 +3729,155 @@
       }
 
     
-/* --- End of Global Styles --- */
+    
+    /* --- Team Page Custom Styles --- */
 
-    /* Team Section */
-    .c-team {
-      padding: 100px 0;
+    /* --- How We Work Section --- */
+    .how-we-work {
+      padding: 100px 24px;
+      text-align: center;
       background: #fdfdfd;
     }
-    .c-team-grid {
+    .how-we-work .eyebrow {
+      color: #4361ee;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .how-we-work h2 {
+      font-size: 3.25rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin: 0 0 60px 0;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .how-we-work h2 .highlight {
+      color:#2563eb;
+    }
+    .how-cards {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .c-team-card {
+    .how-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: left;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.03);
       position: relative;
-      border-radius: 24px;
       overflow: hidden;
-      height: 350px;
-      cursor: pointer;
+      border: 1px solid #f1f5f9;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .c-team-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
+    .how-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
     }
-    .c-team-overlay {
+    .how-card::before {
+      content: "";
       position: absolute;
-      bottom: -100%;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 30px 24px;
-      transition: bottom 0.4s ease;
+      top: 0; left: 0; width: 100%; height: 4px;
     }
-    .c-team-card:hover img {
-      transform: scale(1.05);
-    }
-    .c-team-card:hover .c-team-overlay {
-      bottom: 0;
-    }
-    .c-team-name {
-      color: #fff;
+    .how-card-1::before { background: #2563eb; }
+    .how-card-2::before { background: #2563eb; }
+    .how-card-3::before { background: #2563eb; }
+    
+    .how-card h3 {
       font-size: 1.4rem;
       font-weight: 700;
-      margin: 0 0 4px;
+      color: #0f172a;
+      margin: 0 0 16px 0;
     }
-    .c-team-role {
-      color: #94a3b8;
+    .how-card p {
       font-size: 1rem;
+      color: #64748b;
+      line-height: 1.6;
       margin: 0;
     }
 
-    /* Accordion FAQ Enhancements */
-    .c-accordion-item {
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      margin-bottom: 12px;
-      overflow: hidden;
-      background: #fff;
-      transition: all 0.3s ease;
+    /* --- Join Us Section --- */
+    .join-section {
+      color: white;
+      text-align: center;
+      padding: 64px 24px;
     }
-    .c-accordion-item.active {
-      border-color: #2563eb;
-      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);
-    }
-    .c-accordion-header {
-      padding: 20px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      font-weight: 600;
-      user-select: none;
-    }
-    .c-accordion-header i { 
-      color: #94a3b8; 
-      transition: transform 0.3s ease;
-    }
-    .c-accordion-item.active .c-accordion-header i {
-      transform: rotate(45deg);
+    .join-section .eyebrow {
       color: #2563eb;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
     }
-    .c-accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.4s ease;
-      padding: 0 24px;
-      color: #475569;
+    .join-section h2 {
+      font-size: 3.25rem;
+      font-weight: 600;
+      margin: 0 auto 24px auto;
+      max-width: 800px;
+      line-height: 1.075;
+      letter-spacing: -0.02em;
+    }
+    .join-section p {
+      font-size: 1.125rem;
+      font-weight: 300;
+      color: #64748b;
       line-height: 1.6;
+      max-width: 500px;
+      margin: 0 auto 40px auto;
     }
-    .c-accordion-item.active .c-accordion-content {
-      padding: 0 24px 24px;
-      max-height: 500px; /* arbitrary large value */
+    .join-buttons {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
     }
-    
+    .join-btn-primary {
+      background: #2563eb;
+      color: white;
+      padding: 16px 32px;
+      border-radius: 100px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .join-btn-primary:hover {
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+      transform: translateY(-2px);
+    }
+    .join-btn-secondary {
+      color: #2563eb;
+      padding: 16px 32px;
+      border-radius: 100px;
+      border: 2px solid #2563eb;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .join-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
     @media (max-width: 992px) {
-      .c-team-grid { grid-template-columns: 1fr 1fr; }
+      .how-cards { grid-template-columns: 1fr; }
+      .join-section h2 { font-size: 3rem; }
     }
     @media (max-width: 600px) {
-      .c-team-grid { grid-template-columns: 1fr; }
+      .join-section h2 { font-size: 2.2rem; }
+      .join-buttons { flex-direction: column; }
     }
 
-
-    /* Careers specific styles */
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background: #fdfdfd;
@@ -3844,553 +3885,209 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      /* Add a subtle radial gradient background to match screenshot */
+      background-image: radial-gradient(circle at 10% 0%, rgba(67, 97, 238, 0.05) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 10%, rgba(255, 120, 120, 0.05) 0%, transparent 40%);
     }
     
-    .c-container {
-      max-width: 1200px;
+    .team-hero {
+      text-align: center;
+      padding: 180px 24px 80px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 0 24px;
     }
-
-    /* 1. Hero Section */
-    .c-hero {
-      padding: 140px 0 60px;
-      background: #fdfdfd;
+    
+    .team-hero .eyebrow {
+      color: #4361ee;
+      font-weight: 500;
+      font-size: 0.875rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
     }
-    .c-hero-top {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      margin-bottom: 60px;
-      align-items: center;
-    }
-    .c-hero-title h1 {
-      font-size: 3.8rem;
-      font-weight: 800;
+    
+    .team-hero h1 {
+      font-size: 4.5rem;
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
       color: #0f172a;
-      line-height: 1.1;
-      margin: 0;
-      letter-spacing: -0.02em;
+      margin: 0 0 24px 0;
     }
-    .c-hero-desc p {
-      font-size: 1.15rem;
-      color: #475569;
-      line-height: 1.6;
-      margin: 0;
-      padding-left: 20px;
-      border-left: 4px solid #2563eb;
+    
+    .team-hero .highlight {
+      color: #4361ee;
     }
-    .c-hero-image {
-      width: 100%;
-      height: 500px;
-      border-radius: 40px;
-      overflow: hidden;
-      border : 4px solid #8cadf3;
-    }
-    .c-hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* 2. Working with us */
-    .c-working {
-      padding: 100px 0;
-      background: #f8fafc;
-    }
-    .c-section-header {
-      margin-bottom: 60px;
-    }
-    .c-icon-badge {
-      width: 48px;
-      height: 48px;
-      background: #fff;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      color: #1e293b;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      margin-bottom: 24px;
-    }
-    .c-section-header h2 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      margin: 0 0 16px;
-    }
-    .c-section-header p {
+    
+    .team-hero .subtitle {
+      font-size: 1.125rem;
+      font-weight: 300;
       color: #64748b;
-      font-size: 1.1rem;
-      max-width: 400px;
-      margin: 0;
-    }
-    .c-grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    .c-card {
-      padding: 40px 30px;
-      border-radius: 24px;
-      background: #fff;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-    .c-card-icon {
-      width: 40px;
-      height: 40px;
-      background: #f1f5f9;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: auto; /* Push content down */
-    }
-    .c-card h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin: 40px 0 12px;
-    }
-    .c-card p {
-      font-size: 0.95rem;
-      color: #475569;
       line-height: 1.6;
       margin: 0;
+      max-width: 640px;
+      margin: 0 auto;
     }
-    /* Card colors based on PGfy theme */
-    .c-card-1 { background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 10px 20px rgba(0,0,0,0.03); }
-    .c-card-2 { background: #f1f5f9; }
-    .c-card-3 { background: #fef08a; } /* Light yellow */
-    .c-card-4 { background: #1e293b; color: #fff; }
-    .c-card-4 p { color: #cbd5e1; }
-    .c-card-4 .c-card-icon { background: rgba(255,255,255,0.1); color: #fff; }
-
-    /* 3. Innovation Split */
-    .c-innovation {
-      padding: 120px 0;
+    
+    /* Interactive Layout */
+    .team-interactive {
+      max-width: 1200px;
+      margin: 0 auto 24px;
+      padding: 48px 24px;
     }
-    .c-inno-grid {
+    
+    .team-container {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
+      grid-template-columns: 1.2fr 1fr;
       gap: 80px;
       align-items: center;
     }
-    .c-inno-text h2 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      line-height: 1.2;
-      color: #0f172a;
-      margin-bottom: 40px;
-    }
-    .c-inno-text p {
-      font-size: 1.1rem;
-      color: #64748b;
-      margin-bottom: 40px;
-    }
-    .c-btn {
-      display: inline-block;
-      padding: 16px 32px;
-      background: #1e3a8a;
-      color: #fff;
-      font-weight: 600;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-    .c-btn:hover {
-      background: #2563eb;
-      transform: translateY(-2px);
-    }
-    .c-inno-images {
-      position: relative;
-      width: 100%;
-    }
-    .c-inno-img-main {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 32px;
-    }
-    .c-inno-img-sub {
-      position: absolute;
-      bottom: -40px;
-      left: -40px;
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 24px;
-      border: 8px solid #fdfdfd;
-    }
-
-    /* 4. Open Positions */
-    .c-positions {
-      padding: 100px 0;
-      background: #f8fafc;
-    }
-    .c-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 50px;
-    }
-    .c-pos-card {
-      background: #fff;
-      padding: 32px;
-      border-radius: 20px;
-      border: 1px solid #e2e8f0;
-      transition: transform 0.3s;
-    }
-    .c-pos-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-    }
-    .c-pos-header {
+    
+    /* Left Side: Photo Grid */
+    .team-left-flex {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-    .c-pos-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
+      flex-direction: row;
       justify-content: center;
-      font-size: 20px;
-    }
-    /* Specific Colors */
-    .ic-1 { background: #fee2e2; color: #ef4444; }
-    .ic-2 { background: #dbeafe; color: #3b82f6; }
-    .ic-3 { background: #dcfce7; color: #22c55e; }
-    .ic-4 { background: #f3e8ff; color: #a855f7; }
-    .ic-5 { background: #ffedd5; color: #f97316; }
-    .ic-6 { background: #e0f2fe; color: #0ea5e9; }
-    
-    .c-pos-badge {
-      padding: 6px 12px;
-      background: #f1f5f9;
-      color: #64748b;
-      font-size: 0.8rem;
-      font-weight: 700;
-      border-radius: 100px;
-    }
-    .c-pos-card h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin: 0 0 12px;
-    }
-    .c-pos-card p {
-      color: #64748b;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      margin: 0 0 24px;
-      min-height: 65px;
-    }
-    .c-pos-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid #f1f5f9;
-      padding-top: 20px;
-      font-size: 0.85rem;
-      color: #94a3b8;
-    }
-    .c-pos-footer i { margin-right: 6px; }
-
-    /* 5. FAQ */
-    .c-faq {
-      padding: 100px 0;
-    }
-    .c-faq-grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 60px;
-    }
-    .c-faq-left h2 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .c-faq-left p {
-      color: #64748b;
-      margin-bottom: 24px;
-    }
-    .c-faq-left a {
-      color: #2563eb;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .c-accordion-item {
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      margin-bottom: 12px;
-      overflow: hidden;
-    }
-    .c-accordion-header {
-      padding: 20px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      font-weight: 600;
-      background: #fff;
-    }
-    .c-accordion-header i { color: #94a3b8; }
-
-    /* 6. Growth Journey CTA */
-    .c-growth {
-      padding: 0 0 100px;
-    }
-    .c-growth-box {
-      background: #f1f5f9;
-      border-radius: 40px;
-      padding: 60px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    .c-growth-text h2 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      margin-bottom: 20px;
-      color: #0f172a;
-      line-height: 1.1;
-    }
-    .c-growth-text p {
-      font-size: 1.1rem;
-      color: #475569;
-      margin-bottom: 40px;
-    }
-    
-    /* Avatar Grid for CTA */
-    .c-avatar-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(3, 80px);
       gap: 16px;
     }
-    .c-avatar-item {
-      background: #e2e8f0;
+    .team-left-column{
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    /* We'll use absolute positioning for the exact scattered look from the screenshot */
+    .team-img-wrapper {
       border-radius: 16px;
       overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+      cursor: pointer;
     }
-    .c-avatar-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.8;
-    }
-    /* Placing avatars in a scattered way to match image */
-    .ca-1 { grid-column: 1; grid-row: 2; }
-    .ca-2 { grid-column: 2; grid-row: 1; }
-    .ca-3 { grid-column: 2; grid-row: 3; }
-    .ca-4 { grid-column: 3; grid-row: 2; }
-    .ca-5 { grid-column: 4; grid-row: 1; }
-    .ca-6 { grid-column: 4; grid-row: 3; }
-
     
+    .team-img-wrapper .team-img {
+      width: 185px;
+      height: 225px;
+      object-fit: cover;
+      display: block;
+      transition: all 0.4s ease;
+      filter: grayscale(80%) brightness(80%);
+    }
+    
+    /* Hover state for images */
+    .team-left-flex.has-hover .team-img-wrapper .team-img.active {
+      filter: grayscale(0%) brightness(100%);
+      transform: scale(1.05);
+    }
 
-    /* Mobile Responsiveness */
-    @media (max-width: 992px) {
-      .c-hero-top, .c-inno-grid, .c-faq-grid, .c-growth-box {
+    .team-left-flex.has-hover .team-img-wrapper.active {
+      z-index: 10;
+      box-shadow: 0 30px 60px rgba(67, 97, 238, 0.2);
+    }
+
+    .team-left-flex.has-hover .team-img-wrapper.not-active {
+      opacity: 0.5;
+      scale: 0.97;
+    }
+    
+    
+    /* Right Side: List */
+    .team-right {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      padding-left: 40px;
+    }
+    
+    .team-list-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0.6;
+    }
+    
+    .team-list-item:hover, .team-list-item.active {
+      opacity: 1;
+    }
+    
+    .indicator {
+      width: 16px;
+      height: 16px;
+      border-radius: 20px;
+      background: #e2e8f0;
+      transition: all 0.3s ease;
+    }
+    
+    .team-list-item.active .indicator {
+      width: 40px;
+      background: #4361ee; /* PGfy Blue instead of pink */
+    }
+    
+    .info h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 4px 0;
+      transition: color 0.3s ease;
+    }
+    
+    .info p {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin: 0;
+    }
+    
+    /* Responsiveness */
+    @media (max-width: 1024px) {
+      .team-container {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 60px;
       }
-      .c-grid-4 { grid-template-columns: 1fr 1fr; }
-      .c-grid-3 { grid-template-columns: 1fr; }
-      .c-hero-title h1 { font-size: 2.8rem; }
-      .c-inno-img-sub {
-        width: 120px;
-        height: 120px;
-        bottom: -20px;
-        left: -20px;
+      
+      .team-left-flex {
+        transform: scale(0.8);
+        max-width: 700px;
       }
-      .c-growth-box { padding: 40px 24px; }
+      
+      .team-right {
+        padding-left: 0;
+        align-items: center;
+      }
+      
+      .team-list-item {
+        width: 100%;
+        max-width: 540px;
+      }
+      
+      .team-hero h1 {
+        font-size: 3.5rem;
+      }
     }
+    
     @media (max-width: 600px) {
-      .c-grid-4 { grid-template-columns: 1fr; }
+      .team-left-flex {
+        transform: scale(1);
+      }
+      
+      /* Reset absolute positioning for mobile to a simple flex grid */
+      .team-img-wrapper {
+        aspect-ratio: 1;
+        margin-bottom: 20px;
+      }
+      
+      .team-left-flex {
+        gap: 16px;
+      }
+      
+      .team-hero h1 {
+        font-size: 2.8rem;
+      }
     }
-    /* Media Queries */
-      @media (max-width: 1200px) {
-        .footer-grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
-
-        .footer-brand {
-          grid-column: span 3;
-        }
-      }
-
-      @media (max-width: 992px) {
-        section {
-          padding: 100px 0;
-        }
-
-        .hero {
-          padding: 150px 0 100px;
-        }
-
-        .hero-grid {
-          grid-template-columns: 1fr;
-          gap: 60px;
-        }
-
-        .cta-grid {
-          grid-template-columns: 1fr;
-          gap: 60px;
-        }
-
-        .footer-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .footer-brand {
-          grid-column: span 2;
-        }
-      }
-
-      @media (max-width: 768px) {
-        section {
-          padding: 80px 0;
-        }
-
-        .container {
-          padding: 0 20px;
-        }
-
-        .main-navbar-menu {
-          display: none;
-          position: absolute;
-          top: 80px;
-          left: 0;
-          width: 100%;
-          background: white;
-          padding: 20px;
-          flex-direction: column;
-          gap: 20px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .main-navbar-menu.active {
-          display: flex;
-        }
-
-        .nav-buttons {
-          flex-direction: column;
-          width: 100%;
-        }
-
-        .main-navbar-toggle {
-          display: flex;
-        }
-
-        .main-navbar-toggle.active span:nth-child(1) {
-          transform: translateY(8px) rotate(45deg);
-        }
-
-        .main-navbar-toggle.active span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .main-navbar-toggle.active span:nth-child(3) {
-          transform: translateY(-8px) rotate(-45deg);
-        }
-
-        .floating-element {
-          display: none;
-        }
-
-        .clients-bar {
-          margin-top: 40px;
-          padding: 30px;
-        }
-
-        .process-steps {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .step-connector {
-          display: none;
-        }
-
-        .footer-bottom-content {
-          flex-direction: column;
-          gap: 12px;
-          text-align: center;
-        }
-      }
-
-      @media (max-width: 576px) {
-        h1 {
-          font-size: 2.2rem;
-        }
-
-        h2 {
-          font-size: 1.8rem;
-        }
-
-        .hero-cta,
-        .cta-buttons {
-          flex-direction: column;
-          align-items: stretch;
-        }
-
-        .switch-track {
-          width: 100%;
-        }
-
-        .switch-option {
-          width: 50%;
-          justify-content: center;
-          padding: 12px 10px;
-        }
-
-        .slider-track {
-          width: 100%;
-        }
-
-        .slider-button {
-          width: 50%;
-          justify-content: center;
-          padding: 12px 10px;
-        }
-
-        .toggle-container {
-          width: 100%;
-        }
-
-        .toggle-option {
-          width: 50%;
-          justify-content: center;
-          min-width: auto;
-          padding: 12px 10px;
-        }
-
-        .toggle-highlighter {
-          width: 50%;
-        }
-
-        .footer-top{
-          padding: 16px;
-        }
-        .testimonial-switcher {
-          flex-direction: column;
-        }
-
-        .footer-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-
-        .footer-brand {
-          grid-column: span 2;
-        }
-      }
-
   </style>
 </head>
 <body>
@@ -4411,345 +4108,115 @@
           <span></span>
         </div>
         <div class="main-navbar-menu">
-            <a href="/#features" class="main-navbar-link">Features</a>
-            <a href="/#how-it-works" class="main-navbar-link">How it Works</a>
-            <a href="/#testimonials" class="main-navbar-link">Testimonials</a>
-            <a href="/journey.html" class="main-navbar-link">About Us</a>
-            <a href="./contact.html" class="main-navbar-link">Contact Us</a>
-          
+          <a href="/#features" class="main-navbar-link">Features</a>
+          <a href="/#how-it-works" class="main-navbar-link">How it Works</a>
+          <a href="/#testimonials" class="main-navbar-link">Testimonials</a>
+          <a href="/journey.html" class="main-navbar-link">About Us</a>
+          <a href="./contact.html" class="main-navbar-link">Contact Us</a>
+        
         </div>
  
       </div>
     </nav>
 
-  <!-- 1. Hero Section -->
-  <section class="c-hero">
-    <div class="c-container">
-      <div class="c-hero-top">
-        <div class="c-hero-title">
-          <h1>Join our team and<br>reshape the future</h1>
-        </div>
-        <div class="c-hero-desc">
-          <p>Work with talented people who challenge the status quo, push boundaries, and create solutions that shape the future of modern student accommodation.</p>
-        </div>
-      </div>
-      <div class="c-hero-image">
-        <img src="./career-banner.jpeg" alt="Team collaborating">
-      </div>
-    </div>
+  <section class="team-hero">
+    <p class="eyebrow">OUR TEAM</p>
+    <h1>The people<br/> behind <span class="highlight">PGfy.</span></h1>
+    <p class="subtitle">A passionate team of builders turning the accommodation industry into a seamless experience for owners and tenants.</p>
   </section>
 
-  <!-- 2. Working with us -->
-  <section class="c-working">
-    <div class="c-container">
-      <div class="c-section-header">
-        <div class="c-icon-badge"><i class="fas fa-home"></i></div>
-        <h2>Working with us</h2>
-        <p>Discover a workplace where your skills are recognized, your voice matters, and your contributions shape the future of our platform.</p>
-      </div>
-
-      <div class="c-grid-4">
-        <div class="c-card c-card-1">
-          <div class="c-card-icon"><i class="fas fa-heart"></i></div>
-          <h3>Culture</h3>
-          <p>A supportive environment where collaboration and respect shape every project and interaction.</p>
+  <section class="team-interactive">
+    <div class="team-container">
+      
+      <div class="team-left-flex" id="photo-grid">
+        <div class="team-left-column">
+          <div class="team-img-wrapper" id="img-m1" data-target="m1">
+            <img class="team-img" id="image-m1" src="./ceo.jpeg" alt="Founder">
+          </div>
+          <div class="team-img-wrapper" id="img-m2" data-target="m2">
+            <img class="team-img" id="image-m2" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Co-Founder">
+          </div>
         </div>
-        <div class="c-card c-card-2">
-          <div class="c-card-icon"><i class="fas fa-chart-line"></i></div>
-          <h3>Growth</h3>
-          <p>Opportunities to learn, evolve, and take on challenges that accelerate your professional journey.</p>
-        </div>
-        <div class="c-card c-card-3">
-          <div class="c-card-icon"><i class="fas fa-bolt"></i></div>
-          <h3>Impact</h3>
-          <p>Meaningful contributions that directly influence how the accommodation business operates and scales.</p>
-        </div>
-        <div class="c-card c-card-4">
-          <div class="c-card-icon"><i class="fas fa-cog"></i></div>
-          <h3>Tools</h3>
-          <p>A modern setup designed to help you work efficiently, stay focused, and deliver your best work.</p>
+        <div class="team-left-column " style="margin-top: 64px;" >
+          <div class="team-img-wrapper" id="img-m3" data-target="m3">
+            <img class="team-img" id="image-m3" src="./prudvi.jpeg" alt="Lead Engineer">
+          </div>
+          <div class="team-img-wrapper" id="img-m4" data-target="m4">
+            <img class="team-img" id="image-m4" src="./surya.jpeg" alt="Sales Head">
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- 3. Innovation Split -->
-  <section class="c-innovation">
-    <div class="c-container">
-      <div class="c-inno-grid">
-        <div class="c-inno-text">
-          <div class="c-icon-badge"><i class="fas fa-lightbulb"></i></div>
-          <h2>Driven by innovation,<br>guided by purpose,<br>committed to growth.</h2>
-          <p>We create solutions that empower teams, simplify processes, and unlock meaningful business results.</p>
-          <a href="mailto:hiring@pgfy.in" class="c-btn">Apply to an Open Position</a>
+      
+      <div class="team-right" id="name-list">
+        <div class="team-list-item" data-id="m1">
+          <div class="indicator"></div>
+          <div class="info">
+            <h3>Sai Jagadeesh Chitroju</h3>
+            <p>Founder & Director | Sales and Product Development</p>
+          </div>
         </div>
-        <div class="c-inno-images">
-          <img src="./bts.jpeg" alt="Team discussion" class="c-inno-img-main">
-          <img src="./image-1.jpeg" alt="Team working" class="c-inno-img-sub">
+        <div class="team-list-item" data-id="m2">
+          <div class="indicator"></div>
+          <div class="info">
+            <h3>Roji Chitroju</h3>
+            <p>Co-Founder and Director</p>
+          </div>
+        </div>
+        <div class="team-list-item" data-id="m3">
+          <div class="indicator"></div>
+          <div class="info">
+            <h3>Prudhvi Pedavalli</h3>
+            <p>Head of Operations</p>
+          </div>
+        </div>
+        <div class="team-list-item" data-id="m4">
+          <div class="indicator"></div>
+          <div class="info">
+            <h3>Surya Vamsi Dodd</h3>
+            <p>Full Stack Developer</p>
+          </div>
         </div>
       </div>
+      
     </div>
   </section>
 
   
-  <!-- 3.5 Meet the Team -->
-  <section class="c-team">
-    <div class="c-container">
-      <div class="c-section-header">
-        <div class="c-icon-badge"><i class="fas fa-users"></i></div>
-        <h2>Meet the Team</h2>
-        <p>The visionaries and builders powering PGfy's growth.</p>
+  <!-- How We Work Section -->
+  <section class="how-we-work">
+    <p class="eyebrow">HOW WE WORK</p>
+    <h2>Small team. <span class="highlight">Big impact.</span></h2>
+    
+    <div class="how-cards">
+      <div class="how-card how-card-1">
+        <h3>Build what users need</h3>
+        <p>Every feature starts from a real problem a PG owner or tenant faces when trying to manage or find accommodation seamlessly.</p>
       </div>
-
-      <div class="c-team-grid">
-        <div class="c-team-card">
-          <img src="./ceo.jpeg" alt="Founder">
-          <div class="c-team-overlay">
-            <h3 class="c-team-name">Sai Jagadeesh Chitroju</h3>
-            <p class="c-team-role">Founder & Director | Sales and Product Development</p>
-          </div>
-        </div>
-        <div class="c-team-card" style="background-color: #dbeafe;">
-          <img src="" alt="Co-Founder">
-          <div class="c-team-overlay">
-            <h3 class="c-team-name">Roji Chitroju</h3>
-            <p class="c-team-role">Co Founder and Director</p>
-          </div>
-        </div>
-        <div class="c-team-card">
-          <img src="./prudvi.jpeg" alt="SD Intern">
-          <div class="c-team-overlay">
-            <h3 class="c-team-name">Prudhvi Pedavalli</h3>
-            <p class="c-team-role">Head of Operations</p>
-          </div>
-        </div>
-        <div class="c-team-card">
-          <img src="./surya.jpeg" alt="Sales Intern">
-          <div class="c-team-overlay">
-            <h3 class="c-team-name">Surya Vamsi Doddi</h3>
-            <p class="c-team-role"> Full Stack Developer</p>
-          </div>
-        </div>
+      <div class="how-card how-card-2">
+        <h3>Automation-first engineering</h3>
+        <p>We build smart systems that handle verification, bookings, and operations — so owners don't have to manually intervene.</p>
+      </div>
+      <div class="how-card how-card-3">
+        <h3>Move fast, stay focused</h3>
+        <p>No meetings about meetings. We ship weekly, test with real owners, and cut anything that doesn't add immediate value.</p>
       </div>
     </div>
   </section>
 
-<!-- 4. Open Positions -->
-  <section class="c-positions">
-    <div class="c-container">
-      <div class="c-section-header">
-        <div class="c-icon-badge"><i class="fas fa-briefcase"></i></div>
-        <h2>Open positions</h2>
-        <p>There are no full-time opportunities at present, but we are looking for passionate interns!</p>
-      </div>
-
-      <div class="c-grid-3">
-        <!-- Active 1 -->
-        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer;">
-          <div class="c-pos-header">
-            <div class="c-pos-icon ic-2"><i class="fas fa-handshake"></i></div>
-            <div class="c-pos-badge" style="background:#dcfce7; color:#166534;">Active</div>
-          </div>
-          <h3>Sales Intern</h3>
-          <p>Drive PGfy's expansion by onboarding new property owners, maintaining relationships, and analyzing market trends.</p>
-          <div class="c-pos-footer">
-            <span><i class="fas fa-clock"></i> Internship</span>
-            <span><i class="fas fa-map-marker-alt"></i> Bangalore</span>
-          </div>
-        </div>
-
-        <!-- Active 2 -->
-        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer;">
-          <div class="c-pos-header">
-            <div class="c-pos-icon ic-3"><i class="fas fa-chart-pie"></i></div>
-            <div class="c-pos-badge" style="background:#dcfce7; color:#166534;">Active</div>
-          </div>
-          <h3>Business Research Intern</h3>
-          <p>Conduct in-depth market research, analyze competitor strategies, and help shape our long-term business roadmap.</p>
-          <div class="c-pos-footer">
-            <span><i class="fas fa-clock"></i> Internship</span>
-            <span><i class="fas fa-map-marker-alt"></i> Bangalore</span>
-          </div>
-        </div>
-
-        <!-- Upcoming 1 -->
-        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer; opacity: 0.8;">
-          <div class="c-pos-header">
-            <div class="c-pos-icon ic-1"><i class="fab fa-figma"></i></div>
-            <div class="c-pos-badge">Upcoming</div>
-          </div>
-          <h3>UI/UX Design Intern</h3>
-          <p>Assist in designing intuitive, scalable interfaces across our core platform. Collaborate with the product team.</p>
-          <div class="c-pos-footer">
-            <span><i class="fas fa-clock"></i> Internship</span>
-            <span><i class="fas fa-map-marker-alt"></i> Bangalore / Hybrid</span>
-          </div>
-        </div>
-        
-        <!-- Upcoming 2 -->
-        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer; opacity: 0.8;">
-          <div class="c-pos-header">
-            <div class="c-pos-icon ic-2"><i class="fas fa-code"></i></div>
-            <div class="c-pos-badge">Upcoming</div>
-          </div>
-          <h3>Frontend Dev Intern</h3>
-          <p>Help build responsive user interfaces and deliver seamless experiences for tenants and owners.</p>
-          <div class="c-pos-footer">
-            <span><i class="fas fa-clock"></i> Internship</span>
-            <span><i class="fas fa-map-marker-alt"></i> Bangalore / Hybrid</span>
-          </div>
-        </div>
-        
-        <!-- Upcoming 3 -->
-        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer; opacity: 0.8;">
-          <div class="c-pos-header">
-            <div class="c-pos-icon ic-3"><i class="fas fa-database"></i></div>
-            <div class="c-pos-badge">Upcoming</div>
-          </div>
-          <h3>Backend Dev Intern</h3>
-          <p>Work on scalable, high-performance APIs that drive PGfy's core business logic.</p>
-          <div class="c-pos-footer">
-            <span><i class="fas fa-clock"></i> Internship</span>
-            <span><i class="fas fa-map-marker-alt"></i> Bangalore / Hybrid</span>
-          </div>
-        </div>
-        
-        <!-- Upcoming 4 -->
-        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer; opacity: 0.8;">
-          <div class="c-pos-header">
-            <div class="c-pos-icon ic-4"><i class="fas fa-bullhorn"></i></div>
-            <div class="c-pos-badge">Upcoming</div>
-          </div>
-          <h3>Marketing Intern</h3>
-          <p>Support campaigns, content creation, and market research to expand our reach across India.</p>
-          <div class="c-pos-footer">
-            <span><i class="fas fa-clock"></i> Internship</span>
-            <span><i class="fas fa-map-marker-alt"></i> Bangalore / Hybrid</span>
-          </div>
-        </div>
-        
-        <!-- Upcoming 5 -->
-        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer; opacity: 0.8;">
-          <div class="c-pos-header">
-            <div class="c-pos-icon ic-5"><i class="fas fa-chart-pie"></i></div>
-            <div class="c-pos-badge">Upcoming</div>
-          </div>
-          <h3>Operations Intern</h3>
-          <p>Assist in property onboarding, tenant verification processes, and improving operational efficiency.</p>
-          <div class="c-pos-footer">
-            <span><i class="fas fa-clock"></i> Internship</span>
-            <span><i class="fas fa-map-marker-alt"></i> Bangalore / Hybrid</span>
-          </div>
-        </div>
-        
-        <!-- Upcoming 6 -->
-        <div class="c-pos-card" onclick="window.location.href='mailto:hiring@pgfy.in';" style="cursor: pointer; opacity: 0.8;">
-          <div class="c-pos-header">
-            <div class="c-pos-icon ic-6"><i class="fas fa-mobile-alt"></i></div>
-            <div class="c-pos-badge">Upcoming</div>
-          </div>
-          <h3>App Dev Intern</h3>
-          <p>Help develop and maintain our mobile applications for a seamless tenant experience.</p>
-          <div class="c-pos-footer">
-            <span><i class="fas fa-clock"></i> Internship</span>
-            <span><i class="fas fa-map-marker-alt"></i> Bangalore / Hybrid</span>
-          </div>
-        </div>
-
-      </div>
+  <!-- Join Us Section -->
+  <section class="join-section">
+    <p class="eyebrow">JOIN US</p>
+    <h2>Want to build smart accommodation tech?</h2>
+    <p>We're looking for passionate engineers and builders who want to automate property management for owners worldwide.</p>
+    
+    <div class="join-buttons">
+      <a href="careers.html" class="join-btn-primary">See open roles &rarr;</a>
+      <a href="contact.html" class="join-btn-secondary">Get in touch &rarr;</a>
     </div>
   </section>
 
-  <!-- 5. Community FAQ -->
-  <section class="c-faq">
-    <div class="c-container">
-      <div class="c-faq-grid">
-        <div class="c-faq-left">
-          <h2>Careers Faq's</h2>
-          <p>All your questions about joining our team, the interview process, and culture wrapped in one place.</p>
-          <a href="mailto:hiring@pgfy.in">Contact hiring team &rarr;</a>
-        </div>
-        <div class="c-faq-right">
-          <div class="c-accordion-item">
-            <div class="c-accordion-header">
-              Are you currently hiring for full-time roles?
-              <i class="fas fa-plus"></i>
-            </div>
-            <div class="c-accordion-content">
-              <p>At present, we are exclusively focusing on expanding our core team through internship roles. We do not have any full-time opportunities available right now, but outstanding interns may be offered full-time roles upon completion of their program.</p>
-            </div>
-          </div>
-          <div class="c-accordion-item">
-            <div class="c-accordion-header">
-              What does the interview process look like?
-              <i class="fas fa-plus"></i>
-            </div>
-            <div class="c-accordion-content">
-              <p>Our interview process is streamlined to respect your time while ensuring a mutual fit. It consists of:</p>
-              <ul style="margin-top: 8px; padding-left: 20px;">
-                <li><strong>Step 1:</strong> A basic introductory screening call (15 mins).</li>
-                <li><strong>Step 2:</strong> An online technical or domain-specific interview (45 mins).</li>
-                <li><strong>Step 3:</strong> A final offline interview at our IIIT Bangalore Innovation Centre office to meet the founders.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="c-accordion-item">
-            <div class="c-accordion-header">
-              Do you offer remote work options?
-              <i class="fas fa-plus"></i>
-            </div>
-            <div class="c-accordion-content">
-              <p>Our current internship roles (Sales & Business Research) require significant hands-on collaboration, so we operate on a hybrid model based out of our Bangalore office. Fully remote positions are not available at this time.</p>
-            </div>
-          </div>
-          <div class="c-accordion-item">
-            <div class="c-accordion-header">
-              What is the duration of the internships?
-              <i class="fas fa-plus"></i>
-            </div>
-            <div class="c-accordion-content">
-              <p>Most of our internships run for a duration of 3 to 6 months, giving you enough time to learn the ropes, take ownership of projects, and make a tangible impact on PGfy's growth.</p>
-            </div>
-          </div>
-          <div class="c-accordion-item">
-            <div class="c-accordion-header">
-              Can I send an open application?
-              <i class="fas fa-plus"></i>
-            </div>
-            <div class="c-accordion-content">
-              <p>Absolutely! Even if you don't see a role that fits you perfectly right now, we are always looking for passionate talent. Send your resume and a brief intro to <strong>hiring@pgfy.in</strong>.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <footer class="footer">
 
-  <!-- 6. Growth Journey CTA -->
-  <section class="c-growth">
-    <div class="c-container">
-      <div class="c-growth-box">
-        <div class="c-growth-text">
-          <h2>Embark for a full<br>growth journey</h2>
-          <p>Interested in internships, careers, or building the future of accommodation technology with us? Start your journey to smarter property management and measurable growth.</p>
-          <a href="mailto:hiring@pgfy.in" class="c-btn">Email: hiring@pgfy.in</a>
-        </div>
-        <div class="c-avatar-grid">
-          <!-- Scattered avatars to replicate the design -->
-          <div class="c-avatar-item ca-1"><img src="./ceo.jpeg"></div>
-          <div class="c-avatar-item ca-2"><img src="./prudvi.jpeg"></div>
-          <div class="c-avatar-item ca-3"><img src="./surya.jpeg"></div>
-          <div class="c-avatar-item ca-4"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"></div>
-          <div class="c-avatar-item ca-5"><img src="./bts.jpeg"></div>
-          <div class="c-avatar-item ca-6"><img src="./image-1.jpeg"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-    <footer class="footer">
-      
       <div class="footer-top">
         <div class="container">
           <div class="footer-grid">
@@ -4815,11 +4282,7 @@
             <div class="footer-links-group">
               <h4>Company</h4>
               <ul>
-                <li>
-                  <a href="./journey.html" target="_blank"
-                    >About Us</a
-                  >
-                </li>
+                <li><a href="./journey.html" target="_blank">About Us</a></li>
                 <li><a href="./contact.html">Contact Us</a></li>
                 <li><a href="./team.html">Team</a></li>
                 <li><a href="./careers.html">Careers</a></li>
@@ -4853,42 +4316,89 @@
       </div>
     </footer>
 
-
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const accordionItems = document.querySelectorAll('.c-accordion-item');
-
-      accordionItems.forEach(item => {
-        const header = item.querySelector('.c-accordion-header');
-        header.addEventListener('click', () => {
-          const isActive = item.classList.contains('active');
-
-          // Close all
-          accordionItems.forEach(acc => acc.classList.remove('active'));
-
-          // Toggle current
-          if (!isActive) {
-            item.classList.add('active');
-          }
-        });
-      });
-    });
-  </script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const toggleBtn = document.querySelector(".main-navbar-toggle");
-        const menu = document.querySelector(".main-navbar-menu");
-        if (toggleBtn && menu) {
-          // Remove old listeners by replacing node if necessary, but just adding is fine if we make sure it doesn't double trigger.
-          // Better: just assign onclick
-          toggleBtn.onclick = function() {
-            this.classList.toggle("active");
-            menu.classList.toggle("active");
-          };
+      // Navbar Mobile Toggle Logic (Restored from index.html)
+      const toggleBtn = document.querySelector(".main-navbar-toggle");
+      const menu = document.querySelector(".main-navbar-menu");
+      if (toggleBtn && menu) {
+        toggleBtn.onclick = function() {
+          this.classList.toggle("active");
+          menu.classList.toggle("active");
+        };
+      }
+      
+      // Navbar Scroll Effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".main-navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
         }
       });
-    </script>
 
+      // --- Team Hover Logic ---
+      const listItems = document.querySelectorAll('.team-list-item');
+      const photoGrid = document.getElementById('photo-grid');
+      const imagescontiner = document.querySelectorAll('.team-img-wrapper');
+      const images = document.querySelectorAll('.team-img');
+      
+      // Function to activate a specific member
+      const activateMember = (id) => {
+        // Add class to photo grid to trigger grayscale on others
+        photoGrid.classList.add('has-hover');
+        
+        // Remove active from all
+        listItems.forEach(item => item.classList.remove('active'));
+        imagescontiner.forEach(img => img.classList.remove('active'));
+        imagescontiner.forEach(img => img.classList.remove('not-active'));
+        images.forEach(img => img.classList.remove('active'));
+        
+        // Add active to targeted
+        const targetList = document.querySelector(`.team-list-item[data-id="${id}"]`);
+        const targetImg = document.getElementById(`img-${id}`);
+        const targetImgInner = document.getElementById(`image-${id}`);
+        
+        if (targetList) targetList.classList.add('active');
+        if (targetImg) targetImg.classList.add('active');
+        if (targetImgInner) targetImgInner.classList.add('active');
+        imagescontiner.forEach(img => {
+          if (img.getAttribute('data-target') !== id) {
+            img.classList.add('not-active');
+          }
+        });
+      };
+      
+      // Function to deactivate all
+      const deactivateAll = () => {
+        photoGrid.classList.remove('has-hover');
+        listItems.forEach(item => item.classList.remove('active'));
+        imagescontiner.forEach(img => img.classList.remove('active'));
+        imagescontiner.forEach(img => img.classList.remove('not-active'));
+        images.forEach(img => img.classList.remove('active'));
+      };
+      
+      // Add event listeners to list items
+      listItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          const id = item.getAttribute('data-id');
+          activateMember(id);
+        });
+      });
+      
+      // Add event listeners to images
+      imagescontiner.forEach(img => {
+        img.addEventListener('mouseenter', () => {
+          const id = img.getAttribute('data-target');
+          activateMember(id);
+        });
+      });
+      
+      // Clear on mouse leave of the whole container
+      const container = document.querySelector('.team-container');
+      container.addEventListener('mouseleave', deactivateAll);
+    });
+  </script>
 </body>
 </html>
