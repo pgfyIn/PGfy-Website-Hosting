@@ -51,6 +51,13 @@
       @media (max-width: 768px) { .footer { padding-top: 40px; } .footer-grid { grid-template-columns: 1fr; gap: 40px; margin-bottom: 40px; } .footer-bottom-content { flex-direction: column; gap: 12px; text-align: center; } }
       @media (max-width: 768px) { .main-navbar-menu { display: none; position: absolute; top: 80px; left: 0; width: 100%; background: white; padding: 20px; flex-direction: column; gap: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); } .main-navbar-menu.active { display: flex; } .main-navbar-toggle { display: flex; } .main-navbar-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); } .main-navbar-toggle.active span:nth-child(2) { opacity: 0; } .main-navbar-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); } }
 
+      .footer-bottom-content p a {
+        text-decoration: none;
+        color:#1e40af
+      }
+      .footer-bottom-content p a:hover {
+        text-decoration: underline;
+      }
 
       /* FAQ Page Styles */
       .faq-wrapper {
@@ -835,7 +842,7 @@
       <div class="footer-bottom">
         <div class="container">
           <div class="footer-bottom-content">
-            <p>&copy; PGfy, ThinkLogic Tech Solutions Pvt. Ltd., India.<br/>  All brands are trademarks of their respective owners.</p>
+            <p>&copy; PGfy, ThinkLogic Tech Solutions Pvt. Ltd., India.<br/>  All brands (<a href="https://play.google.com/store/apps/details?id=com.saijagdessh.hmsapp&pcampaignid=web_share" target="_blank">Hostelfy</a>, <a href="https://play.google.com/store/apps/details?id=com.akash.pgfy" target="_blank">BookMyPG</a>) are trademarks of their respective owners.</p>
             <div class="footer-credits">
               <p>Powered by <span>ThinkLogic Tech Solutions Private Limited</span></p>
               <p>CIN: <span>U62099KA2024PTC193553</span></p>
