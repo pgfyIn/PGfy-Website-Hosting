@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /delete.html
+Disallow: /managedata.html
+
+Sitemap: https://pgfy.in/sitemap.xml
