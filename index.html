@@ -3756,6 +3756,106 @@
         }
       }
 
+    
+      /* --- SEO Locations Section --- */
+      .seo-locations {
+        background: #f8fafc;
+        padding: 60px 0;
+        border-top: 1px solid #e2e8f0;
+      }
+      .seo-locations .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .seo-tabs {
+        display: flex;
+        border-bottom: 1px solid #cbd5e1;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .seo-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .seo-tab {
+        padding: 16px 24px;
+        background: transparent;
+        border: none;
+        color: #64748b;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        position: relative;
+        white-space: nowrap;
+        transition: color 0.3s ease;
+        font-family: inherit;
+      }
+      .seo-tab:hover {
+        color: var(--primary);
+      }
+      .seo-tab.active {
+        color: var(--primary);
+      }
+      .seo-tab::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--primary);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+        transform-origin: left;
+      }
+      .seo-tab.active::after {
+        transform: scaleX(1);
+      }
+      .seo-content-container {
+        padding: 30px 0;
+      }
+      .seo-content {
+        display: none;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px 24px;
+        animation: fadeIn 0.4s ease;
+      }
+      .seo-content.active {
+        display: grid;
+      }
+      .seo-content a {
+        color: #475569;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: color 0.2s ease;
+        display: block;
+        padding: 4px 0;
+      }
+      .seo-content a:hover {
+        color: var(--primary);
+      }
+
+      @media (max-width: 992px) {
+        .seo-content {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 768px) {
+        .seo-content {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .seo-tab {
+          padding: 14px 16px;
+          font-size: 0.9rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .seo-content {
+          grid-template-columns: 1fr;
+        }
+      }
+
     </style>
   </head>
   <body>
@@ -4791,6 +4891,93 @@
     </section>
 
     <!-- Footer -->
+    
+    <!-- SEO Locations Section -->
+    <section class="seo-locations">
+      <div class="container">
+        <div class="seo-tabs" id="seo-tabs-list">
+          <button class="seo-tab active" data-target="bengaluru">Bengaluru</button>
+          <button class="seo-tab" data-target="hyderabad">Hyderabad</button>
+          <button class="seo-tab" data-target="chennai">Chennai</button>
+          <button class="seo-tab" data-target="pune">Pune</button>
+          <button class="seo-tab" data-target="mumbai">Mumbai</button>
+          <button class="seo-tab" data-target="coimbatore">Coimbatore</button>
+        </div>
+        <div class="seo-content-container">
+          <!-- Bengaluru -->
+          <div class="seo-content active" id="seo-bengaluru">
+            <a href="#">PGs in Whitefield</a>
+            <a href="#">PGs near Manyata Tech Park</a>
+            <a href="#">PGs in Electronic City</a>
+            <a href="#">PGs in HSR Layout</a>
+            <a href="#">PGs in Koramangala</a>
+            <a href="#">PGs in Marathahalli</a>
+          </div>
+          <!-- Hyderabad -->
+          <div class="seo-content" id="seo-hyderabad">
+            <a href="#">PGs in HITEC City</a>
+            <a href="#">PGs in Gachibowli</a>
+            <a href="#">PGs in Kondapur</a>
+            <a href="#">PGs in Madhapur</a>
+            <a href="#">PGs near Financial District</a>
+          </div>
+          <!-- Chennai -->
+          <div class="seo-content" id="seo-chennai">
+            <a href="#">PGs in Sholinganallur</a>
+            <a href="#">PGs in Siruseri</a>
+            <a href="#">PGs in Perungudi</a>
+            <a href="#">PGs in Velachery</a>
+          </div>
+          <!-- Pune -->
+          <div class="seo-content" id="seo-pune">
+            <a href="#">PGs in Hinjawadi</a>
+            <a href="#">PGs in Wakad</a>
+            <a href="#">PGs in Baner</a>
+            <a href="#">PGs in Kharadi</a>
+          </div>
+          <!-- Mumbai -->
+          <div class="seo-content" id="seo-mumbai">
+            <a href="#">PGs in Powai</a>
+            <a href="#">PGs in Andheri East</a>
+            <a href="#">PGs in Airoli</a>
+            <a href="#">PGs in Navi Mumbai</a>
+          </div>
+          <!-- Coimbatore -->
+          <div class="seo-content" id="seo-coimbatore">
+            <a href="#">PGs in Saravanampatti</a>
+            <a href="#">PGs near TIDEL Park</a>
+            <a href="#">PGs in Peelamedu</a>
+            <a href="#">PGs in Kalapatti</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabs = document.querySelectorAll(".seo-tab");
+        const contents = document.querySelectorAll(".seo-content");
+
+        tabs.forEach(tab => {
+          tab.addEventListener("click", () => {
+            // Remove active from all tabs and contents
+            tabs.forEach(t => t.classList.remove("active"));
+            contents.forEach(c => c.classList.remove("active"));
+            
+            // Add active to clicked tab
+            tab.classList.add("active");
+            
+            // Add active to corresponding content
+            const target = tab.getAttribute("data-target");
+            const targetContent = document.getElementById("seo-" + target);
+            if (targetContent) {
+              targetContent.classList.add("active");
+            }
+          });
+        });
+      });
+    </script>
+
     <footer class="footer">
       <div class="footer-waves">
         <svg
