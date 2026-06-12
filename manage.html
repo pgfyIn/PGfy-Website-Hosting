@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Management Process - PGfy</title>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pgfy.in/manage.html">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <style>
+      :root {
+        --primary: #4361ee;
+        --primary-dark: #3a56d4;
+        --primary-light: #99a8ff;
+        --secondary: #ff6b35;
+        --secondary-dark: #e85a2a;
+        --secondary-light: #ffaa8a;
+        --text: #1e293b;
+        --text-light: #64748b;
+        --bg: #ffffff;
+        --bg-light: #f8fafc;
+        --bg-dark: #0f172a;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        --radius: 16px;
+        --radius-lg: 24px;
+        --radius-sm: 8px;
+        --transition: all 0.3s ease;
+      }
+      /* Base styles from index.html */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #1e293b; background: #f8fafc; }
+      .main-navbar { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+      .main-navbar-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 80px; display: flex; align-items: center; justify-content: space-between; }
+      .main-navbar-brand { display: flex; align-items: center; }
+      .main-navbar-logo { display: flex; align-items: center; gap: 8px; font-size: 24px; font-weight: 700; text-decoration: none; color: #1e293b; }
+      .logo-img { width: 40px; height: auto; border-radius: 50%; }
+      .main-navbar-logo i { color: #2563eb; }
+      .main-navbar-highlight { color: #2563eb; }
+      .main-navbar-menu { display: flex; align-items: center; gap: 30px; }
+      .main-navbar-link { color: #1e293b; text-decoration: none; font-weight: 500; padding: 8px 0; position: relative; }
+      .main-navbar-link::after { content: ""; position: absolute; left: 0; bottom: -2px; width: 0; height: 2px; background: #2563eb; transition: width 0.3s ease; }
+      .main-navbar-link:hover::after { width: 100%; }
+      .main-navbar-link.active { color: #2563eb; font-weight: 700; }
+      .main-navbar-link.active::after { width: 100%; }
+      .main-navbar-button { background: #2563eb; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; }
+      .main-navbar-button:hover { background: #1e40af; transform: translateY(-2px); }
+      .main-navbar-toggle { display: none; flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; padding: 4px; }
+      .main-navbar-toggle span { display: block; width: 24px; height: 2px; background: #1e293b; transition: all 0.3s ease; }
+      @media (max-width: 768px) { .main-navbar-menu { display: none; position: absolute; top: 80px; left: 0; width: 100%; background: white; padding: 20px; flex-direction: column; gap: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); } .main-navbar-menu.active { display: flex; } .main-navbar-toggle { display: flex; } .main-navbar-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); } .main-navbar-toggle.active span:nth-child(2) { opacity: 0; } .main-navbar-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); } }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        position: relative;
+        z-index: 2;
+      }
+      /* Footer Base Styles */
+      .footer {
+        background: var(--bg-dark);
+        color: white;
+        position: relative;
+      }
+
+      .footer-waves {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        overflow: hidden;
+      }
+
+      .footer-waves svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .footer-top {
+        padding: 40px 64px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr repeat(4, 1fr);
+        gap: 40px;
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+
+      .footer-logo h3 {
+        font-size: 24px;
+        font-weight: 700;
+        color: white;
+        margin: 0;
+      }
+
+      .footer-logo .highlight {
+        color: var(--primary-light);
+      }
+
+      .footer-brand p {
+        color: #94a3b8;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        max-width: 340px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 16px;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .social-link:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .footer-links-group h4 {
+        color: white;
+        font-size: 18px;
+        margin-bottom: 24px;
+        font-weight: 600;
+      }
+
+      .footer-links-group ul {
+        list-style: none;
+      }
+
+      .footer-links-group li {
+        margin-bottom: 16px;
+      }
+
+      .footer-links-group a {
+        color: #94a3b8;
+        text-decoration: none;
+        transition: var(--transition);
+        display: inline-block;
+        position: relative;
+        padding-left: 0;
+      }
+
+      .footer-links-group a::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 1px;
+        background: var(--primary-light);
+        transition: all 0.3s ease;
+        opacity: 0;
+      }
+
+      .footer-links-group a:hover {
+        color: white;
+        padding-left: 16px;
+      }
+
+      .footer-links-group a:hover::before {
+        width: 10px;
+        opacity: 1;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 24px 0;
+      }
+
+      .footer-bottom-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-bottom-content p a {
+        text-decoration: none;
+        color:#1e40af
+      }
+      .footer-bottom-content p a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-bottom p {
+        color: #94a3b8;
+        margin: 0;
+        font-size: 14px;
+      }
+
+      .footer-credits a {
+        color: #94a3b8;
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.3s ease;
+      }
+
+      .footer-credits a:hover {
+        color: white;
+      }
+
+      /* Booking Page Layout & Doodle Style */
+      .booking-wrapper {
+        position: relative;
+        padding-top: 120px; /* Below navbar */
+        background-color: #f8fafc;
+        overflow-x: hidden;
+      }
+      .booking-wrapper-bg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #f8fafc;
+        background-image: url("./booking-bg.svg");
+        background-size: 260px 260px;
+        background-repeat: repeat;
+        z-index: 0;
+      }
+      .b-container {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        background: transparent;
+        z-index: 10;
+      }
+      
+      /* Hero Section */
+      .booking-hero {
+        text-align: center;
+        padding: 60px 0;
+      }
+      .booking-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: #1e293b;
+        margin-bottom: 20px;
+      }
+      .booking-hero h1 span { color: #2563eb; }
+      .booking-hero p {
+        font-size: 1.25rem;
+        color: #64748b;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      /* Step Section Zig-Zag */
+      .booking-step {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        padding: 80px 0;
+      }
+      .booking-step.reverse {
+        flex-direction: row-reverse;
+      }
+
+      .step-content {
+        flex: 1;
+        text-align: left;
+      }
+      .step-badge {
+        display: inline-block;
+        background: #e0e7ff;
+        color: #4f46e5;
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+      }
+      .step-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #1e293b;
+        margin-bottom: 24px;
+      }
+      .step-desc {
+        font-size: 1.15rem;
+        color: #64748b;
+        line-height: 1.8;
+      }
+
+      /* Phone Frame & Custom CSS Screen */
+      .step-visual {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        position: relative;
+      }
+      .phone-frame {
+        width: 320px;
+        height: 650px;
+        background: #ffffff;
+        border: 12px solid #1e293b;
+        border-radius: 40px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+      /* Notch */
+      .phone-frame::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 25px;
+        background: #1e293b;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+        z-index: 10;
+      }
+
+      /* Custom CSS-only Phone Screens */
+      .phone-screen {
+        width: 100%;
+        height: 100%;
+        background: #f8fafc;
+        display: flex;
+        flex-direction: column;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: #1e293b;
+        position: relative;
+        overflow: hidden;
+      }
+      .screen-header {
+        background: #ffffff;
+        padding: 36px 16px 14px 16px; /* Extra padding top for phone notch */
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        font-size: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        z-index: 5;
+      }
+      .screen-header i {
+        color: #2563eb;
+        font-size: 1.1rem;
+      }
+      .screen-body {
+        flex: 1;
+        padding: 16px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        background: #f8fafc;
+      }
+      .screen-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 2px;
+        text-align: left;
+      }
+      .screen-subtitle {
+        font-size: 0.8rem;
+        color: #64748b;
+        margin-top: -10px;
+        margin-bottom: 2px;
+        text-align: left;
+      }
+      .progress-bar {
+        width: 100%;
+        height: 6px;
+        background: #e2e8f0;
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 4px;
+      }
+      .progress-fill {
+        height: 100%;
+        background: #2563eb;
+        border-radius: 3px;
+        transition: width 0.3s ease;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        text-align: left;
+      }
+      .form-group label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #475569;
+      }
+      .form-group input, .form-group select {
+        padding: 10px 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        background: #ffffff;
+        color: #1e293b;
+        outline: none;
+        transition: border 0.2s ease;
+      }
+      .form-group input:focus {
+        border-color: #2563eb;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .btn-primary-screen {
+        background: #2563eb;
+        color: #ffffff;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        text-align: center;
+        box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+        margin-top: 8px;
+      }
+      
+      /* Card Component */
+      .screen-card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 12px 14px;
+        border: 1px solid #e2e8f0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        text-align: left;
+      }
+      .screen-card.highlighted {
+        border-color: #93c5fd;
+        background: #eff6ff;
+      }
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .card-title-text {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #1e293b;
+      }
+      .card-badge {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+        border-radius: 20px;
+        font-weight: 700;
+      }
+      .card-badge.green {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .card-badge.orange {
+        background: #ffedd5;
+        color: #9a3412;
+      }
+      .card-badge.blue {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .card-detail {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        color: #64748b;
+      }
+      .card-detail span.bold {
+        color: #1e293b;
+        font-weight: 600;
+      }
+      .card-action-btn {
+        background: #f1f5f9;
+        color: #475569;
+        border: none;
+        padding: 8px;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: center;
+        transition: background 0.2s ease;
+      }
+      .card-action-btn.primary {
+        background: #2563eb;
+        color: white;
+      }
+      .card-action-btn:hover {
+        background: #e2e8f0;
+      }
+      .dashed-btn {
+        border: 2px dashed #cbd5e1;
+        background: transparent;
+        color: #64748b;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+      }
+      
+      /* Amenities List */
+      .amenity-item-screen {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 12px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+      .amenity-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .amenity-info i {
+        color: #2563eb;
+        font-size: 1rem;
+        width: 16px;
+      }
+      .switch-screen {
+        position: relative;
+        display: inline-block;
+        width: 38px;
+        height: 22px;
+      }
+      .switch-screen input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider-screen {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #cbd5e1;
+        transition: .3s;
+        border-radius: 22px;
+      }
+      .slider-screen:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: .3s;
+        border-radius: 50%;
+      }
+      input:checked + .slider-screen {
+        background-color: #2563eb;
+      }
+      input:checked + .slider-screen:before {
+        transform: translateX(16px);
+      }
+      
+      /* Analytics Dash */
+      .stats-grid-screen {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .stat-card-screen {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 10px 8px;
+        text-align: center;
+      }
+      .stat-val-screen {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #0f172a;
+      }
+      .stat-label-screen {
+        font-size: 0.65rem;
+        color: #64748b;
+        margin-top: 2px;
+      }
+      
+      /* Chart CSS */
+      .chart-container-screen {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .chart-header-screen {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #475569;
+      }
+      .chart-bars-screen {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 90px;
+        padding: 0 10px;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .chart-bar-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        width: 28px;
+      }
+      .chart-bar-fill {
+        width: 100%;
+        background: #93c5fd;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+      }
+      .chart-bar-fill.active {
+        background: #2563eb;
+      }
+      .chart-bar-lbl {
+        font-size: 0.65rem;
+        color: #64748b;
+        font-weight: 600;
+      }
+      
+      /* Alert Notification inside Screen */
+      .alert-toast-screen {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #fef2f2;
+        border: 1px solid #fee2e2;
+        border-radius: 8px;
+        padding: 10px 12px;
+        text-align: left;
+      }
+      .alert-toast-screen i {
+        color: #ef4444;
+      }
+      .alert-text-screen {
+        font-size: 0.75rem;
+        color: #991b1b;
+        font-weight: 600;
+        flex: 1;
+      }
+      .alert-btn-screen {
+        background: #ef4444;
+        color: white;
+        border: none;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      /* Animated CSS Pointer */
+      .pulsing-pointer {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: rgba(37, 99, 235, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: pulseRing 2s infinite;
+        z-index: 20;
+      }
+      .pulsing-pointer::after {
+        content: '';
+        width: 14px;
+        height: 14px;
+        background: #2563eb;
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      }
+
+      .pointer-badge {
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1e293b;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: bold;
+        white-space: nowrap;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        pointer-events: none;
+      }
+      .pointer-badge::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 8px;
+        height: 8px;
+        background: #1e293b;
+      }
+
+      @keyframes pulseRing {
+        0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); }
+        100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+      }
+
+      /* Specific pointer placements inside the screens */
+      .pt-owner-step1 { bottom: 32px; left: calc(50% - 10px); }
+      .pt-owner-step2 { top: 215px; right: 28px; }
+      .pt-owner-step3 { top: 388px; left: calc(50% - 10px); }
+      .pt-owner-step4 { top: 226px; right: 28px; }
+      .pt-owner-step5 { bottom: 34px; right: 28px; }
+
+      /* CTA Section */
+      .booking-cta {
+        padding: 80px 24px;
+        text-align: center;
+        margin-top: 60px;
+      }
+      .booking-cta h2 {
+        font-size: 2.5rem;
+        color: var(--text);
+        margin-bottom: 32px;
+      }
+      .app-links {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .app-btn {
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .app-btn img{
+        width: 200px;
+      }
+      .app-btn:hover {  transform: translateY(-3px); }
+      .app-btn.disabled {  cursor: not-allowed; }
+
+      @media (max-width: 992px) {
+        .booking-step, .booking-step.reverse {
+          flex-direction: column;
+          text-align: center;
+          gap: 40px;
+          padding: 60px 0;
+        }
+        .booking-hero h1 { font-size: 2.5rem; }
+      }
+
+      @media (max-width: 1200px) {
+        .footer-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .footer-brand {
+          grid-column: span 3;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .footer-brand {
+          grid-column: span 2;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .footer-bottom-content {
+          flex-direction: column;
+          gap: 12px;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .footer-top{
+          padding: 16px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer-brand {
+          grid-column: span 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="main-navbar">
+      <div class="main-navbar-container">
+        <div class="main-navbar-brand">
+          <a href="/" class="main-navbar-logo">
+            <img class="logo-img" src="./pgfylogo.jpg" alt="PGfy Logo" />
+            <span></span><span class="main-navbar-highlight">PGfy</span>
+          </a>
+        </div>
+
+        <div class="main-navbar-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="main-navbar-menu">
+          <a href="/#features" class="main-navbar-link">Features</a>
+          <a href="/#how-it-works" class="main-navbar-link">How it Works</a>
+          <a href="/#testimonials" class="main-navbar-link">Testimonials</a>
+          <a href="/careers.html" class="main-navbar-link">Careers</a>
+          <a href="/journey.html" class="main-navbar-link">About Us</a>
+          <a href="./contact.html" class="main-navbar-link">Contact Us</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <div class="booking-wrapper">
+      <div class="booking-wrapper-bg"></div>
+      <div class="b-container">
+        
+        <!-- Hero Section -->
+        <div class="booking-hero">
+          <h1>How <span>Management</span> Works</h1>
+          <p>Ditch the ledger books and manual coordination. Follow our step-by-step digital process to run your PG business efficiently from anywhere.</p>
+        </div>
+
+        <!-- Step 1: Register Property -->
+        <div class="booking-step">
+          <div class="step-content">
+            <span class="step-badge">Step 1</span>
+            <h2 class="step-title">Register Your PG</h2>
+            <p class="step-desc">Create your property profile by entering essential details like property name, location details, category (PG/Hostels), and target gender preference (Boys/Girls/Unisex).</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <div class="screen-header">
+                  <i class="fas fa-building"></i>
+                  <span>Create Property</span>
+                </div>
+                <div class="screen-body">
+                  <div class="screen-title">Property Profile</div>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 33%;"></div>
+                  </div>
+                  <div class="screen-subtitle">Step 1 of 3: General Info</div>
+                  
+                  <div class="form-group">
+                    <label>Property Name</label>
+                    <input type="text" value="Comfort Stay Co-Living" readonly />
+                  </div>
+                  <div class="form-group">
+                    <label>Locality & City</label>
+                    <input type="text" value="Electronic City, Bengaluru" readonly />
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>Category</label>
+                      <select disabled><option>PG / Hostel</option></select>
+                    </div>
+                    <div class="form-group">
+                      <label>Target Audience</label>
+                      <select disabled><option>Unisex</option></select>
+                    </div>
+                  </div>
+                  <button class="btn-primary-screen" onclick="return false;">Register PG</button>
+                </div>
+              </div>
+              <!-- CSS Pointer -->
+              <div class="pulsing-pointer pt-owner-step1">
+                <div class="pointer-badge">Click Register</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Set Up Rooms & Pricing -->
+        <div class="booking-step reverse">
+          <div class="step-content">
+            <span class="step-badge">Step 2</span>
+            <h2 class="step-title">Set Up Rooms & Beds</h2>
+            <p class="step-desc">Configure your room sharing choices (Single, Double, Triple sharing) with pricing details and custom monthly rent or deposit charges to keep listing availability updated.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <div class="screen-header">
+                  <i class="fas fa-bed"></i>
+                  <span>Rooms & Pricing</span>
+                </div>
+                <div class="screen-body">
+                  <div class="screen-title">Sharing Categories</div>
+                  <div class="screen-subtitle">Add rent details for room plans</div>
+                  
+                  <div class="screen-card highlighted">
+                    <div class="card-header">
+                      <div class="card-title-text">Double Sharing Room</div>
+                      <span class="card-badge green">10 Beds</span>
+                    </div>
+                    <div class="card-detail">
+                      <span>Monthly Rent:</span>
+                      <span class="bold">₹8,500</span>
+                    </div>
+                    <div class="card-detail">
+                      <span>Security Deposit:</span>
+                      <span class="bold">₹15,000</span>
+                    </div>
+                  </div>
+
+                  <div class="screen-card">
+                    <div class="card-header">
+                      <div class="card-title-text">Single Sharing Room</div>
+                      <span class="card-badge green">4 Beds</span>
+                    </div>
+                    <div class="card-detail">
+                      <span>Monthly Rent:</span>
+                      <span class="bold">₹12,000</span>
+                    </div>
+                    <div class="card-detail">
+                      <span>Security Deposit:</span>
+                      <span class="bold">₹20,000</span>
+                    </div>
+                  </div>
+                  
+                  <div class="dashed-btn">+ Add Sharing Category</div>
+                </div>
+              </div>
+              <!-- CSS Pointer -->
+              <div class="pulsing-pointer pt-owner-step2">
+                <div class="pointer-badge">Set Pricing</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Define Amenities & Rules -->
+        <div class="booking-step">
+          <div class="step-content">
+            <span class="step-badge">Step 3</span>
+            <h2 class="step-title">Add Amenities & Rules</h2>
+            <p class="step-desc">Enable property facilities such as high-speed Wi-Fi, daily meals, air conditioning, and define rules (e.g., gate timings, guest policies) to keep your tenants well-informed.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <div class="screen-header">
+                  <i class="fas fa-sliders-h"></i>
+                  <span>Amenities & Rules</span>
+                </div>
+                <div class="screen-body">
+                  <div class="screen-title">Facilities Toggle</div>
+                  <div class="screen-subtitle">Select services available at PG</div>
+
+                  <div class="amenity-item-screen">
+                    <div class="amenity-info">
+                      <i class="fas fa-wifi"></i>
+                      <span>High-Speed Wi-Fi</span>
+                    </div>
+                    <label class="switch-screen">
+                      <input type="checkbox" checked disabled>
+                      <span class="slider-screen"></span>
+                    </label>
+                  </div>
+
+                  <div class="amenity-item-screen">
+                    <div class="amenity-info">
+                      <i class="fas fa-wind"></i>
+                      <span>Air Conditioning</span>
+                    </div>
+                    <label class="switch-screen">
+                      <input type="checkbox" checked disabled>
+                      <span class="slider-screen"></span>
+                    </label>
+                  </div>
+
+                  <div class="amenity-item-screen">
+                    <div class="amenity-info">
+                      <i class="fas fa-utensils"></i>
+                      <span>Daily Meals Included</span>
+                    </div>
+                    <label class="switch-screen">
+                      <input type="checkbox" checked disabled>
+                      <span class="slider-screen"></span>
+                    </label>
+                  </div>
+
+                  <div class="amenity-item-screen">
+                    <div class="amenity-info">
+                      <i class="fas fa-dumbbell"></i>
+                      <span>Gym Access</span>
+                    </div>
+                    <label class="switch-screen">
+                      <input type="checkbox" disabled>
+                      <span class="slider-screen"></span>
+                    </label>
+                  </div>
+
+                  <button class="btn-primary-screen" onclick="return false;">Save & Publish Settings</button>
+                </div>
+              </div>
+              <!-- CSS Pointer -->
+              <div class="pulsing-pointer pt-owner-step3">
+                <div class="pointer-badge">Publish Settings</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Digital Tenant Onboarding (KYC) -->
+        <div class="booking-step reverse">
+          <div class="step-content">
+            <span class="step-badge">Step 4</span>
+            <h2 class="step-title">Onboard Tenants (KYC)</h2>
+            <p class="step-desc">Manage tenant lifecycle onboarding digitally. Collect documentation, review Aadhaar verification or selfie checks, and sign legally binding digital rent agreements instantly.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <div class="screen-header">
+                  <i class="fas fa-users-cog"></i>
+                  <span>Tenant Directory</span>
+                </div>
+                <div class="screen-body">
+                  <div class="screen-title">Verification Pending</div>
+                  <div class="screen-subtitle">Review onboarding documents</div>
+
+                  <div class="screen-card highlighted">
+                    <div class="card-header">
+                      <div class="card-title-text">Aarav Patel</div>
+                      <span class="card-badge orange">KYC Review</span>
+                    </div>
+                    <div class="card-detail">
+                      <span>Room Assigned:</span>
+                      <span class="bold">Room 105 (Double)</span>
+                    </div>
+                    <div class="card-detail">
+                      <span>Aadhaar Verification:</span>
+                      <span class="bold text-orange" style="color: #ea580c;"><i class="fas fa-file-pdf"></i> View Aadhaar.pdf</span>
+                    </div>
+                    <button class="card-action-btn primary" onclick="return false;">Verify & Onboard Tenant</button>
+                  </div>
+
+                  <div class="screen-card">
+                    <div class="card-header">
+                      <div class="card-title-text">Rahul Sharma</div>
+                      <span class="card-badge green">Verified</span>
+                    </div>
+                    <div class="card-detail">
+                      <span>Room Assigned:</span>
+                      <span class="bold">Room 102 (Single)</span>
+                    </div>
+                    <div class="card-detail">
+                      <span>Contract Status:</span>
+                      <span class="bold" style="color: #16a34a;"><i class="fas fa-file-contract"></i> Lease Signed</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- CSS Pointer -->
+              <div class="pulsing-pointer pt-owner-step4">
+                <div class="pointer-badge">Verify KYC</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5: Automate Rent & Analytics -->
+        <div class="booking-step">
+          <div class="step-content">
+            <span class="step-badge">Step 5</span>
+            <h2 class="step-title">Track Collections & Grow</h2>
+            <p class="step-desc">Track monthly collections, occupancy percentages, and pending rent details. Send payment reminders with automated payment links directly through the app to maintain healthy cash flow.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <div class="screen-header">
+                  <i class="fas fa-chart-line"></i>
+                  <span>Dashboard</span>
+                </div>
+                <div class="screen-body">
+                  <div class="stats-grid-screen">
+                    <div class="stat-card-screen">
+                      <div class="stat-val-screen" style="color: #16a34a;">92%</div>
+                      <div class="stat-label-screen">Occupied</div>
+                    </div>
+                    <div class="stat-card-screen">
+                      <div class="stat-val-screen">₹2.4L</div>
+                      <div class="stat-label-screen">Collected</div>
+                    </div>
+                    <div class="stat-card-screen">
+                      <div class="stat-val-screen" style="color: #ef4444;">₹18.5K</div>
+                      <div class="stat-label-screen">Overdue</div>
+                    </div>
+                  </div>
+
+                  <div class="chart-container-screen">
+                    <div class="chart-header-screen">
+                      <span>Monthly Revenue</span>
+                      <span>Total: ₹7.2L</span>
+                    </div>
+                    <div class="chart-bars-screen">
+                      <div class="chart-bar-col">
+                        <div class="chart-bar-fill" style="height: 60px;"></div>
+                        <span class="chart-bar-lbl">Apr</span>
+                      </div>
+                      <div class="chart-bar-col">
+                        <div class="chart-bar-fill" style="height: 75px;"></div>
+                        <span class="chart-bar-lbl">May</span>
+                      </div>
+                      <div class="chart-bar-col">
+                        <div class="chart-bar-fill active" style="height: 85px;"></div>
+                        <span class="chart-bar-lbl">Jun</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="alert-toast-screen">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div class="alert-text-screen">
+                      Neha Gupta (201) Overdue
+                    </div>
+                    <button class="alert-btn-screen" onclick="return false;">Send Alert</button>
+                  </div>
+                </div>
+              </div>
+              <!-- CSS Pointer -->
+              <div class="pulsing-pointer pt-owner-step5">
+                <div class="pointer-badge">Send Reminder</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA Section -->
+      <div class="booking-cta">
+        <div class="b-container">
+          <h2>Download PGfy to Grow Your Business</h2>
+          <div class="app-links">
+            <a class="app-btn" href="https://play.google.com/store/apps/details?id=com.akash.pgfy" target="_blank">
+              <img src="./playstore.png" alt="pgfy app playstore link"/>
+            </a>
+            <a class="app-btn disabled" href="https://play.google.com/store/apps/details?id=com.akash.pgfy" target="_blank">
+              <img src="./appstore.png" alt="pgfy app playstore link"/>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <div class="footer-logo">
+                <img class="logo-img" src="./pgfylogo.jpg" alt="PGfy Logo" />
+                <h3><span class="highlight">PGfy</span></h3>
+              </div>
+              <p>
+                Making PG discovery and management effortless with smart
+                technology and seamless automation.
+              </p>
+              <div class="social-links">
+                <a href="https://youtube.com/@pgfy?si=sFKg93yt0wYp_iKc" target="_blank" class="social-link">
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.instagram.com/pgfy.in?igsh=dmQwb2Q1Z2RvZ3Ry" target="_blank" class="social-link">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://x.com/PGfy_In?t=rEd4P7vnNhYfhIUbHJLnvw&s=09" target="_blank" class="social-link">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://in.linkedin.com/company/thinklogictechsolutions" target="_blank" class="social-link">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="footer-links-group">
+              <h4>For PG Owners</h4>
+              <ul>
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#how-it-works">How it Works</a></li>
+                <li><a href="/manage.html">Management Process</a></li>
+                <li><a href="/#testimonials">Success Stories</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-links-group">
+              <h4>For Tenants</h4>
+              <ul>
+                <li><a href="/#features">Find a PG</a></li>
+                <li><a href="./booking.html">Booking Process</a></li>
+                <li><a href="faq.html">Common Questions</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-links-group">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="./journey.html" target="_blank">About Us</a></li>
+                <li><a href="./contact.html">Contact Us</a></li>
+                <li><a href="./team.html">Team</a></li>
+                <li><a href="./careers.html">Careers</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-links-group">
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="./privacyPolicy.html">Privacy Policy</a></li>
+                <li><a href="./termsCondtions.html">Terms of Service</a></li>
+                <li><a href="./refundPolicy.html">Refund Policy</a></li>
+                <li><a href="./delete.html">Delete Account</a></li>
+                <li><a href="./managedata.html">Manage Data</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="footer-bottom-content">
+            <p>&copy; PGfy, ThinkLogic Tech Solutions Pvt. Ltd., India.<br/>  All brands (<a href="https://play.google.com/store/apps/details?id=com.saijagdessh.hmsapp&pcampaignid=web_share" target="_blank">Hostelfy</a>, <a href="https://play.google.com/store/apps/details?id=com.akash.pgfy" target="_blank">BookMyPG</a>) are trademarks of their respective owners.</p>
+            <div class="footer-credits">
+              <p>Powered by <span>ThinkLogic Tech Solutions Private Limited</span></p>
+              <p>CIN: <span>U62099KA2024PTC193553</span></p>
+              <p style="margin-top: 5px; line-height: 1.5;  font-size: 14px; color: white">
+                <span style="font-weight: 600; color:#94a3b8;;">Office Address:</span>
+                IIIT Bangalore Innovation Centre, Space 34,<br/>
+                26/C, Hosur Road, Electronics City Phase 1,<br/>
+                Electronic City, Bengaluru, Karnataka 560100
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Toggle for mobile navbar
+      document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.querySelector('.main-navbar-toggle');
+        const menu = document.querySelector('.main-navbar-menu');
+        if (toggleBtn && menu) {
+          toggleBtn.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            toggleBtn.classList.toggle('active');
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

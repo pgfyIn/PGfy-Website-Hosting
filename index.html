@@ -695,7 +695,7 @@
         padding: 8px;
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
       }
-
+      
       .device-screen {
         position: relative;
         overflow: hidden;
@@ -934,7 +934,6 @@
         gap: 8px;
       }
 
-<<<<<<< HEAD
       .client-stat .client-row{
         display: flex;
         flex-direction: row;
@@ -943,8 +942,6 @@
         gap: 4px;
       }
 
-=======
->>>>>>> af0c96af68a0a6f1e20387ce00319e8732ec39d2
       .counter {
         font-size: 2.5rem;
         font-weight: 800;
@@ -3871,6 +3868,567 @@
         }
       }
 
+      /* Detailed Process Steps & CSS phone frames */
+      .detailed-process-section {
+        position: relative;
+        padding: 120px 0;
+        background-color: #f8fafc;
+        overflow-x: hidden;
+      }
+      .detailed-process-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #f8fafc;
+        background-image: url("./booking-bg.svg");
+        background-size: 260px 260px;
+        background-repeat: repeat;
+        z-index: 0;
+        opacity: 0.8;
+      }
+      .detailed-process-container {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        background: transparent;
+        z-index: 10;
+      }
+      .booking-step {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        padding: 80px 0;
+        position: relative;
+        z-index: 2;
+      }
+      .booking-step.reverse {
+        flex-direction: row-reverse;
+      }
+      .step-content {
+        flex: 1;
+        text-align: left;
+      }
+      .step-badge {
+        display: inline-block;
+        background: #e0e7ff;
+        color: #4f46e5;
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+      }
+      .step-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #1e293b;
+        margin-bottom: 24px;
+      }
+      .step-desc {
+        font-size: 1.15rem;
+        color: #64748b;
+        line-height: 1.8;
+      }
+      .step-visual {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        position: relative;
+      }
+      .phone-frame {
+        width: 320px;
+        height: 650px;
+        background: #ffffff;
+        border: 12px solid #1e293b;
+        border-radius: 40px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+      .phone-frame::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 25px;
+        background: #1e293b;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+        z-index: 10;
+      }
+      .phone-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: #f1f5f9;
+      }
+      .pulsing-pointer {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: rgba(37, 99, 235, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: pulseRing 2s infinite;
+        z-index: 20;
+      }
+      .pulsing-pointer::after {
+        content: '';
+        width: 14px;
+        height: 14px;
+        background: #2563eb;
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      }
+      .scroll-down {
+        position: absolute;
+        width: 36px;
+        height: 36px;
+        background: rgba(37, 99, 235, 0.2);
+        color: var(--primary-dark);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: scroll-animation 2s infinite;
+        z-index: 20;
+      }
+      .scroll-down-1 {
+        bottom: 66.5px; left: calc(50% - 18px); transform: translateX(-50%);
+      }
+      .pointer-badge {
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1e293b;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: bold;
+        white-space: nowrap;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        pointer-events: none;
+      }
+      .booking-hero{
+        text-align: center;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        
+      }
+      .booking-hero h1 span{
+        color: var(--primary-dark)
+      }
+      
+
+      .pointer-badge::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 8px;
+        height: 8px;
+        background: #1e293b;
+      }
+      @keyframes scroll-animation {
+        0% { transform: translateY(0px); }
+        80% { transform: translateY(10px); }
+        100% { transform: translateY(0px); }
+      }
+      @keyframes pulseRing {
+        0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); }
+        100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+      }
+      .pt-step1 { top: 66.5px; left: calc(20%); transform: translateX(-50%); }
+      .pt-step1-1 { top: 244px; left: calc(50% - 10px); transform: translateX(-50%); }
+      .pt-step2 { top: 337px; left: 25%; }
+      .pt-step3 { bottom: 172.5px; left: calc(50% - 10px); }
+      .pt-step3-1 { bottom: 107.5px; left: calc(50% - 10px); }
+      .pt-step4 { top: 126px; left: calc(50% - 10px); transform: translateX(-50%); }
+      .pt-step4-1 { bottom: 94px; left: calc(50% - 10px); transform: translateX(-50%); }
+      .pt-step5 { bottom: 70px; right: 42px; }
+
+      /* Owner Process specific CSS screens */
+      .phone-screen {
+        width: 100%;
+        height: 100%;
+        background: #f8fafc;
+        display: flex;
+        flex-direction: column;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: #1e293b;
+        position: relative;
+        overflow: hidden;
+      }
+      .screen-header {
+        background: #ffffff;
+        padding: 36px 16px 14px 16px;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        font-size: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        z-index: 5;
+      }
+      .screen-header i {
+        color: #2563eb;
+        font-size: 1.1rem;
+      }
+      .screen-body {
+        flex: 1;
+        padding: 16px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        background: #f8fafc;
+      }
+      .screen-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 2px;
+        text-align: left;
+      }
+      .screen-subtitle {
+        font-size: 0.8rem;
+        color: #64748b;
+        margin-top: -10px;
+        margin-bottom: 2px;
+        text-align: left;
+      }
+      .progress-bar {
+        width: 100%;
+        height: 6px;
+        background: #e2e8f0;
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 4px;
+      }
+      .progress-fill {
+        height: 100%;
+        background: #2563eb;
+        border-radius: 3px;
+        transition: width 0.3s ease;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        text-align: left;
+      }
+      .form-group label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #475569;
+      }
+      .form-group input, .form-group select {
+        padding: 10px 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        background: #ffffff;
+        color: #1e293b;
+        outline: none;
+        transition: border 0.2s ease;
+      }
+      .form-group input:focus {
+        border-color: #2563eb;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .btn-primary-screen {
+        background: #2563eb;
+        color: #ffffff;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        text-align: center;
+        box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+        margin-top: 8px;
+      }
+      .screen-card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 12px 14px;
+        border: 1px solid #e2e8f0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        text-align: left;
+      }
+      .screen-card.highlighted {
+        border-color: #93c5fd;
+        background: #eff6ff;
+      }
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .card-title-text {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #1e293b;
+      }
+      .card-badge {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+        border-radius: 20px;
+        font-weight: 700;
+      }
+      .card-badge.green {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .card-badge.orange {
+        background: #ffedd5;
+        color: #9a3412;
+      }
+      .card-badge.blue {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .card-detail {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        color: #64748b;
+      }
+      .card-detail span.bold {
+        color: #1e293b;
+        font-weight: 600;
+      }
+      .card-action-btn {
+        background: #f1f5f9;
+        color: #475569;
+        border: none;
+        padding: 8px;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: center;
+        transition: background 0.2s ease;
+      }
+      .card-action-btn.primary {
+        background: #2563eb;
+        color: white;
+      }
+      .card-action-btn:hover {
+        background: #e2e8f0;
+      }
+      .dashed-btn {
+        border: 2px dashed #cbd5e1;
+        background: transparent;
+        color: #64748b;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+      }
+      .amenity-item-screen {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 12px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+      .amenity-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .amenity-info i {
+        color: #2563eb;
+        font-size: 1rem;
+        width: 16px;
+      }
+      .switch-screen {
+        position: relative;
+        display: inline-block;
+        width: 38px;
+        height: 22px;
+      }
+      .switch-screen input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider-screen {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #cbd5e1;
+        transition: .3s;
+        border-radius: 22px;
+      }
+      .slider-screen:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: .3s;
+        border-radius: 50%;
+      }
+      input:checked + .slider-screen {
+        background-color: #2563eb;
+      }
+      input:checked + .slider-screen:before {
+        transform: translateX(16px);
+      }
+      .stats-grid-screen {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .stat-card-screen {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 10px 8px;
+        text-align: center;
+      }
+      .stat-val-screen {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #0f172a;
+      }
+      .stat-label-screen {
+        font-size: 0.65rem;
+        color: #64748b;
+        margin-top: 2px;
+      }
+      .chart-container-screen {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .chart-header-screen {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #475569;
+      }
+      .chart-bars-screen {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 90px;
+        padding: 0 10px;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .chart-bar-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        width: 28px;
+      }
+      .chart-bar-fill {
+        width: 100%;
+        background: #93c5fd;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+      }
+      .chart-bar-fill.active {
+        background: #2563eb;
+      }
+      .chart-bar-lbl {
+        font-size: 0.65rem;
+        color: #64748b;
+        font-weight: 600;
+      }
+      .alert-toast-screen {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #fef2f2;
+        border: 1px solid #fee2e2;
+        border-radius: 8px;
+        padding: 10px 12px;
+        text-align: left;
+      }
+      .alert-toast-screen i {
+        color: #ef4444;
+      }
+      .alert-text-screen {
+        font-size: 0.75rem;
+        color: #991b1b;
+        font-weight: 600;
+        flex: 1;
+      }
+      .alert-btn-screen {
+        background: #ef4444;
+        color: white;
+        border: none;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .pt-owner-step1 { bottom: 32px; left: calc(50% - 10px); }
+      .pt-owner-step2 { top: 215px; right: 28px; }
+      .pt-owner-step3 { top: 388px; left: calc(50% - 10px); }
+      .pt-owner-step4 { top: 226px; right: 28px; }
+      .pt-owner-step5 { bottom: 34px; right: 28px; }
+
+      @media (max-width: 992px) {
+        .booking-step, .booking-step.reverse {
+          flex-direction: column;
+          text-align: center;
+          gap: 40px;
+          padding: 60px 0;
+        }
+      }
+      @media (min-width: 992px) {
+        .booking-hero p {
+          width: 65%;
+        }
+      }
+
     </style>
   </head>
   <body>
@@ -3894,16 +4452,226 @@
           <a href="/#features" class="main-navbar-link">Features</a>
           <a href="/#how-it-works" class="main-navbar-link">How it Works</a>
           <a href="/#testimonials" class="main-navbar-link">Testimonials</a>
-          <a href="/booking.html" class="main-navbar-link">Booking Process</a>
+          <a href="/careers.html" class="main-navbar-link">Careers</a>
+          <!-- <a href="/booking.html" class="main-navbar-link">Booking Process</a> -->
+          <!-- <a href="/manage.html" class="main-navbar-link">Manage PG</a> -->
           <a href="/journey.html" class="main-navbar-link">About Us</a>
           <a href="./contact.html" class="main-navbar-link">Contact Us</a>
-        
         </div>
  
       </div>
     </nav>
 
-    <!-- Hero Section -->
+    
+
+    
+    <!-- Tenant Booking Process Section -->
+    <section id="booking-process" class="detailed-process-section">
+      <div class="detailed-process-bg"></div>
+      <div class="detailed-process-container">
+        
+        <div class="booking-hero">
+          <h1>How <span>Booking</span> Works</h1>
+          <p>Finding your perfect accommodation has never been this easy. Follow our simple digital process to secure your stay effortlessly.</p>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="booking-step">
+          <div class="step-content">
+            <span class="step-badge">Step 1</span>
+            <h2 class="step-title">Search Properties</h2>
+            <p class="step-desc">Browse PGs and hostels based on city, locality, budget, gender preference, and amenities. Use our powerful filters to find the perfect match for your needs.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <img src="./booking-step-2.jpeg" alt="Search Properties App Screen">
+              <div class="pulsing-pointer pt-step1">
+                <div class="pointer-badge">Search PGs</div>
+              </div>
+              <div class="pulsing-pointer pt-step1-1">
+                <div class="pointer-badge">Click on PG</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="booking-step reverse">
+          <div class="step-content">
+            <span class="step-badge">Step 2</span>
+            <h2 class="step-title">Explore Details</h2>
+            <p class="step-desc">View property photos, room options, pricing, facilities, house rules, and availability. Get all the details you need before making a decision.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <img src="./booking-step-3.jpeg" alt="Explore Details App Screen">
+              <div class="pulsing-pointer pt-step2">
+                <div class="pointer-badge">Amenities</div>
+              </div>
+              <div class="scroll-down scroll-down-1">
+                <i class="fas fa-arrow-down"></i>
+                <div class="pointer-badge">Scroll down</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="booking-step">
+          <div class="step-content">
+            <span class="step-badge">Step 3</span>
+            <h2 class="step-title">Contact Property</h2>
+            <p class="step-desc">Connect with the property owner or manager for additional information and availability confirmation. Schedule a visit directly through the app.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <img src="./booking-step-6.jpeg" alt="Contact Property App Screen">
+              <div class="pulsing-pointer pt-step3">
+                <div class="pointer-badge">Book Now</div>
+              </div>
+            </div>
+            <div class="pulsing-pointer pt-step3-1">
+              <div class="pointer-badge">Schedule Visit</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="booking-step reverse">
+          <div class="step-content">
+            <span class="step-badge">Step 4</span>
+            <h2 class="step-title">Complete Verification</h2>
+            <p class="step-desc">Submit the required identification and KYC documents instantly as requested by the property using our secure digital onboarding.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <img src="./booking-step-4.jpeg" alt="Verification App Screen">
+              <div class="pulsing-pointer pt-step4">
+                <div class="pointer-badge">Start KYC</div>
+              </div>
+              <div class="pulsing-pointer pt-step4-1">
+                <div class="pointer-badge">Start Offline KYC</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="booking-step">
+          <div class="step-content">
+            <span class="step-badge">Step 5</span>
+            <h2 class="step-title">Move In</h2>
+            <p class="step-desc">Confirm your booking, complete any remaining formalities through your mobile device, and enjoy a seamless stay experience at your new home.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <img src="./booking-step-5.jpeg" alt="Checkout App Screen">
+              <div class="pulsing-pointer pt-step5">
+                <div class="pointer-badge">Pay Now</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Owner Management Process Section -->
+    <section id="management-process" class="detailed-process-section" style="border-top: 1px solid rgba(0, 0, 0, 0.05);">
+      <div class="detailed-process-bg"></div>
+      <div class="detailed-process-container">
+        
+        <div class="booking-hero">
+          <h1>How <span>Management</span> Works</h1>
+          <p>Ditch the ledger books and manual coordination. Follow our step-by-step digital process to run your PG business efficiently from anywhere.</p>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="booking-step">
+          <div class="step-content">
+            <span class="step-badge">Step 1</span>
+            <h2 class="step-title">Register Your PG</h2>
+            <p class="step-desc">Create your property profile by entering essential details like property name, location details, category (PG/Hostels), and target gender preference (Boys/Girls/Unisex).</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <img src="./image-16.jpeg" alt="Explore Details App Screen">
+              <div class="scroll-down scroll-down-1">
+                <i class="fas fa-arrow-down"></i>
+                <div class="pointer-badge">Scroll down</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="booking-step reverse">
+          <div class="step-content">
+            <span class="step-badge">Step 2</span>
+            <h2 class="step-title">Set Up Rooms & Beds</h2>
+            <p class="step-desc">Configure your room sharing choices (Single, Double, Triple sharing) with pricing details and custom monthly rent or deposit charges to keep listing availability updated.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <img src="./image-14.jpeg" alt="Explore Details App Screen">
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="booking-step">
+          <div class="step-content">
+            <span class="step-badge">Step 3</span>
+            <h2 class="step-title">Add Amenities & Rules</h2>
+            <p class="step-desc">Enable property facilities such as high-speed Wi-Fi, daily meals, air conditioning, and define rules (e.g., gate timings, guest policies) to keep your tenants well-informed.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <img src="./image-18.jpeg" alt="Explore Details App Screen">
+              <div class="scroll-down scroll-down-1">
+                <i class="fas fa-arrow-down"></i>
+                <div class="pointer-badge">Scroll down</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="booking-step reverse">
+          <div class="step-content">
+            <span class="step-badge">Step 4</span>
+            <h2 class="step-title">Onboard Tenants (KYC)</h2>
+            <p class="step-desc">Manage tenant lifecycle onboarding digitally. Collect documentation, review Aadhaar verification or selfie checks, and sign legally binding digital rent agreements instantly.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <img src="./imge-12.jpeg" alt="Explore Details App Screen">
+              <div class="scroll-down scroll-down-1">
+                <i class="fas fa-arrow-down"></i>
+                <div class="pointer-badge">Scroll down</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="booking-step">
+          <div class="step-content">
+            <span class="step-badge">Step 5</span>
+            <h2 class="step-title">Track Collections & Grow</h2>
+            <p class="step-desc">Track monthly collections, occupancy percentages, and pending rent details. Send payment reminders with automated payment links directly through the app to maintain healthy cash flow.</p>
+          </div>
+          <div class="step-visual">
+            <div class="phone-frame">
+              <img src="./image-17.jpeg" alt="Explore Details App Screen">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+<!-- Hero Section -->
     <section class="hero">
       <div class="hero-shapes">
         <div class="shape shape-1"></div>
@@ -4147,7 +4915,8 @@
       </div>
     </section>
 
-    <!-- Features Section -->
+
+<!-- Features Section -->
     <section id="features" class="features">
       <div class="section-background">
         <div class="bg-circle circle-1"></div>
@@ -4321,147 +5090,6 @@
                 <a href="#" class="feature-link tenant"
                   >Learn More <i class="fas fa-arrow-right"></i
                 ></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="process">
-      <div class="process-waves">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            fill="#ffffff"
-          ></path>
-        </svg>
-      </div>
-      <div class="container">
-        <div class="section-header">
-          <div class="badge-wrapper">
-            <span class="section-badge">Process</span>
-          </div>
-          <h2>How <span class="gradient-text">PGfy</span> Works</h2>
-          <p>Simple, streamlined process for both owners and tenants</p>
-        </div>
-
-        <div class="process-slider">
-          <div class="slider-track">
-            <div class="slider-button active" data-process="owners">
-              <i class="fas fa-building"></i>
-              <span>For PG Owners</span>
-            </div>
-            <div class="slider-button" data-process="tenants">
-              <i class="fas fa-home"></i>
-              <span>For Tenants</span>
-            </div>
-            <div class="slider-highlighter"></div>
-          </div>
-        </div>
-
-        <div class="process-content active" id="owners-process">
-          <div class="process-steps">
-            <div class="step-card">
-              <div class="step-number">1</div>
-              <div class="step-icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <div class="step-content">
-                <h3>Register your PG</h3>
-                <p>Sign up and add your property details to get started</p>
-              </div>
-              <div class="step-connector"></div>
-            </div>
-
-            <div class="step-card">
-              <div class="step-number">2</div>
-              <div class="step-icon">
-                <i class="fas fa-home"></i>
-              </div>
-              <div class="step-content">
-                <h3>Set up rooms & amenities</h3>
-                <p>Configure your room types, amenities, and pricing</p>
-              </div>
-              <div class="step-connector"></div>
-            </div>
-
-            <div class="step-card">
-              <div class="step-number">3</div>
-              <div class="step-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <div class="step-content">
-                <h3>Manage tenants</h3>
-                <p>Onboard tenants with digital KYC and contracts</p>
-              </div>
-              <div class="step-connector"></div>
-            </div>
-
-            <div class="step-card">
-              <div class="step-number">4</div>
-              <div class="step-icon">
-                <i class="fas fa-chart-line"></i>
-              </div>
-              <div class="step-content">
-                <h3>Track & grow</h3>
-                <p>Collect payments and analyze your business metrics</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="process-content" id="tenants-process">
-          <div class="process-steps">
-            <div class="step-card tenant">
-              <div class="step-number">1</div>
-              <div class="step-icon tenant">
-                <i class="fas fa-search"></i>
-              </div>
-              <div class="step-content">
-                <h3>Find a PG</h3>
-                <p>Search and filter PGs based on your preferences</p>
-              </div>
-              <div class="step-connector tenant"></div>
-            </div>
-
-            <div class="step-card tenant">
-              <div class="step-number">2</div>
-              <div class="step-icon tenant">
-                <i class="fas fa-id-card"></i>
-              </div>
-              <div class="step-content">
-                <h3>Digital verification</h3>
-                <p>Complete KYC and documentation online</p>
-              </div>
-              <div class="step-connector tenant"></div>
-            </div>
-
-            <div class="step-card tenant">
-              <div class="step-number">3</div>
-              <div class="step-icon tenant">
-                <i class="fas fa-key"></i>
-              </div>
-              <div class="step-content">
-                <h3>Move in</h3>
-                <p>Confirm booking and move into your new PG</p>
-              </div>
-              <div class="step-connector tenant"></div>
-            </div>
-
-            <div class="step-card tenant">
-              <div class="step-number">4</div>
-              <div class="step-icon tenant">
-                <i class="fas fa-mobile-alt"></i>
-              </div>
-              <div class="step-content">
-                <h3>Manage your stay</h3>
-                <p>Pay rent, raise requests, and manage your stay digitally</p>
               </div>
             </div>
           </div>
@@ -5066,6 +5694,7 @@
               <ul>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#how-it-works">How it Works</a></li>
+                <li><a href="./manage.html">Management Process</a></li>
                 <li><a href="#testimonials">Success Stories</a></li>
               </ul>
             </div>
