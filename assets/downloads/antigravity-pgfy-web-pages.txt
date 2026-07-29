@@ -1,0 +1,2975 @@
+1. Extended CSS Design System (css/style.css)
+This file implements the variables, colors, typography, buttons, grids, timelines, accordion layouts, and scroll-fade animations.
+
+css
+
+
+/* PGfy Extended Design System - CSS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+:root {
+  /* Colors */
+  --primary-blue: #1D70B8;
+  --primary-hover: #155A96;
+  --accent-cyan: #06B6D4;
+  --bg-dark-navy: #0B1220;
+  --bg-dark-card: #131E35;
+  --bg-dark-footer: #0A0F1D;
+  --bg-light-gray: #F8FAFC;
+  --bg-white: #FFFFFF;
+  
+  --text-dark: #0F172A;
+  --text-muted: #475569;
+  --text-light: #F8FAFC;
+  --text-light-muted: #94A3B8;
+  --border-light: #E2E8F0;
+  --border-dark: #1E293B;
+  
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  
+  /* Transitions & Shadows */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.05), 0 4px 6px -4px rgba(15, 23, 42, 0.05);
+  --shadow-dark: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 80px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  font-family: var(--font-sans);
+  color: var(--text-dark);
+  background-color: var(--bg-white);
+  line-height: 1.6;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.25;
+}
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+/* Sections */
+section {
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.section-dark {
+  background-color: var(--bg-dark-navy);
+  color: var(--text-light);
+}
+.section-light {
+  background-color: var(--bg-light-gray);
+}
+.section-title-wrapper {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-title-wrapper h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+.section-title-wrapper p {
+  color: var(--text-muted);
+  font-size: 1.125rem;
+}
+.section-dark .section-title-wrapper p {
+  color: var(--text-light-muted);
+}
+/* Wave Separator */
+.wave-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.wave-container svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 50px;
+}
+.wave-container .shape-fill {
+  fill: var(--bg-white);
+}
+/* Header / Navigation */
+header {
+  height: var(--header-height);
+  background: var(--bg-white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--primary-blue);
+}
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+/* Hero Section */
+.hero-section {
+  padding-top: calc(var(--header-height) + 4rem);
+  padding-bottom: 6rem;
+  background-color: var(--bg-dark-navy);
+  color: var(--text-light);
+  position: relative;
+}
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(29, 112, 184, 0.15);
+  border: 1px solid rgba(29, 112, 184, 0.3);
+  color: var(--accent-cyan);
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.8s ease;
+}
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  animation: slideUp 0.8s ease;
+}
+.hero-description {
+  font-size: 1.25rem;
+  color: var(--text-light-muted);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: slideUp 1s ease;
+}
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(29, 112, 184, 0.25);
+}
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+}
+.btn-outline:hover {
+  background-color: var(--primary-blue);
+  color: white;
+  transform: translateY(-2px);
+}
+.btn-outline-white {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+.btn-outline-white:hover {
+  background-color: white;
+  color: var(--bg-dark-navy);
+  border-color: white;
+  transform: translateY(-2px);
+}
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  position: relative;
+  background-color: var(--bg-dark-navy);
+  color: var(--text-light);
+  padding: 5rem 0;
+}
+.cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.cta-content h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+.cta-content p {
+  color: var(--text-light-muted);
+  margin-bottom: 2rem;
+}
+/* Breadcrumb */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  font-size: 0.875rem;
+  color: var(--text-light-muted);
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+.breadcrumb-item a {
+  color: var(--text-light-muted);
+}
+.breadcrumb-item a:hover {
+  color: var(--accent-cyan);
+}
+.breadcrumb-item.active {
+  color: var(--text-light);
+}
+.breadcrumb-separator {
+  color: rgba(255, 255, 255, 0.2);
+}
+/* Cards & Grids */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+/* Payment Cards */
+.payment-card {
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 2.25rem 1.75rem;
+  text-align: center;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.payment-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(29, 112, 184, 0.3);
+}
+.payment-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  background: rgba(29, 112, 184, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+}
+.payment-card:hover .payment-icon-wrapper {
+  background: var(--primary-blue);
+  color: white;
+  transform: scale(1.1);
+}
+.payment-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-dark);
+}
+.payment-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+/* Feature Cards */
+.feature-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.75rem;
+  border: 1px solid var(--border-light);
+  display: flex;
+  gap: 1.25rem;
+  transition: var(--transition);
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(29, 112, 184, 0.2);
+}
+.feature-check-icon {
+  width: 24px;
+  height: 24px;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+.feature-card-content h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+.feature-card-content p {
+  color: var(--text-muted);
+  font-size: 0.925rem;
+}
+/* Dark theme elements for features */
+.section-dark .feature-card {
+  background: var(--bg-dark-card);
+  border-color: var(--border-dark);
+}
+.section-dark .feature-card-content h3 {
+  color: var(--text-light);
+}
+.section-dark .feature-card-content p {
+  color: var(--text-light-muted);
+}
+/* Flow Diagram */
+.flow-diagram-container {
+  max-width: 800px;
+  margin: 3rem auto;
+  position: relative;
+  padding-left: 2.5rem;
+}
+.flow-diagram-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 11px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary-blue), var(--accent-cyan));
+}
+.flow-step {
+  position: relative;
+  padding-bottom: 2.5rem;
+  opacity: 0.85;
+  transition: var(--transition);
+}
+.flow-step:last-child {
+  padding-bottom: 0;
+}
+.flow-step:hover {
+  opacity: 1;
+}
+.flow-dot {
+  position: absolute;
+  left: -2.5rem;
+  top: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--bg-dark-navy);
+  border: 4px solid var(--primary-blue);
+  transition: var(--transition);
+  z-index: 2;
+}
+.flow-step:hover .flow-dot {
+  background: var(--accent-cyan);
+  border-color: white;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px var(--accent-cyan);
+}
+.flow-content {
+  background: var(--bg-dark-card);
+  border: 1px solid var(--border-dark);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition);
+}
+.flow-step:hover .flow-content {
+  border-color: var(--primary-blue);
+  box-shadow: var(--shadow-dark);
+  transform: translateX(5px);
+}
+.flow-text h4 {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 0.25rem;
+}
+.flow-text p {
+  font-size: 0.9rem;
+  color: var(--text-light-muted);
+}
+.flow-arrow-icon {
+  color: var(--text-light-muted);
+  transition: var(--transition);
+}
+.flow-step:hover .flow-arrow-icon {
+  color: var(--accent-cyan);
+  transform: rotate(90deg) scale(1.1);
+}
+/* Step Cards */
+.step-cards-container {
+  margin-top: 4rem;
+}
+.step-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: var(--transition);
+}
+.step-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(29, 112, 184, 0.25);
+}
+.step-badge {
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+  color: white;
+  padding: 0.35rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: var(--shadow-sm);
+}
+.step-card h3 {
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+.step-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+/* Callout Box / Information Box */
+.callout-box {
+  background: rgba(29, 112, 184, 0.05);
+  border-left: 4px solid var(--primary-blue);
+  border-radius: 0 12px 12px 0;
+  padding: 2rem;
+  margin: 4rem auto;
+  max-width: 850px;
+  display: flex;
+  gap: 1.5rem;
+}
+.callout-icon {
+  color: var(--primary-blue);
+  flex-shrink: 0;
+}
+.callout-content h4 {
+  font-size: 1.15rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+.callout-content p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+/* Timeline */
+.timeline-container {
+  max-width: 900px;
+  margin: 4rem auto;
+  position: relative;
+}
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--border-light);
+  transform: translateX(-50%);
+}
+.timeline-item {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 3.5rem;
+  position: relative;
+  width: 50%;
+}
+.timeline-item:nth-child(even) {
+  align-self: flex-end;
+  margin-left: 50%;
+  justify-content: flex-start;
+}
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+.timeline-dot {
+  position: absolute;
+  right: -8px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg-white);
+  border: 3px solid var(--primary-blue);
+  z-index: 2;
+  transition: var(--transition);
+}
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -8px;
+  right: auto;
+}
+.timeline-item:hover .timeline-dot {
+  background: var(--primary-blue);
+  transform: scale(1.3);
+}
+.timeline-content {
+  width: 85%;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.timeline-item:hover .timeline-content {
+  border-color: var(--primary-blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+.timeline-num {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.timeline-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+.timeline-content p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+/* Accordion */
+.accordion-container {
+  max-width: 850px;
+  margin: 3rem auto;
+}
+.accordion-item {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.accordion-item:hover {
+  border-color: rgba(29, 112, 184, 0.25);
+  box-shadow: var(--shadow-sm);
+}
+.accordion-header {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background: none;
+  border: none;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  color: var(--text-dark);
+  transition: var(--transition);
+}
+.accordion-header h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.accordion-icon-chevron {
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+.accordion-item.active .accordion-icon-chevron {
+  transform: rotate(180deg);
+  color: var(--primary-blue);
+}
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  padding: 0 2rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  border-top: 1px solid transparent;
+}
+.accordion-item.active .accordion-content {
+  padding: 1.5rem 2rem 2rem;
+  border-top: 1px solid var(--border-light);
+}
+.accordion-content p {
+  margin-bottom: 1rem;
+}
+.accordion-content p:last-child {
+  margin-bottom: 0;
+}
+.accordion-content ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.accordion-content li {
+  margin-bottom: 0.5rem;
+}
+/* Info Cards & Policy Cards */
+.info-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: left;
+  transition: var(--transition);
+  height: 100%;
+}
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-blue);
+}
+.info-card-icon {
+  color: var(--primary-blue);
+  margin-bottom: 1.25rem;
+  width: 48px;
+  height: 48px;
+  background: rgba(29, 112, 184, 0.05);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.info-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-dark);
+}
+.info-card p {
+  color: var(--text-muted);
+  font-size: 0.925rem;
+  line-height: 1.6;
+}
+/* Legal Cards */
+.legal-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 2.25rem;
+  transition: var(--transition);
+  border-left: 4px solid var(--primary-blue);
+}
+.legal-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.legal-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+  font-family: var(--font-display);
+}
+.legal-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.legal-card p:last-child {
+  margin-bottom: 0;
+}
+.legal-card ul {
+  padding-left: 1.25rem;
+  margin-top: 0.75rem;
+}
+.legal-card li {
+  margin-bottom: 0.5rem;
+  font-size: 0.925rem;
+  color: var(--text-muted);
+}
+/* Scroll Animation classes */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  visibility: hidden;
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+/* Footer styling */
+footer {
+  background-color: var(--bg-dark-footer);
+  color: var(--text-light-muted);
+  padding: 5rem 0 2rem;
+  border-top: 1px solid var(--border-dark);
+  font-size: 0.9rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr repeat(5, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+.footer-logo-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.footer-desc {
+  max-width: 280px;
+  line-height: 1.6;
+  font-size: 0.925rem;
+}
+.footer-socials {
+  display: flex;
+  gap: 0.75rem;
+}
+.footer-social-link {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light-muted);
+  transition: var(--transition);
+}
+.footer-social-link:hover {
+  background: var(--primary-blue);
+  color: white;
+  border-color: var(--primary-blue);
+  transform: translateY(-3px);
+}
+.footer-column h4 {
+  color: var(--text-light);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.footer-link {
+  font-size: 0.875rem;
+  color: var(--text-light-muted);
+}
+.footer-link:hover {
+  color: var(--primary-blue);
+  padding-left: 2px;
+}
+.footer-bottom {
+  border-top: 1px solid var(--border-dark);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4rem;
+}
+.footer-copyright {
+  max-width: 40%;
+  line-height: 1.6;
+}
+.footer-copyright a {
+  color: var(--primary-blue);
+}
+.footer-powered {
+  text-align: right;
+  max-width: 50%;
+  line-height: 1.6;
+}
+.footer-powered address {
+  font-style: normal;
+  margin-top: 0.5rem;
+  color: var(--text-light-muted);
+}
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+  :root {
+    --max-width: 960px;
+  }
+  .grid-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .footer-grid {
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 3rem 2rem;
+  }
+}
+@media (max-width: 992px) {
+  :root {
+    --max-width: 720px;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .timeline-container::before {
+    left: 20px;
+  }
+  .timeline-item {
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 40px;
+  }
+  .timeline-item:nth-child(even) {
+    margin-left: 0;
+  }
+  .timeline-dot {
+    left: 12px !important;
+    right: auto !important;
+  }
+  .timeline-content {
+    width: 100%;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .footer-copyright, .footer-powered {
+    max-width: 100%;
+    text-align: left;
+  }
+}
+@media (max-width: 768px) {
+  :root {
+    --max-width: 540px;
+  }
+  header {
+    height: 70px;
+  }
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: white;
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    align-items: flex-start;
+  }
+  .nav-menu.active {
+    left: 0;
+  }
+  .mobile-menu-toggle {
+    display: block;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .grid-5, .grid-4, .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .callout-box {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  section {
+    padding: 3.5rem 0;
+  }
+}
+2. Global Scripts (js/main.js)
+This script powers mobile layouts, scroll observer transitions, active navigation states, and the interactive Settlement Policy FAQ Accordion.
+
+javascript
+
+
+/* PGfy Extended Design System - JavaScript */
+document.addEventListener('DOMContentLoaded', () => {
+  // Mobile Navigation Toggle
+  const mobileToggle = document.querySelector('.mobile-menu-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      const isExpanded = navMenu.classList.contains('active');
+      mobileToggle.setAttribute('aria-expanded', isExpanded);
+    });
+  }
+  // Active Link Highlighting
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && currentPath.endsWith(href)) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+  // Accordion Component (Used in Settlement Policy)
+  const accordions = document.querySelectorAll('.accordion-header');
+  accordions.forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      const content = header.nextElementSibling;
+      const isAlreadyActive = item.classList.contains('active');
+      const siblingItems = item.parentElement.querySelectorAll('.accordion-item');
+      siblingItems.forEach(sibling => {
+        sibling.classList.remove('active');
+        const siblingContent = sibling.querySelector('.accordion-content');
+        if (siblingContent) {
+          siblingContent.style.maxHeight = null;
+        }
+      });
+      if (!isAlreadyActive) {
+        item.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    });
+  });
+  // Fade-in Animation on Scroll (Intersection Observer)
+  const fadeSections = document.querySelectorAll('.fade-in-section');
+  if ('IntersectionObserver' in window && fadeSections.length > 0) {
+    const observerOptions = {
+      root: null,
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    fadeSections.forEach(section => {
+      observer.observe(section);
+    });
+  } else {
+    fadeSections.forEach(section => {
+      section.classList.add('is-visible');
+    });
+  }
+  // Flow Step Animation Sequence
+  const flowSteps = document.querySelectorAll('.flow-step');
+  if ('IntersectionObserver' in window && flowSteps.length > 0) {
+    const stepObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+        }
+      });
+    }, { threshold: 0.5 });
+    flowSteps.forEach(step => {
+      stepObserver.observe(step);
+    });
+  }
+});
+3. Homepage (index.html)
+Contains the header, hero wrapper, the two new sections (Secure Digital Payments and Empower Your Property Business), and the updated footer with the new Payments & Policies column.
+
+html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PGfy - Effortless PG Discovery & Smart Management</title>
+  <meta name="description" content="Making PG discovery and management effortless with smart technology and seamless automation. Find or manage co-living, hostels, and PG spaces.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pgfy.in/">
+  <meta property="og:title" content="PGfy - Effortless PG Discovery & Smart Management">
+  <meta property="og:description" content="Making PG discovery and management effortless with smart technology and seamless automation. Find or manage co-living, hostels, and PG spaces.">
+  
+  <link rel="stylesheet" href="../../styles/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="../../index.html" class="logo" id="header-logo-link">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <span>PGfy</span>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html#how-it-works" class="nav-link">How it Works</a></li>
+          <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="index.html#careers" class="nav-link">Careers</a></li>
+          <li><a href="index.html#journey" class="nav-link">our Journey</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"/>
+          <line x1="4" x2="20" y1="6" y2="6"/>
+          <line x1="4" x2="20" y1="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <main>
+    <section class="hero-section">
+      <div class="container hero-content">
+        <span class="hero-tag">Smart Co-Living</span>
+        <h1 class="hero-title">Making PG Discovery & Management Effortless</h1>
+        <p class="hero-description">PGfy connects tenants with premium accommodation providers while facilitating automated bookings, secure rent collection, and seamless operational control.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="../../pages/become-a-partner.html" class="btn btn-primary">Become a Partner</a>
+          <a href="../../pages/payment-methods.html" class="btn btn-outline-white">Accepted Payments</a>
+        </div>
+      </div>
+      <div class="wave-container">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V30.27C1122.33,12.72,1053.39,110.83,985.66,92.83Z" class="shape-fill"></path>
+        </svg>
+      </div>
+    </section>
+    <!-- Homepage Update: Section 1 -->
+    <section class="section-light fade-in-section" id="secure-payments">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <h2>Secure Digital Payments</h2>
+          <p>Collect and manage rent payments with confidence. PGfy processes transactions through certified gateways to ensure safety and convenience.</p>
+        </div>
+        <div class="grid-3" style="margin-bottom: 3.5rem;">
+          <div class="feature-card">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Secure Payments</h3>
+              <p>End-to-end encryption and industry-standard security protocols to protect all financial information.</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Multiple Payment Options</h3>
+              <p>Support for UPI, Net Banking, credit/debit cards, and digital wallets for seamless transactions.</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Digital Receipts</h3>
+              <p>Instant booking receipts and rent invoices generated automatically upon successful payment.</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Payment Tracking</h3>
+              <p>Track all dues, settlements, and paid amounts from an intuitive user dashboard.</p>
+            </div>
+          </div>
+          <div class="feature-card" style="grid-column: span 2;">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Automated Rent Collection</h3>
+              <p>Generate digital alerts, send automated invoices, and set up easy recurring payments for monthly rents.</p>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <a href="../../pages/payment-flow.html" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </section>
+    <!-- Homepage Update: Section 2 -->
+    <section class="section-dark fade-in-section" id="empower-business">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Empower Your Property Business with PGfy</h2>
+          <p>Whether you manage a single PG or multiple hostels, PGfy helps digitize your operations, automate tenant onboarding, track occupancy, and collect rent securely.</p>
+          <a href="../../pages/become-a-partner.html" class="btn btn-primary">Become a Partner</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../../index.html" class="footer-logo">
+            <div class="footer-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <span>PGfy</span>
+          </a>
+          <p class="footer-desc">Making PG discovery and management effortless with smart technology and seamless automation.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/><polygon points="9.7 15 14.5 12.3 9.7 9.6 9.7 15"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4>For PG Owners</h4>
+          <ul class="footer-links">
+            <li><a href="../../pages/become-a-partner.html" class="footer-link">Features</a></li>
+            <li><a href="index.html#how-it-works" class="footer-link">How it Works</a></li>
+            <li><a href="#" class="footer-link">Management Process</a></li>
+            <li><a href="#" class="footer-link">Success Stories</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>For Tenants</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Find a PG</a></li>
+            <li><a href="../../pages/payment-flow.html" class="footer-link">Booking Process</a></li>
+            <li><a href="#" class="footer-link">Common Questions</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">our Journey</a></li>
+            <li><a href="#" class="footer-link">Contact Us</a></li>
+            <li><a href="#" class="footer-link">Team</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Payments & Policies</h4>
+          <ul class="footer-links">
+            <li><a href="../../pages/payment-flow.html" class="footer-link">Payment Flow</a></li>
+            <li><a href="../../pages/payment-methods.html" class="footer-link">Accepted Payment Methods</a></li>
+            <li><a href="../../pages/settlement-policy.html" class="footer-link">Settlement Policy</a></li>
+            <li><a href="../../pages/partner-terms.html" class="footer-link">Partner Terms</a></li>
+            <li><a href="settlement-policy.html#refunds" class="footer-link">Refund Policy</a></li>
+            <li><a href="partner-terms.html#privacy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="partner-terms.html#tos" class="footer-link">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="partner-terms.html#privacy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="partner-terms.html#tos" class="footer-link">Terms of Service</a></li>
+            <li><a href="settlement-policy.html#refunds" class="footer-link">Refund Policy</a></li>
+            <li><a href="#" class="footer-link">Delete Account</a></li>
+            <li><a href="#" class="footer-link">Manage Data</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <p>© PGfy, ThinkLogic Tech Solutions Pvt. Ltd., India. All brands (<a href="#">Hostelfy</a>, <a href="#">BookMyPG</a>) are trademarks of their respective owners.</p>
+        </div>
+        <div class="footer-powered">
+          <p>Powered by <strong>ThinkLogic Tech Solutions Private Limited</strong></p>
+          <p>CIN: U62099KA2024PTC193553</p>
+          <address>Office Address: IIIT Bangalore Innovation Centre, Space 34, 26/C, Hosur Road, Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100</address>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../scripts/main.js"></script>
+</body>
+</html>
+4. Accepted Payment Methods (payment-methods.html)
+Builds payment cards detailing UPI, credit/debit networks, net banking banks, and wallets alongside the "Why Pay Through PGfy" checklist.
+
+html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accepted Payment Methods - PGfy</title>
+  <meta name="description" content="Pay your booking amount, security deposit, and monthly rent securely via UPI, Cards, Net Banking, and Wallets on PGfy.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pgfy.in/payment-methods">
+  <meta property="og:title" content="Accepted Payment Methods - PGfy">
+  <meta property="og:description" content="Pay your booking amount, security deposit, and monthly rent securely via UPI, Cards, Net Banking, and Wallets on PGfy.">
+  
+  <link rel="stylesheet" href="../../styles/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="../../index.html" class="logo">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <span>PGfy</span>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html#how-it-works" class="nav-link">How it Works</a></li>
+          <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="index.html#careers" class="nav-link">Careers</a></li>
+          <li><a href="index.html#journey" class="nav-link">our Journey</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"/>
+          <line x1="4" x2="20" y1="6" y2="6"/>
+          <line x1="4" x2="20" y1="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <main>
+    <section class="hero-section">
+      <div class="container hero-content">
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item active">Payment Methods</li>
+        </ul>
+        <span class="hero-tag">Payments & Policies</span>
+        <h1 class="hero-title">Secure & Convenient Digital Payments</h1>
+        <p class="hero-description">PGfy offers secure and reliable digital payment options for tenants to pay booking amounts, security deposits, monthly rent, and other applicable charges. All payments are processed through trusted payment gateway partners using industry-standard security and encryption.</p>
+      </div>
+      <div class="wave-container">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V30.27C1122.33,12.72,1053.39,110.83,985.66,92.83Z" class="shape-fill"></path>
+        </svg>
+      </div>
+    </section>
+    <!-- Methods Grid -->
+    <section class="section-light">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <h2>Accepted Digital Methods</h2>
+          <p>Choose from multiple flexible modes to complete your payments quickly and securely.</p>
+        </div>
+        <div class="grid-5">
+          <div class="payment-card fade-in-section">
+            <div class="payment-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+                <path d="m10 10 3-3 2 2 3-3"/>
+              </svg>
+            </div>
+            <h3>UPI</h3>
+            <p>Pay instantly using Google Pay, PhonePe, Paytm, BHIM, or any other UPI app.</p>
+          </div>
+          <div class="payment-card fade-in-section">
+            <div class="payment-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="2"/>
+                <line x1="2" y1="10" x2="22" y2="10"/>
+              </svg>
+            </div>
+            <h3>Credit Cards</h3>
+            <p>Secure credit card payments with Visa, Mastercard, RuPay, and Diners Club.</p>
+          </div>
+          <div class="payment-card fade-in-section">
+            <div class="payment-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="2"/>
+                <line x1="2" y1="10" x2="22" y2="10"/>
+                <rect x="6" y="14" width="4" height="2" rx="1"/>
+              </svg>
+            </div>
+            <h3>Debit Cards</h3>
+            <p>Use your debit card for fast transactions directly from your savings or current account.</p>
+          </div>
+          <div class="payment-card fade-in-section">
+            <div class="payment-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18"/>
+                <path d="M19 21v-8"/>
+                <path d="M5 21v-8"/>
+                <path d="M12 21v-8"/>
+                <path d="M3 10h18L12 3z"/>
+              </svg>
+            </div>
+            <h3>Net Banking</h3>
+            <p>Direct payments supported through 50+ leading Indian banks.</p>
+          </div>
+          <div class="payment-card fade-in-section">
+            <div class="payment-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h14v4"/>
+                <path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/>
+                <rect x="14" y="11" width="8" height="6" rx="2"/>
+                <circle cx="18" cy="14" r="1"/>
+              </svg>
+            </div>
+            <h3>Digital Wallets</h3>
+            <p>Quick checkouts with Amazon Pay, Mobikwik, PhonePe, and other wallets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Why Pay Through PGfy -->
+    <section class="section-light" style="border-top: 1px solid var(--border-light); background-color: #ffffff;">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <h2>Why Pay Through PGfy</h2>
+          <p>We build our payment ecosystem with tenant convenience, transaction security, and receipt management at its core.</p>
+        </div>
+        <div class="grid-3" style="margin-bottom: 4rem;">
+          <div class="feature-card fade-in-section">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Fast & Secure Payments</h3>
+              <p>Process your rent payments in a few clicks with end-to-end industry security protocols.</p>
+            </div>
+          </div>
+          <div class="feature-card fade-in-section">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Instant Payment Confirmation</h3>
+              <p>Get immediate SMS and email alerts confirming receipt of your payment by the platform.</p>
+            </div>
+          </div>
+          <div class="feature-card fade-in-section">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Digital Payment Receipts</h3>
+              <p>Access and download valid tax-ready and claim-ready digital rent receipts at any time.</p>
+            </div>
+          </div>
+          <div class="feature-card fade-in-section">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Easy Monthly Rent Payments</h3>
+              <p>Set automated reminders and complete recurring rentals with zero hassle.</p>
+            </div>
+          </div>
+          <div class="feature-card fade-in-section">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Multiple Payment Options</h3>
+              <p>Choose your preferred route: pay via UPI, cards, net banking, or digital wallets.</p>
+            </div>
+          </div>
+          <div class="feature-card fade-in-section">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Secure Transaction Processing</h3>
+              <p>Direct integration with RBI-regulated payment gateway providers prevents errors.</p>
+            </div>
+          </div>
+          <div class="feature-card fade-in-section" style="grid-column: span 3;">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Payment History Available</h3>
+              <p>Access your complete list of historical transactions, security deposits, and dues in the PGfy dashboard.</p>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <a href="../../pages/payment-flow.html" class="btn btn-primary">
+            <span>View Payment Flow</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" x2="19" y1="12" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../../index.html" class="footer-logo">
+            <div class="footer-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <span>PGfy</span>
+          </a>
+          <p class="footer-desc">Making PG discovery and management effortless with smart technology and seamless automation.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/><polygon points="9.7 15 14.5 12.3 9.7 9.6 9.7 15"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4>For PG Owners</h4>
+          <ul class="footer-links">
+            <li><a href="../../pages/become-a-partner.html" class="footer-link">Features</a></li>
+            <li><a href="index.html#how-it-works" class="footer-link">How it Works</a></li>
+            <li><a href="#" class="footer-link">Management Process</a></li>
+            <li><a href="#" class="footer-link">Success Stories</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>For Tenants</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Find a PG</a></li>
+            <li><a href="../../pages/payment-flow.html" class="footer-link">Booking Process</a></li>
+            <li><a href="#" class="footer-link">Common Questions</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">our Journey</a></li>
+            <li><a href="#" class="footer-link">Contact Us</a></li>
+            <li><a href="#" class="footer-link">Team</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Payments & Policies</h4>
+          <ul class="footer-links">
+            <li><a href="../../pages/payment-flow.html" class="footer-link">Payment Flow</a></li>
+            <li><a href="../../pages/payment-methods.html" class="footer-link">Accepted Payment Methods</a></li>
+            <li><a href="../../pages/settlement-policy.html" class="footer-link">Settlement Policy</a></li>
+            <li><a href="../../pages/partner-terms.html" class="footer-link">Partner Terms</a></li>
+            <li><a href="settlement-policy.html#refunds" class="footer-link">Refund Policy</a></li>
+            <li><a href="partner-terms.html#privacy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="partner-terms.html#tos" class="footer-link">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="partner-terms.html#privacy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="partner-terms.html#tos" class="footer-link">Terms of Service</a></li>
+            <li><a href="settlement-policy.html#refunds" class="footer-link">Refund Policy</a></li>
+            <li><a href="#" class="footer-link">Delete Account</a></li>
+            <li><a href="#" class="footer-link">Manage Data</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <p>© PGfy, ThinkLogic Tech Solutions Pvt. Ltd., India. All brands (<a href="#">Hostelfy</a>, <a href="#">BookMyPG</a>) are trademarks of their respective owners.</p>
+        </div>
+        <div class="footer-powered">
+          <p>Powered by <strong>ThinkLogic Tech Solutions Private Limited</strong></p>
+          <p>CIN: U62099KA2024PTC193553</p>
+          <address>Office Address: IIIT Bangalore Innovation Centre, Space 34, 26/C, Hosur Road, Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100</address>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../scripts/main.js"></script>
+</body>
+</html>
+5. Payment Flow (payment-flow.html)
+Presents a modern vertical animated timeline/diagram tracking transactions from search to settlement.
+
+html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Payments Work - Payment Flow - PGfy</title>
+  <meta name="description" content="Understand the end-to-end PGfy digital payment process, from tenant booking to secure property manager settlement.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pgfy.in/payment-flow">
+  <meta property="og:title" content="How Payments Work - Payment Flow - PGfy">
+  <meta property="og:description" content="Understand the end-to-end PGfy digital payment process, from tenant booking to secure property manager settlement.">
+  
+  <link rel="stylesheet" href="../../styles/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="../../index.html" class="logo">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <span>PGfy</span>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html#how-it-works" class="nav-link">How it Works</a></li>
+          <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="index.html#careers" class="nav-link">Careers</a></li>
+          <li><a href="index.html#journey" class="nav-link">our Journey</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"/>
+          <line x1="4" x2="20" y1="6" y2="6"/>
+          <line x1="4" x2="20" y1="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <main>
+    <section class="hero-section">
+      <div class="container hero-content">
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item active">Payment Flow</li>
+        </ul>
+        <span class="hero-tag">Digital Flow</span>
+        <h1 class="hero-title">How Payments Work on PGfy</h1>
+        <p class="hero-description">PGfy simplifies digital rent collection by providing a secure payment experience for tenants while enabling verified property managers to receive settlements efficiently.</p>
+      </div>
+      <div class="wave-container">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V30.27C1122.33,12.72,1053.39,110.83,985.66,92.83Z" class="shape-fill"></path>
+        </svg>
+      </div>
+    </section>
+    <!-- Animated Flow Diagram -->
+    <section class="section-dark">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <h2>Transactional Flow Diagram</h2>
+          <p>Trace the step-by-step lifecycle of a transaction through our digital platform.</p>
+        </div>
+        <div class="flow-diagram-container">
+          <div class="flow-step">
+            <div class="flow-dot"></div>
+            <div class="flow-content">
+              <div class="flow-text">
+                <h4>Tenant</h4>
+                <p>Begins the transaction journey on the platform.</p>
+              </div>
+              <div class="flow-arrow-icon">→</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-dot"></div>
+            <div class="flow-content">
+              <div class="flow-text">
+                <h4>Searches Property</h4>
+                <p>Filters co-living spaces, rooms, or hostels based on preference.</p>
+              </div>
+              <div class="flow-arrow-icon">→</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-dot"></div>
+            <div class="flow-content">
+              <div class="flow-text">
+                <h4>Books Room</h4>
+                <p>Selects occupancy type, sharing pattern, and check-in date.</p>
+              </div>
+              <div class="flow-arrow-icon">→</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-dot"></div>
+            <div class="flow-content">
+              <div class="flow-text">
+                <h4>Pays Booking Amount / Monthly Rent</h4>
+                <p>Initiates the transaction using preferred payment method.</p>
+              </div>
+              <div class="flow-arrow-icon">→</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-dot"></div>
+            <div class="flow-content">
+              <div class="flow-text">
+                <h4>Payment processed securely via PayU</h4>
+                <p>Routed via our trusted PCI-DSS compliant payment gateway partner.</p>
+              </div>
+              <div class="flow-arrow-icon">→</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-dot"></div>
+            <div class="flow-content">
+              <div class="flow-text">
+                <h4>Payment recorded by PGfy</h4>
+                <p>Instant logs updated in the dashboard databases.</p>
+              </div>
+              <div class="flow-arrow-icon">→</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-dot"></div>
+            <div class="flow-content">
+              <div class="flow-text">
+                <h4>Settlement Initiated</h4>
+                <p>Payout schedule triggered according to the settlement rules.</p>
+              </div>
+              <div class="flow-arrow-icon">→</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-dot"></div>
+            <div class="flow-content">
+              <div class="flow-text">
+                <h4>Verified Property Manager Receives Settlement</h4>
+                <p>Direct bank transfer completed securely to the verified owner bank account.</p>
+              </div>
+              <div class="flow-arrow-icon">→</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-dot"></div>
+            <div class="flow-content">
+              <div class="flow-text">
+                <h4>PGfy retains applicable platform fees or subscription charges (where applicable)</h4>
+                <p>Applicable platform charges deducted transparently during settlement processing.</p>
+              </div>
+              <div class="flow-arrow-icon">✓</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Deep Dive Step Cards -->
+    <section class="section-light">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <h2>Deep Dive: Transaction Stages</h2>
+          <p>Understand how we process payments securely behind the scenes.</p>
+        </div>
+        <div class="grid-3 step-cards-container">
+          <div class="step-card fade-in-section">
+            <div class="step-badge">Step 1</div>
+            <h3>Tenant Initiates Payment</h3>
+            <p>The tenant logs into the booking portal, verifies their monthly invoice or booking deposit, selects a digital payment method, and enters payment credentials.</p>
+          </div>
+          <div class="step-card fade-in-section">
+            <div class="step-badge">Step 2</div>
+            <h3>Secure Processing</h3>
+            <p>Transaction details are encrypted and passed via secure API to our payment gateway partner (PayU), which performs verification checks with the issuing bank.</p>
+          </div>
+          <div class="step-card fade-in-section">
+            <div class="step-badge">Step 3</div>
+            <h3>Payment Confirmation</h3>
+            <p>Upon successful gateway response, the system updates booking status, sends immediate notifications, and generates tax-compliant digital receipts.</p>
+          </div>
+          <div class="step-card fade-in-section">
+            <div class="step-badge">Step 4</div>
+            <h3>Settlement Processing</h3>
+            <p>Net amounts (minus platform subscription fees) are batch-processed and settled securely to the property manager's bank account.</p>
+          </div>
+          <div class="step-card fade-in-section" style="grid-column: span 2;">
+            <div class="step-badge">Step 5</div>
+            <h3>Digital Records & Reconciliation</h3>
+            <p>Both tenant and property manager gain access to permanent digital transaction records, invoice history, and monthly reports via their secure dashboards, making taxation and reconciliation effortless.</p>
+          </div>
+        </div>
+        <!-- Information Callout Box -->
+        <div class="callout-box fade-in-section">
+          <div class="callout-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+          </div>
+          <div class="callout-content">
+            <h4>Important Note</h4>
+            <p>PGfy is a technology platform connecting tenants with verified accommodation providers while facilitating secure payment collection and settlement. All payment flows are regulated under standard gateway policies.</p>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <a href="../../pages/become-a-partner.html" class="btn btn-primary">Become a PGfy Partner</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../../index.html" class="footer-logo">
+            <div class="footer-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <span>PGfy</span>
+          </a>
+          <p class="footer-desc">Making PG discovery and management effortless with smart technology and seamless automation.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/><polygon points="9.7 15 14.5 12.3 9.7 9.6 9.7 15"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4>For PG Owners</h4>
+          <ul class="footer-links">
+            <li><a href="../../pages/become-a-partner.html" class="footer-link">Features</a></li>
+            <li><a href="index.html#how-it-works" class="footer-link">How it Works</a></li>
+            <li><a href="#" class="footer-link">Management Process</a></li>
+            <li><a href="#" class="footer-link">Success Stories</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>For Tenants</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Find a PG</a></li>
+            <li><a href="../../pages/payment-flow.html" class="footer-link">Booking Process</a></li>
+            <li><a href="#" class="footer-link">Common Questions</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">our Journey</a></li>
+            <li><a href="#" class="footer-link">Contact Us</a></li>
+            <li><a href="#" class="footer-link">Team</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Payments & Policies</h4>
+          <ul class="footer-links">
+            <li><a href="../../pages/payment-flow.html" class="footer-link">Payment Flow</a></li>
+            <li><a href="../../pages/payment-methods.html" class="footer-link">Accepted Payment Methods</a></li>
+            <li><a href="../../pages/settlement-policy.html" class="footer-link">Settlement Policy</a></li>
+            <li><a href="../../pages/partner-terms.html" class="footer-link">Partner Terms</a></li>
+            <li><a href="settlement-policy.html#refunds" class="footer-link">Refund Policy</a></li>
+            <li><a href="partner-terms.html#privacy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="partner-terms.html#tos" class="footer-link">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="partner-terms.html#privacy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="partner-terms.html#tos" class="footer-link">Terms of Service</a></li>
+            <li><a href="settlement-policy.html#refunds" class="footer-link">Refund Policy</a></li>
+            <li><a href="#" class="footer-link">Delete Account</a></li>
+            <li><a href="#" class="footer-link">Manage Data</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <p>© PGfy, ThinkLogic Tech Solutions Pvt. Ltd., India. All brands (<a href="#">Hostelfy</a>, <a href="#">BookMyPG</a>) are trademarks of their respective owners.</p>
+        </div>
+        <div class="footer-powered">
+          <p>Powered by <strong>ThinkLogic Tech Solutions Private Limited</strong></p>
+          <p>CIN: U62099KA2024PTC193553</p>
+          <address>Office Address: IIIT Bangalore Innovation Centre, Space 34, 26/C, Hosur Road, Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100</address>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../scripts/main.js"></script>
+</body>
+</html>
+6. Become a Partner (become-a-partner.html)
+Highlights provider categories, comprehensive operational features/benefits, onboarding timelines, and security/verification terms.
+
+html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Become a PGfy Partner - Grow Your Property Business</title>
+  <meta name="description" content="Digitize operations, collect rent, perform KYC checks, and automate co-living space workflows. Join PGfy as an owner or operator.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pgfy.in/become-a-partner">
+  <meta property="og:title" content="Become a PGfy Partner - Grow Your Property Business">
+  <meta property="og:description" content="Digitize operations, collect rent, perform KYC checks, and automate co-living space workflows. Join PGfy as an owner or operator.">
+  
+  <link rel="stylesheet" href="../../styles/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="../../index.html" class="logo">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <span>PGfy</span>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html#how-it-works" class="nav-link">How it Works</a></li>
+          <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="index.html#careers" class="nav-link">Careers</a></li>
+          <li><a href="index.html#journey" class="nav-link">our Journey</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"/>
+          <line x1="4" x2="20" y1="6" y2="6"/>
+          <line x1="4" x2="20" y1="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <main>
+    <section class="hero-section">
+      <div class="container hero-content">
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item active">Become a Partner</li>
+        </ul>
+        <span class="hero-tag">Grow with Us</span>
+        <h1 class="hero-title">Grow Your Property Business with PGfy</h1>
+        <p class="hero-description">PGfy helps Paying Guest owners, hostel operators, and co-living businesses digitize their operations and simplify rent collection.</p>
+      </div>
+      <div class="wave-container">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V30.27C1122.33,12.72,1053.39,110.83,985.66,92.83Z" class="shape-fill"></path>
+        </svg>
+      </div>
+    </section>
+    <!-- Who Can Join -->
+    <section class="section-light">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <h2>Who Can Join</h2>
+          <p>We work with a wide range of accommodation providers to digitize property management.</p>
+        </div>
+        <div class="grid-5" style="margin-bottom: 2rem;">
+          <div class="payment-card fade-in-section">
+            <div class="payment-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              </svg>
+            </div>
+            <h3>PG Owners</h3>
+            <p>Independent Paying Guest owners managing single or multiple co-living layouts.</p>
+          </div>
+          <div class="payment-card fade-in-section">
+            <div class="payment-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="2" ry="2"/>
+                <path d="M9 22V12h6v10"/>
+                <path d="M8 6h2v2H8zm6 0h2v2h-2zm-6 4h2v2H8zm6 0h2v2h-2z"/>
+              </svg>
+            </div>
+            <h3>Hostel Operators</h3>
+            <p>Private hostel managers catering to students or working professionals.</p>
+          </div>
+          <div class="payment-card fade-in-section">
+            <div class="payment-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3>Co-living Operators</h3>
+            <p>Shared spaces and community-driven residential spaces optimized for modern lifestyle.</p>
+          </div>
+          <div class="payment-card fade-in-section">
+            <div class="payment-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+              </svg>
+            </div>
+            <h3>Student Housing</h3>
+            <p>Managed student apartments and hostel setups near academic institutions.</p>
+          </div>
+          <div class="payment-card fade-in-section">
+            <div class="payment-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M3 9h18"/>
+                <path d="M9 21V9"/>
+              </svg>
+            </div>
+            <h3>Managed Rentals</h3>
+            <p>Real estate operators managing premium long-term residential listings.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Partner Benefits -->
+    <section class="section-light" style="background-color: #ffffff; border-top: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <h2>Partner Benefits</h2>
+          <p>Supercharge your operations with our standard and advanced software features.</p>
+        </div>
+        <div class="grid-4">
+          <div class="feature-card fade-in-section">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Digital Property Management</h3>
+              <p>Allocate rooms, log vacancies, manage maintenance tickets, and track facilities.</p>
+            </div>
+          </div>
+          <div class="feature-card fade-in-section">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Digital KYC</h3>
+              <p>Instant Aadhaar, PAN card validation, and address authentication for safer verification.</p>
+            </div>
+          </div>
+          <div class="feature-card fade-in-section">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Rent Collection</h3>
+              <p>Completely automated invoices, reminders, and online gateways for immediate collection.</p>
+            </div>
+          </div>
+          <div class="feature-card fade-in-section">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Occupancy Tracking</h3>
+              <p>Visual status reports showing occupied, reserved, and vacant rooms in real time.</p>
+            </div>
+          </div>
+          <div class="feature-card fade-in-section">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Analytics</h3>
+              <p>Identify peak vacancy periods, revenue breakdowns, and collection rates.</p>
+            </div>
+          </div>
+          <div class="feature-card fade-in-section">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>AI Assistant</h3>
+              <p>Leverage AI chatbots to reply to tenant queries and screen profiles automatically.</p>
+            </div>
+          </div>
+          <div class="feature-card fade-in-section">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Reports</h3>
+              <p>Download monthly taxation statements, ledger logs, and operational overhead files.</p>
+            </div>
+          </div>
+          <div class="feature-card fade-in-section">
+            <div class="feature-check-icon">✓</div>
+            <div class="feature-card-content">
+              <h3>Tenant Management</h3>
+              <p>Issue gate passes, check-in sheets, and check-out logs through a unified interface.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Onboarding Timeline -->
+    <section class="section-light" style="background-color: var(--bg-light-gray); border-top: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <h2>Partner Onboarding Timeline</h2>
+          <p>Get listed and operational on our platform in 8 clear and transparent steps.</p>
+        </div>
+        <div class="timeline-container">
+          <div class="timeline-item fade-in-section">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-num">Step 1</span>
+              <h3>Register</h3>
+              <p>Create a partner account using your mobile number and email ID on the registration page.</p>
+            </div>
+          </div>
+          <div class="timeline-item fade-in-section">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-num">Step 2</span>
+              <h3>Business Information</h3>
+              <p>Add trade names, registration details, GSTIN (optional), and tax identification documents.</p>
+            </div>
+          </div>
+          <div class="timeline-item fade-in-section">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-num">Step 3</span>
+              <h3>Identity Verification</h3>
+              <p>Validate owner identity via Aadhaar, PAN card, or standard government-issued credentials.</p>
+            </div>
+          </div>
+          <div class="timeline-item fade-in-section">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-num">Step 4</span>
+              <h3>Property Verification</h3>
+              <p>Upload room dimensions, safety certificates, utility records, and coordinates.</p>
+            </div>
+          </div>
+          <div class="timeline-item fade-in-section">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-num">Step 5</span>
+              <h3>Accept Partner Terms</h3>
+              <p>Review and digitally sign the partner terms, payout terms, and SLA structure.</p>
+            </div>
+          </div>
+          <div class="timeline-item fade-in-section">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-num">Step 6</span>
+              <h3>Property Approval</h3>
+              <p>Our verification team audits documents and publishes your listing live on the app.</p>
+            </div>
+          </div>
+          <div class="timeline-item fade-in-section">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-num">Step 7</span>
+              <h3>Receive Tenant Bookings</h3>
+              <p>Tenants browse and request reservations, with notifications sent immediately to you.</p>
+            </div>
+          </div>
+          <div class="timeline-item fade-in-section">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-num">Step 8</span>
+              <h3>Receive Settlements</h3>
+              <p>Collected rents and deposits are settled directly into your linked bank accounts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Verification Section -->
+    <section class="section-light" style="background-color: #ffffff; border-top: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <h2>Verification Requirements</h2>
+          <p>We maintain high levels of listing authenticity by completing four levels of verification checks.</p>
+        </div>
+        <div class="grid-2">
+          <div class="info-card fade-in-section">
+            <div class="info-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3>Identity & Business Verification</h3>
+            <p>Owners are verified through national identification logs (Aadhaar/PAN). Corporate partnerships require submission of Registration Certificates, partnership deeds, and GST registration profiles to prevent fraud.</p>
+          </div>
+          <div class="info-card fade-in-section">
+            <div class="info-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <h3>Property Audit & Terms Acceptance</h3>
+            <p>Every listed location undergoes digital property verification, checking address coordinates and safety credentials. Partner Agreement Acceptance is digitally completed before activation of rent collection pipelines.</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 4rem;">
+          <a href="#" class="btn btn-primary btn-lg" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Start Partner Registration</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../../index.html" class="footer-logo">
+            <div class="footer-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <span>PGfy</span>
+          </a>
+          <p class="footer-desc">Making PG discovery and management effortless with smart technology and seamless automation.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/><polygon points="9.7 15 14.5 12.3 9.7 9.6 9.7 15"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4>For PG Owners</h4>
+          <ul class="footer-links">
+            <li><a href="../../pages/become-a-partner.html" class="footer-link">Features</a></li>
+            <li><a href="index.html#how-it-works" class="footer-link">How it Works</a></li>
+            <li><a href="#" class="footer-link">Management Process</a></li>
+            <li><a href="#" class="footer-link">Success Stories</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>For Tenants</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Find a PG</a></li>
+            <li><a href="../../pages/payment-flow.html" class="footer-link">Booking Process</a></li>
+            <li><a href="#" class="footer-link">Common Questions</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">our Journey</a></li>
+            <li><a href="#" class="footer-link">Contact Us</a></li>
+            <li><a href="#" class="footer-link">Team</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Payments & Policies</h4>
+          <ul class="footer-links">
+            <li><a href="../../pages/payment-flow.html" class="footer-link">Payment Flow</a></li>
+            <li><a href="../../pages/payment-methods.html" class="footer-link">Accepted Payment Methods</a></li>
+            <li><a href="../../pages/settlement-policy.html" class="footer-link">Settlement Policy</a></li>
+            <li><a href="../../pages/partner-terms.html" class="footer-link">Partner Terms</a></li>
+            <li><a href="settlement-policy.html#refunds" class="footer-link">Refund Policy</a></li>
+            <li><a href="partner-terms.html#privacy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="partner-terms.html#tos" class="footer-link">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="partner-terms.html#privacy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="partner-terms.html#tos" class="footer-link">Terms of Service</a></li>
+            <li><a href="settlement-policy.html#refunds" class="footer-link">Refund Policy</a></li>
+            <li><a href="#" class="footer-link">Delete Account</a></li>
+            <li><a href="#" class="footer-link">Manage Data</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <p>© PGfy, ThinkLogic Tech Solutions Pvt. Ltd., India. All brands (<a href="#">Hostelfy</a>, <a href="#">BookMyPG</a>) are trademarks of their respective owners.</p>
+        </div>
+        <div class="footer-powered">
+          <p>Powered by <strong>ThinkLogic Tech Solutions Private Limited</strong></p>
+          <p>CIN: U62099KA2024PTC193553</p>
+          <address>Office Address: IIIT Bangalore Innovation Centre, Space 34, 26/C, Hosur Road, Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100</address>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../scripts/main.js"></script>
+</body>
+</html>
+7. Settlement Policy (settlement-policy.html)
+Builds accordion selectors using JavaScript toggles to detail refund parameters, timelines, retry attempts, convenience charges, and gateway compliance.
+
+html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settlement Policy - PGfy</title>
+  <meta name="description" content="Read the PGfy payment settlement timeline, failed settlements, refund rules, platform charges, and dispute policies.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pgfy.in/settlement-policy">
+  <meta property="og:title" content="Settlement Policy - PGfy">
+  <meta property="og:description" content="Read the PGfy payment settlement timeline, failed settlements, refund rules, platform charges, and dispute policies.">
+  
+  <link rel="stylesheet" href="../../styles/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="../../index.html" class="logo">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <span>PGfy</span>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html#how-it-works" class="nav-link">How it Works</a></li>
+          <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="index.html#careers" class="nav-link">Careers</a></li>
+          <li><a href="index.html#journey" class="nav-link">our Journey</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"/>
+          <line x1="4" x2="20" y1="6" y2="6"/>
+          <line x1="4" x2="20" y1="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <main>
+    <section class="hero-section">
+      <div class="container hero-content">
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item active">Settlement Policy</li>
+        </ul>
+        <span class="hero-tag">Policies & Terms</span>
+        <h1 class="hero-title">Settlement Policy</h1>
+        <p class="hero-description">PGfy facilitates secure payment collection and settlement between tenants and verified property managers.</p>
+      </div>
+      <div class="wave-container">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V30.27C1122.33,12.72,1053.39,110.83,985.66,92.83Z" class="shape-fill"></path>
+        </svg>
+      </div>
+    </section>
+    <!-- Accordion Guidelines -->
+    <section class="section-light">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <h2>Settlement Guidelines & FAQS</h2>
+          <p>Read about payment structures, dispute procedures, timelines, and gateway criteria.</p>
+        </div>
+        <div class="accordion-container">
+          <div class="accordion-item fade-in-section">
+            <button class="accordion-header">
+              <h3>Settlement Process</h3>
+              <span class="accordion-icon-chevron">▼</span>
+            </button>
+            <div class="accordion-content">
+              <p>The settlement process on PGfy follows these structured criteria:</p>
+              <ul>
+                <li><strong>Net Payouts:</strong> Net payout amount represents tenant dues collected minus standard platform fees, convenience charges, or subscription costs (if applicable).</li>
+                <li><strong>Automatic Routing:</strong> Transaction funds are consolidated at the billing cycle close and routed directly via standard API transfers.</li>
+                <li><strong>Log Verification:</strong> Payments must be marked as successful on our payment gateway logs before they are queued for settlement.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item fade-in-section">
+            <button class="accordion-header">
+              <h3>Settlement Timeline</h3>
+              <span class="accordion-icon-chevron">▼</span>
+            </button>
+            <div class="accordion-content">
+              <p>We process settlements according to the following schedule:</p>
+              <ul>
+                <li><strong>Standard Payout Cycle:</strong> Settlements are processed within <strong>T+2 working days</strong> (Transaction date plus 2 bank working days).</li>
+                <li><strong>Batch Clearence:</strong> Payout batches are generated daily. Actual credit timings depend on the receiving bank’s IMPS/NEFT clearing hours.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item fade-in-section">
+            <button class="accordion-header">
+              <h3>Failed Settlements</h3>
+              <span class="accordion-icon-chevron">▼</span>
+            </button>
+            <div class="accordion-content">
+              <p>In rare instances when a settlement cannot be successfully processed:</p>
+              <ul>
+                <li><strong>Causes:</strong> Incorrect bank coordinates, invalid IFSC codes, inactive beneficiary account codes, or gateway technical issues.</li>
+                <li><strong>Action Plan:</strong> Failed payouts are flagged on the dashboard. Partners must review bank details and re-verify accounts. Retries are scheduled automatically every 24 hours.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item fade-in-section" id="refunds">
+            <button class="accordion-header">
+              <h3>Refunds</h3>
+              <span class="accordion-icon-chevron">▼</span>
+            </button>
+            <div class="accordion-content">
+              <p>Refund rules for booking amounts and monthly rents:</p>
+              <ul>
+                <li><strong>Approvals:</strong> Refunds must be authorized by property managers on their portal according to their individual booking cancellation policies.</li>
+                <li><strong>Timeframe:</strong> Approved refunds are credited back to the tenant's original payment mode within <strong>5 to 7 working days</strong>.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item fade-in-section">
+            <button class="accordion-header">
+              <h3>Chargebacks</h3>
+              <span class="accordion-icon-chevron">▼</span>
+            </button>
+            <div class="accordion-content">
+              <p>Managing chargebacks and transaction disputes:</p>
+              <ul>
+                <li><strong>Notification:</strong> When a tenant files a dispute with their bank, a chargeback alert is generated.</li>
+                <li><strong>Evidence Check:</strong> Property managers must supply valid tenancy contracts, rent logs, or sign-in sheets within 48 hours to represent the transaction. If the manager fails to supply proof, the chargeback amount is reversed.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item fade-in-section">
+            <button class="accordion-header">
+              <h3>Platform Charges</h3>
+              <span class="accordion-icon-chevron">▼</span>
+            </button>
+            <div class="accordion-content">
+              <p>Overview of applicable platform costs:</p>
+              <ul>
+                <li><strong>Convenience Fees:</strong> Convenience fees apply to tenant credit card and select wallet transactions.</li>
+                <li><strong>Platform Subscription:</strong> Based on the partner contract, subscription charges or standard commissions are deducted before payout dispatch.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item fade-in-section">
+            <button class="accordion-header">
+              <h3>Dispute Resolution</h3>
+              <span class="accordion-icon-chevron">▼</span>
+            </button>
+            <div class="accordion-content">
+              <p>Resolving settlement discrepancies:</p>
+              <p>Disputes relating to settlement calculation errors, delayed payments, or tenant booking conflicts can be flagged to our Support Team at <strong>partner-support@pgfy.in</strong>. We review and resolve queries within 48 business hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Info Cards -->
+    <section class="section-light" style="background-color: #ffffff; border-top: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <h2>Settlement Variables</h2>
+          <p>Several external elements influence actual payout processing and bank clearance.</p>
+        </div>
+        <div class="grid-4">
+          <div class="info-card fade-in-section">
+            <div class="info-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="2"/>
+                <line x1="2" y1="10" x2="22" y2="10"/>
+              </svg>
+            </div>
+            <h3>Payment Method</h3>
+            <p>UPI payouts are cleared faster than international card payments, which require multi-step verification.</p>
+          </div>
+          <div class="info-card fade-in-section">
+            <div class="info-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <h3>Bank Holidays</h3>
+            <p>Settlement pipelines are paused on RBI bank holidays and national holidays, resuming next working day.</p>
+          </div>
+          <div class="info-card fade-in-section">
+            <div class="info-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <h3>Gateway Processing</h3>
+            <p>Third-party gateway (PayU) operational state can cause minor delays in reconciliation logs.</p>
+          </div>
+          <div class="info-card fade-in-section">
+            <div class="info-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <h3>Compliance Check</h3>
+            <p>Settlements are enabled only after legal bank account matching and KYC credentials validation.</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 4rem;">
+          <a href="#refunds" class="btn btn-outline">Read Refund Policy</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../../index.html" class="footer-logo">
+            <div class="footer-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <span>PGfy</span>
+          </a>
+          <p class="footer-desc">Making PG discovery and management effortless with smart technology and seamless automation.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/><polygon points="9.7 15 14.5 12.3 9.7 9.6 9.7 15"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4>For PG Owners</h4>
+          <ul class="footer-links">
+            <li><a href="../../pages/become-a-partner.html" class="footer-link">Features</a></li>
+            <li><a href="index.html#how-it-works" class="footer-link">How it Works</a></li>
+            <li><a href="#" class="footer-link">Management Process</a></li>
+            <li><a href="#" class="footer-link">Success Stories</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>For Tenants</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Find a PG</a></li>
+            <li><a href="../../pages/payment-flow.html" class="footer-link">Booking Process</a></li>
+            <li><a href="#" class="footer-link">Common Questions</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">our Journey</a></li>
+            <li><a href="#" class="footer-link">Contact Us</a></li>
+            <li><a href="#" class="footer-link">Team</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Payments & Policies</h4>
+          <ul class="footer-links">
+            <li><a href="../../pages/payment-flow.html" class="footer-link">Payment Flow</a></li>
+            <li><a href="../../pages/payment-methods.html" class="footer-link">Accepted Payment Methods</a></li>
+            <li><a href="../../pages/settlement-policy.html" class="footer-link">Settlement Policy</a></li>
+            <li><a href="../../pages/partner-terms.html" class="footer-link">Partner Terms</a></li>
+            <li><a href="settlement-policy.html#refunds" class="footer-link">Refund Policy</a></li>
+            <li><a href="partner-terms.html#privacy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="partner-terms.html#tos" class="footer-link">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="partner-terms.html#privacy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="partner-terms.html#tos" class="footer-link">Terms of Service</a></li>
+            <li><a href="settlement-policy.html#refunds" class="footer-link">Refund Policy</a></li>
+            <li><a href="#" class="footer-link">Delete Account</a></li>
+            <li><a href="#" class="footer-link">Manage Data</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <p>© PGfy, ThinkLogic Tech Solutions Pvt. Ltd., India. All brands (<a href="#">Hostelfy</a>, <a href="#">BookMyPG</a>) are trademarks of their respective owners.</p>
+        </div>
+        <div class="footer-powered">
+          <p>Powered by <strong>ThinkLogic Tech Solutions Private Limited</strong></p>
+          <p>CIN: U62099KA2024PTC193553</p>
+          <address>Office Address: IIIT Banglore Innovation Centre, Space 34, 26/C, Hosur Road, Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100</address>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../scripts/main.js"></script>
+</body>
+</html>
+8. Partner Terms & Conditions (partner-terms.html)
+Presents a highly professional legal interface containing 8 distinct clauses.
+
+html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner Terms & Conditions - PGfy</title>
+  <meta name="description" content="Read the terms governing relationship between PGfy and verified property managers, including eligibility, compliance, KYC, and payments.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pgfy.in/partner-terms">
+  <meta property="og:title" content="Partner Terms & Conditions - PGfy">
+  <meta property="og:description" content="Read the terms governing relationship between PGfy and verified property managers, including eligibility, compliance, KYC, and payments.">
+  
+  <link rel="stylesheet" href="../../styles/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="../../index.html" class="logo">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <span>PGfy</span>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html#how-it-works" class="nav-link">How it Works</a></li>
+          <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="index.html#careers" class="nav-link">Careers</a></li>
+          <li><a href="index.html#journey" class="nav-link">our Journey</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"/>
+          <line x1="4" x2="20" y1="6" y2="6"/>
+          <line x1="4" x2="20" y1="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <main>
+    <section class="hero-section">
+      <div class="container hero-content">
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item active">Partner Terms</li>
+        </ul>
+        <span class="hero-tag">Legal Framework</span>
+        <h1 class="hero-title">Partner Terms & Conditions</h1>
+        <p class="hero-description">These Partner Terms govern the relationship between PGfy and verified property managers.</p>
+      </div>
+      <div class="wave-container">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V30.27C1122.33,12.72,1053.39,110.83,985.66,92.83Z" class="shape-fill"></path>
+        </svg>
+      </div>
+    </section>
+    <!-- Partner Terms Grid -->
+    <section class="section-light" id="tos">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <h2>Terms & Agreement Rules</h2>
+          <p>Please review the legal clauses to maintain verified partner status on the PGfy network.</p>
+        </div>
+        <div class="grid-2" style="margin-bottom: 4rem;">
+          <div class="legal-card fade-in-section">
+            <h3>1. Eligibility Criteria</h3>
+            <p>Partners wishing to join the PGfy network and leverage our payment tools must satisfy the following conditions:</p>
+            <ul>
+              <li>Must be a legally registered business entity, sole proprietorship, or property owner of age.</li>
+              <li>Must possess all local municipal clearances, fire safety certifications, and commercial permits.</li>
+              <li>Must be the primary owner or hold authorized leasehold rights enabling renting.</li>
+            </ul>
+          </div>
+          <div class="legal-card fade-in-section">
+            <h3>2. Partner Responsibilities</h3>
+            <p>Partners are responsible for maintaining standard of service on their listings:</p>
+            <ul>
+              <li>Ensure pricing, amenities, occupancy patterns, and rule descriptions are accurate.</li>
+              <li>Honor bookings confirmed by the tenant through the PGfy online check-out.</li>
+              <li>Maintain properties in clean, functional, and secure conditions under local tenant standards.</li>
+            </ul>
+          </div>
+          <div class="legal-card fade-in-section">
+            <h3>3. Payment & Subscription</h3>
+            <p>Financial parameters and settlement regulations between PGfy and the partner:</p>
+            <ul>
+              <li>Settlements are computed based on the PGfy Settlement Policy (minus platform charges).</li>
+              <li>Recurring monthly subscription fees or transaction percentages are deducted before payouts.</li>
+              <li>Refund processing and chargeback representation follow gateway compliance parameters.</li>
+            </ul>
+          </div>
+          <div class="legal-card fade-in-section">
+            <h3>4. Regulatory Compliance</h3>
+            <p>Partners must satisfy regional laws, taxation regulations, and data collection frameworks:</p>
+            <ul>
+              <li>Process tenant local registration (Form C filings where applicable).</li>
+              <li>Remit applicable GST and state taxes directly to tax authorities.</li>
+              <li>Adhere to national and state data privacy policies when processing tenant records.</li>
+            </ul>
+          </div>
+          <div class="legal-card fade-in-section" id="privacy">
+            <h3>5. KYC Verification</h3>
+            <p>Before payouts can be scheduled, partners must clear multi-layer KYC filters:</p>
+            <ul>
+              <li>Submit legitimate PAN cards, business registration codes, and active GSTIN files.</li>
+              <li>Submit a canceled check or passbook copy matching the legal entity name.</li>
+              <li>Clear third-party verification calls completed by our audit partners.</li>
+            </ul>
+          </div>
+          <div class="legal-card fade-in-section">
+            <h3>6. Fraud Prevention</h3>
+            <p>We execute strict monitoring scripts to block fraudulent transactions:</p>
+            <ul>
+              <li>Double charging, fake billing, invoice manipulation, or rent cycling is prohibited.</li>
+              <li>Direct payment links bypassing PGfy systems for confirmed bookings are SLA breaches.</li>
+              <li>Suspicious volumes trigger automated account freezing and payout reserves.</li>
+            </ul>
+          </div>
+          <div class="legal-card fade-in-section">
+            <h3>7. Suspension</h3>
+            <p>Account state can be suspended or frozen under following conditions:</p>
+            <ul>
+              <li>Repeated guest complaints regarding hygiene, safety, or double bookings.</li>
+              <li>Failure to submit updated compliance certifications or legal KYC audits.</li>
+              <li>SLA violations regarding dispute resolution or refund clearance.</li>
+            </ul>
+          </div>
+          <div class="legal-card fade-in-section">
+            <h3>8. Termination Policy</h3>
+            <p>Either party can request agreement closure by giving <strong>30 days written notice</strong> to partner-support@pgfy.in.</p>
+            <p>Immediate termination can be triggered by PGfy in cases of systemic fraud, criminal behavior on premise, structural damage, or regulatory insolvency.</p>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <a href="#" class="btn btn-primary">Contact Partner Support</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../../index.html" class="footer-logo">
+            <div class="footer-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <span>PGfy</span>
+          </a>
+          <p class="footer-desc">Making PG discovery and management effortless with smart technology and seamless automation.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/><polygon points="9.7 15 14.5 12.3 9.7 9.6 9.7 15"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4>For PG Owners</h4>
+          <ul class="footer-links">
+            <li><a href="../../pages/become-a-partner.html" class="footer-link">Features</a></li>
+            <li><a href="index.html#how-it-works" class="footer-link">How it Works</a></li>
+            <li><a href="#" class="footer-link">Management Process</a></li>
+            <li><a href="#" class="footer-link">Success Stories</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>For Tenants</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Find a PG</a></li>
+            <li><a href="../../pages/payment-flow.html" class="footer-link">Booking Process</a></li>
+            <li><a href="#" class="footer-link">Common Questions</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">our Journey</a></li>
+            <li><a href="#" class="footer-link">Contact Us</a></li>
+            <li><a href="#" class="footer-link">Team</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Payments & Policies</h4>
+          <ul class="footer-links">
+            <li><a href="../../pages/payment-flow.html" class="footer-link">Payment Flow</a></li>
+            <li><a href="../../pages/payment-methods.html" class="footer-link">Accepted Payment Methods</a></li>
+            <li><a href="../../pages/settlement-policy.html" class="footer-link">Settlement Policy</a></li>
+            <li><a href="../../pages/partner-terms.html" class="footer-link">Partner Terms</a></li>
+            <li><a href="settlement-policy.html#refunds" class="footer-link">Refund Policy</a></li>
+            <li><a href="partner-terms.html#privacy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="partner-terms.html#tos" class="footer-link">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="partner-terms.html#privacy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="partner-terms.html#tos" class="footer-link">Terms of Service</a></li>
+            <li><a href="settlement-policy.html#refunds" class="footer-link">Refund Policy</a></li>
+            <li><a href="#" class="footer-link">Delete Account</a></li>
+            <li><a href="#" class="footer-link">Manage Data</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <p>© PGfy, ThinkLogic Tech Solutions Pvt. Ltd., India. All brands (<a href="#">Hostelfy</a>, <a href="#">BookMyPG</a>) are trademarks of their respective owners.</p>
+        </div>
+        <div class="footer-powered">
+          <p>Powered by <strong>ThinkLogic Tech Solutions Private Limited</strong></p>
+          <p>CIN: U62099KA2024PTC193553</p>
+          <address>Office Address: IIIT Bangalore Innovation Centre, Space 34, 26/C, Hosur Road, Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100</address>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../scripts/main.js"></script>
+</body>
+</html>
+Task
+Walkthrough
+2:49 PM
+
+
+

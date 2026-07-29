@@ -1,0 +1,5 @@
+.brand { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+
+.brand i { font-size: 24px; color: #60a5fa; }
+
+.brand h3 { font-size: 24px; font-weight: 700; color: #fff; margin: 0; }
