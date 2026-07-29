@@ -1,0 +1,54 @@
+{
+  "name": "pgfy-website-hosting-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier . --write",
+    "check-format": "prettier . --check",
+    "lint:js": "eslint scripts",
+    "lint:css": "stylelint \"styles/**/*.css\"",
+    "lint": "npm run lint:js && npm run lint:css",
+    "fix": "npm run format && npm run lint",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pgfyIn/PGfy-Website-Hosting.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pgfyIn/PGfy-Website-Hosting/issues"
+  },
+  "homepage": "https://github.com/pgfyIn/PGfy-Website-Hosting#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.0",
+    "globals": "^17.8.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.9.6",
+    "stylelint": "^17.14.1",
+    "stylelint-config-clean-order": "^10.0.0",
+    "stylelint-config-standard": "^40.0.0"
+  },
+
+  "lint-staged": {
+    "*.{html,css,js,md,json}": [
+      "prettier --write"
+    ],
+
+    "*.css": [
+      "stylelint --fix"
+    ],
+
+    "*.js": [
+      "eslint --fix"
+    ]
+  }
+
+}

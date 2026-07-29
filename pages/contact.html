@@ -1,15 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us - PGfy</title>
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://pgfy.in/contact.html">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://pgfy.in/contact.html" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <link rel="icon" type="image/x-icon" href="../assets/images/logos/pgfylogo.jpg" />
     <link rel="stylesheet" href="../styles/variables.css" />
-  <link rel="stylesheet" href="../styles/components/brand.css">
+    <link rel="stylesheet" href="../styles/components/brand.css" />
     <link rel="stylesheet" href="../styles/pages/contact.css" />
   </head>
   <body>
@@ -32,48 +35,62 @@
           <a href="./journey.html" class="main-navbar-link">our Journey</a>
           <a href="./contact.html" class="main-navbar-link">Contact Us</a>
         </div>
- 
       </div>
     </nav>
 
     <!-- Hero Section -->
     <div class="contact-hero-wrapper">
       <div class="contact-hero-content">
-        <h1>Get in touch with<br/> our team</h1>
-        <p>We'd Love to Hear From You. Whether you're a PG owner looking to digitize your operations, a partner interested in collaborating with us, or someone who wants to learn more about PGfy, our team is here to help.</p>
+        <h1>
+          Get in touch with<br />
+          our team
+        </h1>
+        <p>
+          We'd Love to Hear From You. Whether you're a PG owner looking to digitize your operations,
+          a partner interested in collaborating with us, or someone who wants to learn more about
+          PGfy, our team is here to help.
+        </p>
       </div>
     </div>
 
     <!-- The Overlapping Card -->
     <div class="contact-card-container">
-      
       <!-- Left Side Info -->
       <div class="contact-info-side">
         <h2>Company Information</h2>
-        
+
         <div class="info-tiles-grid">
           <div class="info-tile full-width">
             <div class="info-tile-row">
               <div class="tile-icon blue">
                 <i class="fas fa-map-marker-alt"></i>
               </div>
-              <div onclick="copyToClipboard('IIIT Bangalore Innovation Centre<br>26/C, Hosur Road, Electronics City Phase 1,<br>Bengaluru, Karnataka – 560100')" class="tile-copy">
+              <div
+                onclick="
+                  copyToClipboard(
+                    'IIIT Bangalore Innovation Centre<br>26/C, Hosur Road, Electronics City Phase 1,<br>Bengaluru, Karnataka – 560100'
+                  )
+                "
+                class="tile-copy"
+              >
                 <i class="fas fa-regular fa-clone"></i>
               </div>
             </div>
-            
 
             <div class="info-tile-content">
               <h3>Address</h3>
-              <p>IIIT Bangalore Innovation Centre<br>26/C, Hosur Road, Electronics City Phase 1,<br>Bengaluru, Karnataka – 560100</p>
+              <p>
+                IIIT Bangalore Innovation Centre<br />26/C, Hosur Road, Electronics City Phase 1,<br />Bengaluru,
+                Karnataka – 560100
+              </p>
             </div>
           </div>
-          
+
           <div class="info-tile">
             <div class="info-tile-row">
               <div class="tile-icon purple"><i class="fas fa-envelope"></i></div>
               <div onclick="copyToClipboard('saijagadeesh@pgfy.in')" class="tile-copy">
-                  <i class="fas fa-regular fa-clone"></i>
+                <i class="fas fa-regular fa-clone"></i>
               </div>
             </div>
             <div class="info-tile-content">
@@ -83,12 +100,11 @@
           </div>
 
           <div class="info-tile">
-             <div class="info-tile-row">
-      
-                <div class="tile-icon green"><i class="fas fa-solid fa-phone"></i></div>
-                <div onclick="copyToClipboard('9182631581')" class="tile-copy">
-                    <i class="fas fa-regular fa-clone"></i>
-                </div>
+            <div class="info-tile-row">
+              <div class="tile-icon green"><i class="fas fa-solid fa-phone"></i></div>
+              <div onclick="copyToClipboard('9182631581')" class="tile-copy">
+                <i class="fas fa-regular fa-clone"></i>
+              </div>
             </div>
             <div class="info-tile-content">
               <h3>Phone</h3>
@@ -101,16 +117,26 @@
       <!-- Right Side Form -->
       <div class="contact-form-side">
         <h2>Personal Information</h2>
-        
-        <form onsubmit="event.preventDefault(); alert('Message sent! Our team will contact you soon.');">
+
+        <form
+          onsubmit="
+            event.preventDefault();
+            alert('Message sent! Our team will contact you soon.');
+          "
+        >
           <div class="c-form-grid">
             <div class="c-form-group">
               <label>Name</label>
-              <input type="text" class="c-form-control" placeholder="John C" required>
+              <input type="text" class="c-form-control" placeholder="John C" required />
             </div>
             <div class="c-form-group">
               <label>Email Address</label>
-              <input type="email" class="c-form-control" placeholder="john.doe@design.com" required>
+              <input
+                type="email"
+                class="c-form-control"
+                placeholder="john.doe@design.com"
+                required
+              />
             </div>
             <div class="c-form-group full">
               <label>Role</label>
@@ -128,31 +154,37 @@
             </div>
           </div>
           <button type="submit" class="c-submit-btn">
-            <p>Submit request</p> 
-            <i class="c-submit-icon fas fa-arrow-right" ></i>
+            <p>Submit request</p>
+            <i class="c-submit-icon fas fa-arrow-right"></i>
           </button>
         </form>
       </div>
-
     </div>
 
     <!-- Map Section -->
     <div class="map-wrapper">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1944.9881826175463!2d77.66308969206399!3d12.844802998702587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6d484e48ba97%3A0x4512448804c81091!2sIIITB%20Innovation%20Centre!5e0!3m2!1sen!2sin!4v1779988636568!5m2!1sen!2sin" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1944.9881826175463!2d77.66308969206399!3d12.844802998702587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6d484e48ba97%3A0x4512448804c81091!2sIIITB%20Innovation%20Centre!5e0!3m2!1sen!2sin!4v1779988636568!5m2!1sen!2sin"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      >
       </iframe>
     </div>
 
     <!-- Bottom CTA -->
     <div class="bottom-cta-wrapper">
       <div class="bottom-cta-content">
-        <h2>Accelerate Your <br/> Journey with <span style="color: #1d4ed8;">PGfy</span></h2>
-        <p>Digitize onboarding, collect rent, and link with a platform designed to scale as your business grows.</p>
+        <h2>
+          Accelerate Your <br />
+          Journey with <span style="color: #1d4ed8">PGfy</span>
+        </h2>
+        <p>
+          Digitize onboarding, collect rent, and link with a platform designed to scale as your
+          business grows.
+        </p>
         <a href="https://play.google.com/store/apps/details?id=com.akash.pgfy" class="cta-app-btn">
-          <span>Download App</span> 
+          <span>Download App</span>
           <i class="fas fa-arrow-right"></i>
         </a>
       </div>
@@ -169,8 +201,8 @@
                 <h3><span class="highlight">PGfy</span></h3>
               </div>
               <p>
-                Making PG discovery and management effortless with smart
-                technology and seamless automation.
+                Making PG discovery and management effortless with smart technology and seamless
+                automation.
               </p>
               <div class="social-links">
                 <a
@@ -228,9 +260,7 @@
               <h4>Company</h4>
               <ul>
                 <li>
-                  <a href="./journey.html" target="_blank"
-                    >About Us</a
-                  >
+                  <a href="./journey.html" target="_blank">About Us</a>
                 </li>
                 <li><a href="./contact.html">Contact Us</a></li>
                 <li><a href="./team.html">Team</a></li>
@@ -264,17 +294,26 @@
       <div class="footer-bottom">
         <div class="container">
           <div class="footer-bottom-content">
-            <p>&copy; PGfy, ThinkLogic Tech Solutions Pvt. Ltd., India.<br/>  All brands (<a href="https://play.google.com/store/apps/details?id=com.saijagdessh.hmsapp&pcampaignid=web_share" target="_blank">Hostelfy</a>, <a href="https://play.google.com/store/apps/details?id=com.akash.pgfy" target="_blank">BookMyPG</a>) are trademarks of their respective owners.</p>
+            <p>
+              &copy; PGfy, ThinkLogic Tech Solutions Pvt. Ltd., India.<br />
+              All brands (<a
+                href="https://play.google.com/store/apps/details?id=com.saijagdessh.hmsapp&pcampaignid=web_share"
+                target="_blank"
+                >Hostelfy</a
+              >,
+              <a href="https://play.google.com/store/apps/details?id=com.akash.pgfy" target="_blank"
+                >BookMyPG</a
+              >) are trademarks of their respective owners.
+            </p>
             <div class="footer-credits">
               <p>Powered by <span>ThinkLogic Tech Solutions Private Limited</span></p>
               <p>CIN: <span>U62099KA2024PTC193553</span></p>
-              <p style="margin-top: 5px; line-height: 1.5;  font-size: 14px; color: white">
-                <span style="font-weight: 600; color:#94a3b8;;">Office Address:</span>
-                IIIT Bangalore Innovation Centre, Space 34,<br/>
-                26/C, Hosur Road, Electronics City Phase 1,<br/>
+              <p style="margin-top: 5px; line-height: 1.5; font-size: 14px; color: white">
+                <span style="font-weight: 600; color: #94a3b8">Office Address:</span>
+                IIIT Bangalore Innovation Centre, Space 34,<br />
+                26/C, Hosur Road, Electronics City Phase 1,<br />
                 Electronic City, Bengaluru, Karnataka 560100
               </p>
-
             </div>
           </div>
         </div>
@@ -282,14 +321,15 @@
     </footer>
 
     <script>
-       function copyToClipboard(content) {
+      function copyToClipboard(content) {
         console.log('Copying content: ', content);
         // 1. Process the text formatting
-        const text = content.replace(/<br\s*\/?>/gi, '\n'); 
+        const text = content.replace(/<br\s*\/?>/gi, '\n');
 
         // 2. Check if the modern Clipboard API is available (HTTPS / Localhost)
         if (navigator.clipboard && window.isSecureContext) {
-          navigator.clipboard.writeText(text)
+          navigator.clipboard
+            .writeText(text)
             .then(() => {
               alert('Copied to clipboard!');
             })
@@ -302,39 +342,38 @@
           fallbackCopyToClipboard(text);
         }
       }
-      
+
       // Simple toggle for mobile navbar
-      
+
       document.addEventListener('DOMContentLoaded', () => {
-         const toggleBtn = document.querySelector(".main-navbar-toggle");
-        const menu = document.querySelector(".main-navbar-menu");
+        const toggleBtn = document.querySelector('.main-navbar-toggle');
+        const menu = document.querySelector('.main-navbar-menu');
         if (toggleBtn && menu) {
           // Remove old listeners by replacing node if necessary, but just adding is fine if we make sure it doesn't double trigger.
           // Better: just assign onclick
-          toggleBtn.onclick = function() {
-            this.classList.toggle("active");
-            menu.classList.toggle("active");
-          };
-        }
-      });
-    </script>
-  
-    <script>
-      
-      document.addEventListener("DOMContentLoaded", () => {
-        const toggleBtn = document.querySelector(".main-navbar-toggle");
-        const menu = document.querySelector(".main-navbar-menu");
-        if (toggleBtn && menu) {
-          // Remove old listeners by replacing node if necessary, but just adding is fine if we make sure it doesn't double trigger.
-          // Better: just assign onclick
-          toggleBtn.onclick = function() {
-            this.classList.toggle("active");
-            menu.classList.toggle("active");
+          toggleBtn.onclick = function () {
+            this.classList.toggle('active');
+            menu.classList.toggle('active');
           };
         }
       });
     </script>
 
-  <script src="../scripts/components/global-controls.js"></script>
-</body>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.querySelector('.main-navbar-toggle');
+        const menu = document.querySelector('.main-navbar-menu');
+        if (toggleBtn && menu) {
+          // Remove old listeners by replacing node if necessary, but just adding is fine if we make sure it doesn't double trigger.
+          // Better: just assign onclick
+          toggleBtn.onclick = function () {
+            this.classList.toggle('active');
+            menu.classList.toggle('active');
+          };
+        }
+      });
+    </script>
+
+    <script src="../scripts/components/global-controls.js"></script>
+  </body>
 </html>

@@ -1,331 +1,414 @@
-
-
 .b-container {
-        position: relative;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 24px;
-        background: transparent;
-        z-index: 10;
-      }
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  background: transparent;
+  z-index: 10;
+}
 
 /* Hero Section */
-      .booking-hero {
-        text-align: center;
-        padding: 60px 0;
-      }
+
+.booking-hero {
+  text-align: center;
+  padding: 60px 0;
+}
 
 .booking-hero h1 {
-        font-size: 3.5rem;
-        font-weight: 800;
-        color: #1e293b;
-        margin-bottom: 20px;
-      }
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
 
-.booking-hero h1 span { color: #2563eb; }
+.booking-hero h1 span {
+  color: #2563eb;
+}
 
 .booking-hero p {
-        font-size: 1.25rem;
-        color: #64748b;
-        max-width: 600px;
-        margin: 0 auto;
-        line-height: 1.6;
-      }
+  font-size: 1.25rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
 
 /* Step Section Zig-Zag */
-      .booking-step {
-        display: flex;
-        align-items: center;
-        gap: 60px;
-        padding: 80px 0;
-      }
+
+.booking-step {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 80px 0;
+}
 
 .booking-step.reverse {
-        flex-direction: row-reverse;
-      }
+  flex-direction: row-reverse;
+}
 
 .step-content {
-        flex: 1;
-      }
+  flex: 1;
+}
 
 .step-badge {
-        display: inline-block;
-        background: #e0e7ff;
-        color: #4f46e5;
-        padding: 8px 16px;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 0.9rem;
-        margin-bottom: 16px;
-      }
+  display: inline-block;
+  background: #e0e7ff;
+  color: #4f46e5;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
 
 .step-title {
-        font-size: 2.5rem;
-        font-weight: 800;
-        color: #1e293b;
-        margin-bottom: 24px;
-      }
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 24px;
+}
 
 .step-desc {
-        font-size: 1.15rem;
-        color: #64748b;
-        line-height: 1.8;
-      }
+  font-size: 1.15rem;
+  color: #64748b;
+  line-height: 1.8;
+}
 
 /* Phone Frame & Images */
-      .step-visual {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        position: relative;
-      }
+
+.step-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
 
 .phone-frame {
-        width: 320px;
-        height: 650px;
-        background: #ffffff;
-        border: 12px solid #1e293b;
-        border-radius: 40px;
-        overflow: hidden;
-        position: relative;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      }
+  width: 320px;
+  height: 650px;
+  background: #fff;
+  border: 12px solid #1e293b;
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
 
 /* Notch */
-      .phone-frame::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 120px;
-        height: 25px;
-        background: #1e293b;
-        border-bottom-left-radius: 16px;
-        border-bottom-right-radius: 16px;
-        z-index: 10;
-      }
+
+.phone-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 25px;
+  background: #1e293b;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  z-index: 10;
+}
 
 .phone-frame img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        background: #f1f5f9; /* placeholder bg */
-      }
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #f1f5f9; /* placeholder bg */
+}
 
 /* Animated CSS Pointer */
-      .pulsing-pointer {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background: rgba(37, 99, 235, 0.2);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        animation: pulseRing 2s infinite;
-        z-index: 20;
-      }
+
+.pulsing-pointer {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(37, 99, 235, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulseRing 2s infinite;
+  z-index: 20;
+}
 
 .pulsing-pointer::after {
-        content: '';
-        width: 14px;
-        height: 14px;
-        background: #2563eb;
-        border-radius: 50%;
-        border: 2px solid white;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      }
+  content: '';
+  width: 14px;
+  height: 14px;
+  background: #2563eb;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
 
-.scroll-down{
-        position: absolute;
-        width: 36px;
-        height: 36px;
-        background: rgba(37, 99, 235, 0.2);
-        color: var(--primary-dark);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        animation: scroll-animation 2s infinite;
-        z-index: 20;
-      }
+.scroll-down {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  background: rgba(37, 99, 235, 0.2);
+  color: var(--primary-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scroll-animation 2s infinite;
+  z-index: 20;
+}
 
-.scroll-down-1{
-        bottom: 66.5px; left: calc(50% - 18px); transform: translateX(-50%);
-      }
+.scroll-down-1 {
+  bottom: 66.5px;
+  left: calc(50% - 18px);
+  transform: translateX(-50%);
+}
 
 .pointer-badge {
-        position: absolute;
-        top: -40px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #1e293b;
-        color: white;
-        padding: 6px 12px;
-        border-radius: 8px;
-        font-size: 12px;
-        font-weight: bold;
-        white-space: nowrap;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        pointer-events: none;
-      }
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
 
 /* Little triangle for the badge */
-      .pointer-badge::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 50%;
-        transform: translateX(-50%) rotate(45deg);
-        width: 8px;
-        height: 8px;
-        background: #1e293b;
-      }
+
+.pointer-badge::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: #1e293b;
+}
 
 @keyframes scroll-animation {
-        0% { transform: translateY(0px); }
-        80% { transform: translateY(10px); }
-        100% { transform: translateY(0px); }
-      }
+  0% {
+    transform: translateY(0);
+  }
+
+  80% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
 
 @keyframes pulseRing {
-        0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
-        70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); }
-        100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
-      }
+  0% {
+    transform: scale(0.8);
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
+  }
+
+  100% {
+    transform: scale(0.8);
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+  }
+}
 
 /* Specific pointer placements based on app screenshots */
-      /* Step 1: Explore PGs button (bottom) */
-      .pt-step1 { top: 66.5px; left: calc(20%); transform: translateX(-50%); }
 
-.pt-step1-1{ top: 244px; left: calc(50% - 10px); transform: translateX(-50%); }
+/* Step 1: Explore PGs button (bottom) */
+
+.pt-step1 {
+  top: 66.5px;
+  left: calc(20%);
+  transform: translateX(-50%);
+}
+
+.pt-step1-1 {
+  top: 244px;
+  left: calc(50% - 10px);
+  transform: translateX(-50%);
+}
 
 /* Step 2: Room options / Amenities (middle) */
-      .pt-step2 { top: 337px; left: 25%; }
+
+.pt-step2 {
+  top: 337px;
+  left: 25%;
+}
 
 /* Step 3: Book Now Button (bottom) */
-      .pt-step3 { bottom: 172.5px; left: calc(50% - 10px); }
 
-.pt-step3-1 { bottom: 107.5px; left: calc(50% - 10px); }
+.pt-step3 {
+  bottom: 172.5px;
+  left: calc(50% - 10px);
+}
+
+.pt-step3-1 {
+  bottom: 107.5px;
+  left: calc(50% - 10px);
+}
 
 /* Step 4: Start Now KYC (top/mid) */
-      .pt-step4 { top: 126px; left: calc(50% - 10px); transform: translateX(-50%); }
 
-.pt-step4-1 { bottom: 94px; left: calc(50% - 10px); transform: translateX(-50%); }
+.pt-step4 {
+  top: 126px;
+  left: calc(50% - 10px);
+  transform: translateX(-50%);
+}
+
+.pt-step4-1 {
+  bottom: 94px;
+  left: calc(50% - 10px);
+  transform: translateX(-50%);
+}
 
 /* Step 5: Pay Now Button (bottom right) */
-      .pt-step5 { bottom: 70px; right: 42px; }
+
+.pt-step5 {
+  bottom: 70px;
+  right: 42px;
+}
 
 /* CTA Section */
-      .booking-cta {
-        padding: 80px 24px;
-        text-align: center;
-        margin-top: 60px;
-      }
+
+.booking-cta {
+  padding: 80px 24px;
+  text-align: center;
+  margin-top: 60px;
+}
 
 .booking-cta h2 {
-        font-size: 2.5rem;
-        color: var(--text);
-        margin-bottom: 32px;
-      }
+  font-size: 2.5rem;
+  color: var(--text);
+  margin-bottom: 32px;
+}
 
 .app-links {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
 .app-btn {
-        text-decoration: none;
-        transition: all 0.3s ease;
-      }
-
-.app-btn img{
-        width: 200px;
-      }
-
-.app-btn:hover {  transform: translateY(-3px); }
-
-.app-btn.disabled {  cursor: not-allowed; }
-
-@media (max-width: 992px) {
-  .booking-step, .booking-step.reverse {
-          flex-direction: column;
-          text-align: center;
-          gap: 40px;
-          padding: 60px 0;
-        }
-  .booking-hero h1 { font-size: 2.5rem; }
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-@media (max-width: 992px) {
+.app-btn img {
+  width: 200px;
+}
+
+.app-btn:hover {
+  transform: translateY(-3px);
+}
+
+.app-btn.disabled {
+  cursor: not-allowed;
+}
+
+@media (width <= 992px) {
+  .booking-step,
+  .booking-step.reverse {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+    padding: 60px 0;
+  }
+
+  .booking-hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (width <= 992px) {
   .hero {
-          padding: 150px 0 100px;
-        }
+    padding: 150px 0 100px;
+  }
+
   .hero-grid {
-          grid-template-columns: 1fr;
-          gap: 60px;
-        }
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
   .cta-grid {
-          grid-template-columns: 1fr;
-          gap: 60px;
-        }
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .floating-element {
-          display: none;
-        }
+    display: none;
+  }
+
   .clients-bar {
-          margin-top: 40px;
-          padding: 30px;
-        }
+    margin-top: 40px;
+    padding: 30px;
+  }
+
   .process-steps {
-          flex-direction: column;
-          align-items: center;
-        }
+    flex-direction: column;
+    align-items: center;
+  }
+
   .step-connector {
-          display: none;
-        }
+    display: none;
+  }
 }
 
-@media (max-width: 576px) {
+@media (width <= 576px) {
   .hero-cta,
-        .cta-buttons {
-          flex-direction: column;
-          align-items: stretch;
-        }
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .switch-track {
-          width: 100%;
-        }
+    width: 100%;
+  }
+
   .switch-option {
-          width: 50%;
-          justify-content: center;
-          padding: 12px 10px;
-        }
+    width: 50%;
+    justify-content: center;
+    padding: 12px 10px;
+  }
+
   .slider-track {
-          width: 100%;
-        }
+    width: 100%;
+  }
+
   .slider-button {
-          width: 50%;
-          justify-content: center;
-          padding: 12px 10px;
-        }
+    width: 50%;
+    justify-content: center;
+    padding: 12px 10px;
+  }
+
   .toggle-container {
-          width: 100%;
-        }
+    width: 100%;
+  }
+
   .toggle-option {
-          width: 50%;
-          justify-content: center;
-          min-width: auto;
-          padding: 12px 10px;
-        }
+    width: 50%;
+    justify-content: center;
+    min-width: auto;
+    padding: 12px 10px;
+  }
+
   .toggle-highlighter {
-          width: 50%;
-        }
+    width: 50%;
+  }
+
   .testimonial-switcher {
-          flex-direction: column;
-        }
+    flex-direction: column;
+  }
 }

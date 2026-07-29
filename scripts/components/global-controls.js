@@ -1,8 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Inject Scroll Buttons
-    const scrollContainer = document.createElement('div');
-    scrollContainer.className = 'global-scroll-controls';
-    scrollContainer.innerHTML = `
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Inject Scroll Buttons
+  const scrollContainer = document.createElement('div');
+  scrollContainer.className = 'global-scroll-controls';
+  scrollContainer.innerHTML = `
         <button id="scrollUpBtn" title="Scroll to Top">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
         </button>
@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
     `;
-    document.body.appendChild(scrollContainer);
+  document.body.appendChild(scrollContainer);
 
-    // 2. Add Styles for Scroll Buttons & Copy Button
-    const style = document.createElement('style');
-    style.innerHTML = `
+  // 2. Add Styles for Scroll Buttons & Copy Button
+  const style = document.createElement('style');
+  style.innerHTML = `
         .global-scroll-controls {
             position: fixed;
             bottom: 20px;
@@ -67,69 +67,73 @@ document.addEventListener("DOMContentLoaded", () => {
             background: rgba(255,255,255,0.2);
         }
     `;
-    document.head.appendChild(style);
+  document.head.appendChild(style);
 
-    // 3. Add Event Listeners for Scroll
-    const upBtn = document.getElementById('scrollUpBtn');
-    const downBtn = document.getElementById('scrollDownBtn');
-    
-    // Hide Scroll Up button when at top, hide Down button when at bottom
-    const handleScroll = () => {
-        if (window.scrollY < 100) {
-            upBtn.style.display = 'none';
-        } else {
-            upBtn.style.display = 'flex';
-        }
-        
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
-            downBtn.style.display = 'none';
-        } else {
-            downBtn.style.display = 'flex';
-        }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+  // 3. Add Event Listeners for Scroll
+  const upBtn = document.getElementById('scrollUpBtn');
+  const downBtn = document.getElementById('scrollDownBtn');
 
-    upBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    
-    downBtn.addEventListener('click', () => {
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    });
+  // Hide Scroll Up button when at top, hide Down button when at bottom
+  const handleScroll = () => {
+    if (window.scrollY < 100) {
+      upBtn.style.display = 'none';
+    } else {
+      upBtn.style.display = 'flex';
+    }
 
-    // 4. Inject Copy Button for Address
-    const addressNodes = Array.from(document.querySelectorAll('p, address'));
-    const addressEl = addressNodes.find(el => el.textContent.includes('Office Address:'));
-    
-    if (addressEl) {
-        // Find exact string to copy
-        const fullAddress = "IIIT Bangalore Innovation Centre, Space 34, 26/C, Hosur Road, Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100";
-        
-        const copyBtn = document.createElement('button');
-        copyBtn.className = 'address-copy-btn';
-        copyBtn.title = "Copy Address";
-        copyBtn.innerHTML = `
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+      downBtn.style.display = 'none';
+    } else {
+      downBtn.style.display = 'flex';
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll(); // Initial check
+
+  upBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  downBtn.addEventListener('click', () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  });
+
+  // 4. Inject Copy Button for Address
+  const addressNodes = Array.from(document.querySelectorAll('p, address'));
+  const addressEl = addressNodes.find((el) => el.textContent.includes('Office Address:'));
+
+  if (addressEl) {
+    // Find exact string to copy
+    const fullAddress =
+      'IIIT Bangalore Innovation Centre, Space 34, 26/C, Hosur Road, Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100';
+
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'address-copy-btn';
+    copyBtn.title = 'Copy Address';
+    copyBtn.innerHTML = `
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             Copy
         `;
-        
-        copyBtn.addEventListener('click', () => {
-            navigator.clipboard.writeText(fullAddress).then(() => {
-                const originalHtml = copyBtn.innerHTML;
-                copyBtn.innerHTML = `
+
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard
+        .writeText(fullAddress)
+        .then(() => {
+          const originalHtml = copyBtn.innerHTML;
+          copyBtn.innerHTML = `
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     <span style="color:#4ade80;">Copied!</span>
                 `;
-                setTimeout(() => {
-                    copyBtn.innerHTML = originalHtml;
-                }, 2000);
-            }).catch(err => {
-                console.error("Could not copy address: ", err);
-            });
+          setTimeout(() => {
+            copyBtn.innerHTML = originalHtml;
+          }, 2000);
+        })
+        .catch((err) => {
+          console.error('Could not copy address: ', err);
         });
-        
-        addressEl.appendChild(copyBtn);
-    }
+    });
+
+    addressEl.appendChild(copyBtn);
+  }
 });
