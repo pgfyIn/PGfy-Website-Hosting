@@ -2,6 +2,8 @@ export default {
   extends: ['stylelint-config-standard', 'stylelint-config-clean-order'],
 
   rules: {
+    'no-duplicate-selectors': null,
+
     'order/properties-order': null,
 
     'no-descending-specificity': null,

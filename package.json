@@ -36,19 +36,15 @@
     "stylelint-config-clean-order": "^10.0.0",
     "stylelint-config-standard": "^40.0.0"
   },
-
   "lint-staged": {
     "*.{html,css,js,md,json}": [
       "prettier --write"
     ],
-
     "*.css": [
       "stylelint --fix"
     ],
-
     "*.js": [
       "eslint --fix"
     ]
   }
-
 }

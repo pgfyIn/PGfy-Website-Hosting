@@ -95,14 +95,12 @@ p {
 .gradient-text {
   background: linear-gradient(90deg, var(--primary) 0%, #6979f8 100%);
   background-clip: text;
-  background-clip: text;
   color: transparent;
   display: inline-block;
 }
 
 .gradient-text-secondary {
   background: linear-gradient(90deg, var(--secondary) 0%, #ff9a6b 100%);
-  background-clip: text;
   background-clip: text;
   color: transparent;
   display: inline-block;
