@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# Delegates to the global commit-message generator hook.
+# Husky owns core.hooksPath for this repo, so this file has to exist here
+# for git to find it — it just forwards to the single source of truth.
+"$HOME/.git-hooks/prepare-commit-msg" "$@"
