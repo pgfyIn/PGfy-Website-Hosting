@@ -1,0 +1,219 @@
+/* Packers & Movers Page Styles */
+
+.pm-hero {
+  margin-top: 4rem;
+  background: #1e293b;
+  color: white;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.pm-hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+  color: white;
+}
+
+.pm-hero p {
+  color: #94a3b8;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.pm-container {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pm-form {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eaeaea;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.pm-section {
+  padding: 30px 40px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.pm-section:last-child {
+  border-bottom: none;
+}
+
+.pm-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.pm-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pm-group.full {
+  grid-column: 1 / -1;
+}
+
+.pm-group label {
+  font-weight: 500;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.pm-group input[type='text'],
+.pm-group input[type='email'],
+.pm-group input[type='date'],
+.pm-group select,
+.pm-group textarea {
+  padding: 12px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  width: 100%;
+}
+
+.pm-group input:focus,
+.pm-group select:focus,
+.pm-group textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.pm-radio-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  height: 48px;
+}
+
+.pm-radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.pm-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.pm-checkbox-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #f8fafc;
+}
+
+.pm-checkbox-card:hover {
+  background: white;
+  border-color: #2563eb;
+}
+
+.pm-checkbox-card:has(input:checked) {
+  background: #eff6ff;
+  border-color: #2563eb;
+}
+
+.pm-checkbox-card input {
+  margin-top: 4px;
+  accent-color: #2563eb;
+  width: 18px;
+  height: 18px;
+}
+
+.pm-checkbox-card span {
+  font-size: 0.95rem;
+  color: #334155;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.pm-submit-section {
+  padding: 40px;
+  background: #f8fafc;
+  text-align: center;
+  border-top: 1px solid #eaeaea;
+}
+
+.pm-submit-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pm-submit-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.pm-info-section {
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #eaeaea;
+}
+
+.pm-info-section h3 {
+  color: #1e293b;
+  margin-bottom: 15px;
+  font-size: 1.25rem;
+}
+
+.pm-info-section p {
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* Responsive */
+@media (width <= 768px) {
+  .pm-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pm-section {
+    padding: 25px 20px;
+  }
+
+  .pm-submit-section {
+    padding: 30px 20px;
+  }
+}
