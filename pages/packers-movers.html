@@ -46,6 +46,12 @@
           help you arrange suitable packing, moving and transportation assistance for your
           relocation.
         </p>
+
+        <img
+          src="../assets/images/illustrations/packers-movers-hero.jpg"
+          alt="PGfy Service"
+          class="hero-banner-img"
+        />
       </div>
     </header>
 
@@ -366,13 +372,6 @@
                 <label><input type="radio" name="need_assembly" value="No" /> No</label>
               </div>
             </div>
-            <div class="pm-group">
-              <label>Need temporary storage?</label>
-              <div class="pm-radio-group">
-                <label><input type="radio" name="need_storage" value="Yes" /> Yes</label>
-                <label><input type="radio" name="need_storage" value="No" /> No</label>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -477,8 +476,74 @@
         </p>
         <p>The final quotation and service availability will be confirmed before the move.</p>
       </div>
+
+      <div
+        class="info-section"
+        style="margin-top: 50px; background: #f8fafc; border: 1px solid #e2e8f0; font-size: 0.9rem"
+      >
+        <h3 style="color: #475569; font-size: 1.1rem; margin-bottom: 15px">
+          PGfy Service Partner Disclaimer
+        </h3>
+        <p style="color: #475569; margin-bottom: 10px">
+          <strong>PGfy connects you with relevant third-party service providers.</strong>
+        </p>
+        <p style="color: #475569; margin-bottom: 10px">
+          PGfy does not directly own, lease, rent, operate, store, transport, or provide the
+          properties and services listed under
+          <strong
+            >Leasing Support, Rental Support, Storage, Packers & Movers, and related
+            services</strong
+          >.
+        </p>
+        <p style="color: #475569; margin-bottom: 10px">
+          These services are provided by independent third-party property owners, operators, storage
+          providers, packers & movers, and other service partners.
+        </p>
+        <p style="color: #475569; margin-top: 15px; margin-bottom: 10px">PGfy's role is to:</p>
+        <ul style="margin-left: 20px; margin-bottom: 15px; color: #475569">
+          <li>Help you discover relevant opportunities and service providers</li>
+          <li>Collect and understand your requirements</li>
+          <li>Connect you with suitable third-party providers</li>
+          <li>Facilitate communication and coordination where applicable</li>
+          <li>Provide technology and support through the PGfy platform</li>
+        </ul>
+        <p style="color: #475569; margin-bottom: 10px">
+          <strong
+            >Any agreement, booking, payment, lease, rental arrangement, storage arrangement,
+            transportation service, or other transaction is directly between you and the respective
+            third-party service provider, unless expressly stated otherwise.</strong
+          >
+        </p>
+        <p style="color: #475569; margin-bottom: 10px">
+          Availability, pricing, property condition, service quality, security, timelines, terms,
+          cancellation policies, and other conditions are determined by the respective service
+          provider.
+        </p>
+        <p style="color: #475569; margin-bottom: 10px">
+          PGfy does not guarantee the availability, suitability, quality, legality, condition, or
+          performance of any third-party property or service.
+        </p>
+        <p style="color: #475569; margin-top: 15px">
+          <strong
+            >Please verify all property, service, pricing, documentation, and contractual details
+            with the respective provider before making any payment or entering into an
+            agreement.</strong
+          >
+        </p>
+
+        <h3 style="color: #475569; font-size: 1.1rem; margin-top: 25px; margin-bottom: 10px">
+          Third-Party Service Notice
+        </h3>
+        <p style="color: #475569">
+          Leasing, rental, storage, packers & movers, and related services are provided by
+          independent third-party service providers. PGfy helps users discover and connect with
+          relevant providers and does not itself own, lease, rent, operate, store, transport, or
+          directly provide these services. Terms, pricing, availability, and service delivery are
+          subject to the respective provider.
+        </p>
+      </div>
     </div>
-    <!-- Footer -->
+
     <footer class="footer">
       <div class="footer-waves">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -547,6 +612,7 @@
               <ul>
                 <li><a href="./become-a-partner.html">Become a Partner</a></li>
                 <li><a href="./start-a-pg.html">Start a PG with PGfy</a></li>
+                <li><a href="./lease-property.html">Lease a Property</a></li>
 
                 <li><a href="../index.html">How it Works</a></li>
                 <li><a href="./manage.html">Management Process</a></li>
@@ -559,6 +625,8 @@
                 <li><a href="#features">Find a PG</a></li>
                 <li><a href="./booking.html">Booking Process</a></li>
                 <li><a href="./faq.html">Common Questions</a></li>
+                <li><a href="./packers-movers.html">Packers & Movers</a></li>
+                <li><a href="./storage.html">PGfy Storage</a></li>
               </ul>
             </div>
 
@@ -700,6 +768,27 @@
     <script>
       const form = document.getElementById('packersForm');
       const result = document.getElementById('formResult');
+      const submitBtn = document.querySelector('.pm-submit-btn');
+
+      // Check PGfy customer status
+      const customerRadios = document.querySelectorAll('input[name="is_customer"]');
+      customerRadios.forEach((radio) => {
+        radio.addEventListener('change', (e) => {
+          if (e.target.value === 'No') {
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.5';
+            submitBtn.style.cursor = 'not-allowed';
+            result.style.display = 'block';
+            result.style.color = '#ef4444';
+            result.innerHTML = 'NOT APPLICABLE FOR NON-PGFY USERS';
+          } else {
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            submitBtn.style.cursor = 'pointer';
+            result.style.display = 'none';
+          }
+        });
+      });
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
